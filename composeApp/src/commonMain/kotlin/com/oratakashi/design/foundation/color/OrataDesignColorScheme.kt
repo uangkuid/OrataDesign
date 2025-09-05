@@ -1,4 +1,4 @@
-package com.oratakashi.design.theme
+package com.oratakashi.design.foundation.color
 
 import androidx.compose.ui.graphics.Color
 

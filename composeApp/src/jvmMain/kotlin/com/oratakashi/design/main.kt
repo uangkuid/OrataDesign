@@ -8,6 +8,6 @@ fun main() = application {
         onCloseRequest = ::exitApplication,
         title = "OrataDesign",
     ) {
-        App()
+        _root_ide_package_.com.oratakashi.design.app.App()
     }
 }

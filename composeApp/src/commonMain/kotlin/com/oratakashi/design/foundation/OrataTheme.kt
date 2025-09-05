@@ -1,8 +1,10 @@
-package com.oratakashi.design.theme
+package com.oratakashi.design.foundation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
+import com.oratakashi.design.foundation.color.OrataDesignColorScheme
+import com.oratakashi.design.foundation.color.lightOraColorScheme
 
 /**
  * OrataDesignColorScheme is a class that contains all the colors used in the Orata Design System.

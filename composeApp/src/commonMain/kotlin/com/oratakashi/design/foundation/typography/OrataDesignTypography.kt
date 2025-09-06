@@ -1,5 +1,6 @@
 package com.oratakashi.design.foundation.typography
 
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 
 /**
@@ -8,19 +9,48 @@ import androidx.compose.ui.text.TextStyle
  * @since 04 Sep 2025
  */
 interface OrataDesignTypography {
-    val displayLarge: TextStyle
-    val displayMedium: TextStyle
-    val displaySmall: TextStyle
-    val headlineLarge: TextStyle
-    val headlineMedium: TextStyle
-    val headlineSmall: TextStyle
-    val titleLarge: TextStyle
-    val titleMedium: TextStyle
-    val titleSmall: TextStyle
-    val labelLarge: TextStyle
-    val labelMedium: TextStyle
-    val labelSmall: TextStyle
-    val bodyLarge: TextStyle
-    val bodyMedium: TextStyle
-    val bodySmall: TextStyle
+    @Composable
+    fun displayLarge(): TextStyle
+
+    @Composable
+    fun displayMedium(): TextStyle
+
+    @Composable
+    fun displaySmall(): TextStyle
+
+    @Composable
+    fun headlineLarge(): TextStyle
+
+    @Composable
+    fun headlineMedium(): TextStyle
+
+    @Composable
+    fun headlineSmall(): TextStyle
+
+    @Composable
+    fun titleLarge(): TextStyle
+
+    @Composable
+    fun titleMedium(): TextStyle
+
+    @Composable
+    fun titleSmall(): TextStyle
+
+    @Composable
+    fun labelLarge(): TextStyle
+
+    @Composable
+    fun labelMedium(): TextStyle
+
+    @Composable
+    fun labelSmall(): TextStyle
+
+    @Composable
+    fun bodyLarge(): TextStyle
+
+    @Composable
+    fun bodyMedium(): TextStyle
+
+    @Composable
+    fun bodySmall(): TextStyle
 }

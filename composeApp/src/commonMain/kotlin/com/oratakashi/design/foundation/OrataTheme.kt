@@ -1,12 +1,21 @@
 package com.oratakashi.design.foundation
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
+import com.oratakashi.design.config.PlatformConfig
+import com.oratakashi.design.foundation.color.toMaterialLightColorScheme
+import com.oratakashi.design.foundation.color.toMaterialDarkColorScheme
 import com.oratakashi.design.foundation.color.OrataDesignColorScheme
+import com.oratakashi.design.foundation.color.darkOraColorScheme
 import com.oratakashi.design.foundation.color.lightOraColorScheme
 import com.oratakashi.design.foundation.typography.DefaultOraTypography
 import com.oratakashi.design.foundation.typography.OrataDesignTypography
+import com.oratakashi.design.foundation.typography.toMaterialTypography
 
 /**
  * OrataDesignColorScheme is a class that contains all the colors used in the Orata Design System.
@@ -36,11 +45,45 @@ internal val LocalOrataTypography = staticCompositionLocalOf<OrataDesignTypograp
  */
 @Composable
 fun OrataAppTheme(
-    colorScheme: OrataDesignColorScheme = OrataTheme.colors,
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    colorScheme: OrataDesignColorScheme? = null, // Made nullable to defer creation
     typography: OrataDesignTypography = OrataTheme.typography,
+    // Dynamic color is available on Android 12+
+    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
+    // Remember color scheme to avoid recreation on every recomposition
+    val actualColorScheme = remember(darkTheme, colorScheme) {
+        colorScheme ?: if (darkTheme) darkOraColorScheme() else lightOraColorScheme()
+    }
 
+    val dynamicColorScheme = PlatformConfig.getDynamicColor(darkTheme)
+
+    // Remember material color scheme for performance
+    val materialColorScheme = remember(actualColorScheme, darkTheme, dynamicColor) {
+        when {
+            PlatformConfig.isDynamicColorAvailable() && dynamicColor -> {
+                 dynamicColorScheme ?: if (darkTheme) {
+                    actualColorScheme.toMaterialDarkColorScheme()
+                } else {
+                    actualColorScheme.toMaterialLightColorScheme()
+                }
+            }
+            darkTheme -> actualColorScheme.toMaterialDarkColorScheme()
+            else -> actualColorScheme.toMaterialLightColorScheme()
+        }
+    }
+
+    CompositionLocalProvider(
+        LocalOrataDesignColorScheme provides actualColorScheme,
+        LocalOrataTypography provides typography
+    ) {
+        MaterialTheme(
+            colorScheme = materialColorScheme,
+            typography = typography.toMaterialTypography(),
+            content = content
+        )
+    }
 }
 
 /**

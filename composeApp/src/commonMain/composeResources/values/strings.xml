@@ -1,0 +1,6 @@
+<resources>
+    <string name="label_foundation">Foundation</string>
+    <string name="label_component">Component</string>
+    <string name="label_colors">Colors</string>
+    <string name="label_typography">Typography</string>
+</resources>

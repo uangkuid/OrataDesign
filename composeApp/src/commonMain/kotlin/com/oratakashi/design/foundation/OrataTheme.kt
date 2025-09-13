@@ -13,6 +13,7 @@ import com.oratakashi.design.foundation.color.toMaterialDarkColorScheme
 import com.oratakashi.design.foundation.color.OrataDesignColorScheme
 import com.oratakashi.design.foundation.color.darkOraColorScheme
 import com.oratakashi.design.foundation.color.lightOraColorScheme
+import com.oratakashi.design.foundation.color.toOrataDesignColorScheme
 import com.oratakashi.design.foundation.typography.DefaultOraTypography
 import com.oratakashi.design.foundation.typography.OrataDesignTypography
 import com.oratakashi.design.foundation.typography.toMaterialTypography
@@ -52,12 +53,15 @@ fun OrataAppTheme(
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    // Remember color scheme to avoid recreation on every recomposition
-    val actualColorScheme = remember(darkTheme, colorScheme) {
-        colorScheme ?: if (darkTheme) darkOraColorScheme() else lightOraColorScheme()
-    }
-
     val dynamicColorScheme = PlatformConfig.getDynamicColor(darkTheme)
+    // Remember color scheme to avoid recreation on every recomposition
+    val actualColorScheme = remember(darkTheme, colorScheme, dynamicColorScheme) {
+        if (dynamicColorScheme != null && dynamicColor) {
+            dynamicColorScheme.toOrataDesignColorScheme()
+        } else {
+            colorScheme ?: if (darkTheme) darkOraColorScheme() else lightOraColorScheme()
+        }
+    }
 
     // Remember material color scheme for performance
     val materialColorScheme = remember(actualColorScheme, darkTheme, dynamicColor) {

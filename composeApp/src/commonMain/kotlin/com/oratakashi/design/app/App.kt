@@ -1,5 +1,7 @@
 package com.oratakashi.design.app
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -76,6 +78,8 @@ fun App() {
             NavHost(
                 navController = navController,
                 startDestination = FoundationNavigation,
+                enterTransition = { fadeIn() },
+                exitTransition = { fadeOut() },
                 modifier = Modifier
             ) {
                 composable<FoundationNavigation>{

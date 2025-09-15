@@ -1,5 +1,8 @@
 package com.oratakashi.design.app.ui.foundation
 
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -71,12 +74,16 @@ fun HomeScreen(modifier: Modifier = Modifier, scrollBehavior: TopAppBarScrollBeh
             Box() {
                 NavHost(
                     navController = navController,
-                    startDestination = ColorNavigation
+                    startDestination = ColorNavigation,
+                    enterTransition = { fadeIn() },
+                    exitTransition = { fadeOut() },
                 ) {
                     composable<ColorNavigation> { ColorsScreen(
                         modifier = Modifier.padding(top = innerPadding.calculateTopPadding()).fillMaxSize()
                     ) }
-                    composable<TypographyNavigation> { TypographyScreen() }
+                    composable<TypographyNavigation> { TypographyScreen(
+                        modifier = Modifier.padding(top = innerPadding.calculateTopPadding()).fillMaxSize()
+                    ) }
                 }
 
                 HorizontalFloatingToolbar(

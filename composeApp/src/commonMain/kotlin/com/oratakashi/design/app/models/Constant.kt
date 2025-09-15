@@ -3,6 +3,7 @@ package com.oratakashi.design.app.models
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import com.oratakashi.design.app.ui.colors.ColorData
+import com.oratakashi.design.app.ui.typography.TypographyData
 import com.oratakashi.design.foundation.OrataTheme
 
 internal object Constant {
@@ -199,6 +200,161 @@ internal object Constant {
             code = "NV-80",
             color = OrataTheme.colors.onSurfaceVariant,
             background = OrataTheme.colors.outlineVariant
+        )
+    )
+
+    @Composable
+    fun displayItems(): List<TypographyData> = listOf(
+        TypographyData(
+            "Display Large",
+            OrataTheme.typography.displayLarge(),
+            "Display",
+            "Large",
+            "Montserrat",
+            "57",
+            "64"
+        ),
+        TypographyData(
+            "Display Medium",
+            OrataTheme.typography.displayMedium(),
+            "Display",
+            "Medium",
+            "Montserrat",
+            "45",
+            "52"
+        ),
+        TypographyData(
+            "Display Small",
+            OrataTheme.typography.displaySmall(),
+            "Display",
+            "Small",
+            "Montserrat",
+            "36",
+            "44"
+        )
+    )
+
+    @Composable
+    fun headlineItems(): List<TypographyData> = listOf(
+        TypographyData(
+            "Headline Large",
+            OrataTheme.typography.headlineLarge(),
+            "Headline",
+            "Large",
+            "Poppins",
+            "32",
+            "40"
+        ),
+        TypographyData(
+            "Headline Medium",
+            OrataTheme.typography.headlineMedium(),
+            "Headline",
+            "Medium",
+            "Poppins",
+            "28",
+            "36"
+        ),
+        TypographyData(
+            "Headline Small",
+            OrataTheme.typography.headlineSmall(),
+            "Headline",
+            "Small",
+            "Poppins",
+            "24",
+            "32"
+        )
+    )
+
+    @Composable
+    fun titleItems(): List<TypographyData> = listOf(
+        TypographyData(
+            "Title Large",
+            OrataTheme.typography.titleLarge(),
+            "Title",
+            "Large",
+            "Poppins",
+            "22",
+            "28"
+        ),
+        TypographyData(
+            "Title Medium",
+            OrataTheme.typography.titleMedium(),
+            "Title",
+            "Medium",
+            "Poppins",
+            "16",
+            "24"
+        ),
+        TypographyData(
+            "Title Small",
+            OrataTheme.typography.titleSmall(),
+            "Title",
+            "Small",
+            "Poppins",
+            "14",
+            "20"
+        )
+    )
+
+    @Composable
+    fun labelItems(): List<TypographyData> = listOf(
+        TypographyData(
+            "Label Large",
+            OrataTheme.typography.labelLarge(),
+            "Label",
+            "Large",
+            "Poppins",
+            "14",
+            "20"
+        ),
+        TypographyData(
+            "Label Medium",
+            OrataTheme.typography.labelMedium(),
+            "Label",
+            "Medium",
+            "Poppins",
+            "12",
+            "16"
+        ),
+        TypographyData(
+            "Label Small",
+            OrataTheme.typography.labelSmall(),
+            "Label",
+            "Small",
+            "Poppins",
+            "11",
+            "16"
+        )
+    )
+
+    @Composable
+    fun bodyItems(): List<TypographyData> = listOf(
+        TypographyData(
+            "Body Large",
+            OrataTheme.typography.bodyLarge(),
+            "Body",
+            "Large",
+            "Poppins",
+            "14",
+            "20"
+        ),
+        TypographyData(
+            "Body Medium",
+            OrataTheme.typography.bodyMedium(),
+            "Body",
+            "Medium",
+            "Poppins",
+            "12",
+            "16"
+        ),
+        TypographyData(
+            "Body Small",
+            OrataTheme.typography.bodySmall(),
+            "Body",
+            "Small",
+            "Poppins",
+            "11",
+            "16"
         )
     )
 }

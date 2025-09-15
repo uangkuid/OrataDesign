@@ -2,6 +2,7 @@ package com.oratakashi.design.app.ui.colors
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -38,7 +39,8 @@ internal fun ColorsScreen(
 
     LazyColumn(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        contentPadding = PaddingValues(bottom = 100.dp)
     ) {
         item(key = "color_schematic_title") {
             Text(
@@ -46,47 +48,41 @@ internal fun ColorsScreen(
                 style = OrataTheme.typography.titleMedium(),
                 color = OrataTheme.colors.onSurface,
                 modifier = Modifier
-                    .fillMaxWidth()
                     .padding(horizontal = 16.dp)
+                    .fillMaxWidth()
             )
         }
         item(key = "primary_colors") {
             ColorSchematic(
                 colorData = Constant.primaryColors(),
-                modifier = Modifier.padding(horizontal = 16.dp)
             )
         }
         item(key = "secondary_colors") {
             ColorSchematic(
                 colorData = Constant.secondaryColors(),
-                modifier = Modifier.padding(horizontal = 16.dp)
             )
         }
         item(key = "tertiary_colors") {
             ColorSchematic(
                 colorData = Constant.tertiaryColors(),
-                modifier = Modifier.padding(horizontal = 16.dp)
             )
         }
         item(key = "error_colors") {
-            ColorSchematic(colorData = Constant.errorColors(), modifier = Modifier.padding(horizontal = 16.dp))
+            ColorSchematic(colorData = Constant.errorColors())
         }
         item(key = "surface_colors") {
             ColorSchematic(
                 colorData = Constant.surfaceColors(),
-                modifier = Modifier.padding(horizontal = 16.dp)
             )
         }
         item(key = "surface_container_colors") {
             ColorSchematic(
                 colorData = Constant.surfaceContainerColors(),
-                modifier = Modifier.padding(horizontal = 16.dp)
             )
         }
         item(key = "outline_colors") {
             ColorSchematic(
                 colorData = Constant.outlineColors(),
-                modifier = Modifier.padding(horizontal = 16.dp)
             )
         }
     }
@@ -100,7 +96,8 @@ internal fun ColorSchematic(
 ) {
     LazyRow(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
         items(
             items = colorData,

@@ -46,7 +46,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Preview
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, scrollBehavior: TopAppBarScrollBehavior) {
+internal fun HomeScreen(modifier: Modifier = Modifier, scrollBehavior: TopAppBarScrollBehavior) {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route

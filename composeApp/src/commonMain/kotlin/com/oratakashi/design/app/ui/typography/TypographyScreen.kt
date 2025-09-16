@@ -22,7 +22,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
     showBackground = true
 )
 @Composable
-fun TypographyScreen(
+internal fun TypographyScreen(
     modifier: Modifier = Modifier
 ) {
     val displayItems = Constant.displayItems()

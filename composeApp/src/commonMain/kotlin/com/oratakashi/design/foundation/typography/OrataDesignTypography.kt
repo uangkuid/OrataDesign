@@ -54,3 +54,25 @@ interface OrataDesignTypography {
     @Composable
     fun bodySmall(): TextStyle
 }
+
+/**
+ * Extension function to map OraTypographyKeyToken to OrataDesignTypography's TextStyle.
+ */
+@Composable
+fun OrataDesignTypography.fromToken(token: OraTypographyKeyToken): TextStyle = when (token) {
+    OraTypographyKeyToken.DisplayLarge -> displayLarge()
+    OraTypographyKeyToken.DisplayMedium -> displayMedium()
+    OraTypographyKeyToken.DisplaySmall -> displaySmall()
+    OraTypographyKeyToken.HeadlineLarge -> headlineLarge()
+    OraTypographyKeyToken.HeadlineMedium -> headlineMedium()
+    OraTypographyKeyToken.HeadlineSmall -> headlineSmall()
+    OraTypographyKeyToken.TitleLarge -> titleLarge()
+    OraTypographyKeyToken.TitleMedium -> titleMedium()
+    OraTypographyKeyToken.TitleSmall -> titleSmall()
+    OraTypographyKeyToken.LabelLarge -> labelLarge()
+    OraTypographyKeyToken.LabelMedium -> labelMedium()
+    OraTypographyKeyToken.LabelSmall -> labelSmall()
+    OraTypographyKeyToken.BodyLarge -> bodyLarge()
+    OraTypographyKeyToken.BodyMedium -> bodyMedium()
+    OraTypographyKeyToken.BodySmall -> bodySmall()
+}

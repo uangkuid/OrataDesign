@@ -43,5 +43,41 @@ enum class OraButtonSize(
         iconSize = 20.dp,
         iconSpacing = 8.dp,
         labelTextStyle = OraTypographyKeyToken.LabelLarge
+    ),
+
+    Medium(
+        contentPadding = PaddingValues(
+            horizontal = 24.dp,
+            vertical = 16.dp
+        ),
+        minWidth = 120.dp,
+        minHeight = 56.dp,
+        iconSize = 24.dp,
+        iconSpacing = 8.dp,
+        labelTextStyle = OraTypographyKeyToken.TitleMedium
+    ),
+
+    Large(
+        contentPadding = PaddingValues(
+            horizontal = 48.dp,
+            vertical = 32.dp
+        ),
+        minWidth = 199.dp,
+        minHeight = 96.dp,
+        iconSize = 32.dp,
+        iconSpacing = 12.dp,
+        labelTextStyle = OraTypographyKeyToken.HeadlineSmall
+    ),
+
+    XLarge(
+        contentPadding = PaddingValues(
+            horizontal = 64.dp,
+            vertical = 48.dp
+        ),
+        minWidth = 262.dp,
+        minHeight = 136.dp,
+        iconSize = 40.dp,
+        iconSpacing = 16.dp,
+        labelTextStyle = OraTypographyKeyToken.HeadlineLarge
     )
 }

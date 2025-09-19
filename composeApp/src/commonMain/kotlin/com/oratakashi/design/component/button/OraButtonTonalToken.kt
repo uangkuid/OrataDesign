@@ -11,19 +11,19 @@ import com.oratakashi.design.foundation.OrataTheme
  * @author oratakashi
  * @since 17 Sep 2025
  */
-object OraButtonSoftToken {
+object OraButtonTonalToken {
     val ContainerColor: Color
         @Composable
-        get() = OrataTheme.colors.secondary
+        get() = OrataTheme.colors.secondaryContainer
     val IconColor: Color
         @Composable
-        get() = OrataTheme.colors.onSecondary
+        get() = OrataTheme.colors.onSecondaryContainer
     val DisabledIconColor: Color
         @Composable
         get() = OrataTheme.colors.onSurfaceVariant
     val LabelTextColor: Color
         @Composable
-        get() = OrataTheme.colors.onSecondary
+        get() = OrataTheme.colors.onSecondaryContainer
     val DisabledContainerColor: Color
         @Composable
         get() = OrataTheme.colors.surfaceContainer

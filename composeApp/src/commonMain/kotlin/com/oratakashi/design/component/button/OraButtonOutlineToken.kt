@@ -2,6 +2,7 @@ package com.oratakashi.design.component.button
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.oratakashi.design.foundation.OrataTheme
 
 /**
@@ -24,6 +25,9 @@ object OraButtonOutlineToken {
     val DisabledIconColor: Color
         @Composable
         get() = OrataTheme.colors.onSurfaceVariant
+    val DisabledOutlineColor: Color
+        @Composable
+        get() = OrataTheme.colors.onSurfaceVariant
     val LabelTextColor: Color
         @Composable
         get() = OrataTheme.colors.primary
@@ -34,5 +38,6 @@ object OraButtonOutlineToken {
         @Composable
         get() = OrataTheme.colors.onSurfaceVariant
     val ButtonSizeVariant = OraButtonSize.Medium
+    val OutlineWidth = 1.0.dp
 }
 

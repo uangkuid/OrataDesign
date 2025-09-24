@@ -2,7 +2,9 @@ package com.oratakashi.design.foundation.typography
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.text.TextStyle
+import com.oratakashi.design.foundation.OrataTheme
 
 /**
  * OraTypography is a class that contains all the typography used in the Orata Design System.
@@ -87,3 +89,12 @@ class OraTypography: OrataDesignTypography {
  * @since 06 Sep 2025
  */
 val DefaultOraTypography = OraTypography()
+
+/**
+ * Converts a token key to a [TextStyle] using the [OraTypography] provided by the [DefaultOraTypography].
+ */
+@ReadOnlyComposable
+@Composable
+fun OraTypographyKeyToken.toTextStyle(): TextStyle {
+    return OrataTheme.typography.fromToken(this)
+}

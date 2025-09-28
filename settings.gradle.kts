@@ -33,3 +33,4 @@ plugins {
 }
 
 include(":composeApp")
+include(":design-system")

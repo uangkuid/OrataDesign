@@ -70,6 +70,9 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             api(libs.navigation.compose)
             api(libs.kotlinx.serialization.json)
+            
+            // Use the design system library
+            implementation(project(":design-system"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

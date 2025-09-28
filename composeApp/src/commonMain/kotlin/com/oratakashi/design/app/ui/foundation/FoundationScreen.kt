@@ -1,6 +1,5 @@
 package com.oratakashi.design.app.ui.foundation
 
-import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
@@ -46,7 +45,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Preview
 @Composable
-internal fun HomeScreen(modifier: Modifier = Modifier, scrollBehavior: TopAppBarScrollBehavior) {
+internal fun FoundationScreen(modifier: Modifier = Modifier, scrollBehavior: TopAppBarScrollBehavior) {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route

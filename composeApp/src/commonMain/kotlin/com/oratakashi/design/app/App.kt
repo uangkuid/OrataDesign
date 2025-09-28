@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -18,14 +17,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.oratakashi.design.app.navigation.ComponentNavigation
 import com.oratakashi.design.app.navigation.FoundationNavigation
-import com.oratakashi.design.app.ui.foundation.HomeScreen
+import com.oratakashi.design.app.ui.component.ComponentScreen
+import com.oratakashi.design.app.ui.foundation.FoundationScreen
 import com.oratakashi.design.component.button.OraButton
 import com.oratakashi.design.foundation.OrataAppTheme
 import kotlinx.coroutines.CoroutineScope
@@ -92,7 +91,7 @@ fun App() {
                 modifier = Modifier
             ) {
                 composable<FoundationNavigation>{
-                    HomeScreen(
+                    FoundationScreen(
                         scrollBehavior = scrollBehavior,
                         modifier = Modifier
                             .padding(innerPadding)
@@ -108,34 +107,12 @@ fun App() {
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        var loading by remember { mutableStateOf(false) }
-                        OraButton(
-                            onClick = {
-                                loading = true
-                                CoroutineScope(Dispatchers.Main).launch {
-                                    delay(5000)
-                                    loading = false
-                                }
-                            },
-                            loading = loading,
-                            iconLeft = {
-                                Icon(
-                                    painter = painterResource(Res.drawable.ic_colors),
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                )
-                            },
-                            iconRight = {
-                                Icon(
-                                    painter = painterResource(Res.drawable.ic_component),
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                )
-                            }
-                        ) {
-                            Text("Button")
-                        }
-                        Text(text = "Component screen will be implemented here")
+                        ComponentScreen(
+                            modifier = Modifier
+                                .padding(innerPadding)
+                                .fillMaxSize(),
+                            scrollBehavior = scrollBehavior
+                        )
                     }
                 }
             }

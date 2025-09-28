@@ -26,7 +26,15 @@ import androidx.navigation.compose.rememberNavController
 import com.oratakashi.design.app.navigation.ComponentNavigation
 import com.oratakashi.design.app.navigation.FoundationNavigation
 import com.oratakashi.design.app.ui.foundation.HomeScreen
+import com.oratakashi.design.component.button.OraButton
 import com.oratakashi.design.foundation.OrataAppTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import oratadesign.composeapp.generated.resources.Res
+import oratadesign.composeapp.generated.resources.ic_colors
+import oratadesign.composeapp.generated.resources.ic_component
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -100,9 +108,31 @@ fun App() {
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Button(onClick = {
-
-                        }) {
+                        var loading by remember { mutableStateOf(false) }
+                        OraButton(
+                            onClick = {
+                                loading = true
+                                CoroutineScope(Dispatchers.Main).launch {
+                                    delay(5000)
+                                    loading = false
+                                }
+                            },
+                            loading = loading,
+                            iconLeft = {
+                                Icon(
+                                    painter = painterResource(Res.drawable.ic_colors),
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                )
+                            },
+                            iconRight = {
+                                Icon(
+                                    painter = painterResource(Res.drawable.ic_component),
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                )
+                            }
+                        ) {
                             Text("Button")
                         }
                         Text(text = "Component screen will be implemented here")

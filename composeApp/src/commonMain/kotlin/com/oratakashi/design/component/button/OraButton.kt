@@ -3,11 +3,16 @@ package com.oratakashi.design.component.button
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.CircularWavyProgressIndicator
@@ -15,6 +20,7 @@ import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
@@ -45,6 +51,7 @@ fun OraButton(
     borderStroke: BorderStroke? = null,
     contentPadding: PaddingValues = size.contentPadding,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: @Composable RowScope.() -> Unit,
 ) {
     val containerColor = style.containerColor(enabled).value
     val contentColor = style.contentColor(enabled).value
@@ -76,15 +83,49 @@ fun OraButton(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     if (loading) {
-                        CircularWavyProgressIndicator(
-                            modifier = Modifier.size(size.iconSize),
-                            color = contentColor,
-                        )
+                        Box(
+                            modifier = Modifier
+                                .padding(
+                                    horizontal = when {
+                                        iconLeft != null && iconRight != null -> {
+                                            (size.iconSize * 2)
+                                        }
+
+                                        iconLeft != null -> size.iconSize + size.iconSpacing
+                                        iconRight != null -> size.iconSize + size.iconSpacing
+                                        else -> 0.dp
+                                    }
+                                )
+                        ) {
+                            CircularWavyProgressIndicator(
+                                modifier = Modifier.size(size.iconSize),
+                                color = contentColor,
+                            )
+                        }
                     } else {
-                        CircularWavyProgressIndicator(
-                            modifier = Modifier.size(size.iconSize),
-                            color = contentColor,
-                        )
+                        if (iconLeft != null) {
+                            Box(
+                                modifier = Modifier
+                                    .heightIn(0.dp, size.iconSize)
+                                    .widthIn(0.dp, size.iconSize),
+                            ) {
+                                iconLeft(size.iconSize)
+                            }
+                            Spacer(modifier = Modifier.size(size.iconSpacing))
+                        }
+
+                        Text(text = label)
+
+                        if (iconRight != null) {
+                            Spacer(modifier = Modifier.size(size.iconSpacing))
+                            Box(
+                                modifier = Modifier
+                                    .heightIn(0.dp, size.iconSize)
+                                    .widthIn(0.dp, size.iconSize),
+                            ) {
+                                iconRight(size.iconSize)
+                            }
+                        }
                     }
                 }
             }

@@ -39,7 +39,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun OraButton(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     loading: Boolean = false,
@@ -51,7 +51,6 @@ fun OraButton(
     borderStroke: BorderStroke? = null,
     contentPadding: PaddingValues = size.contentPadding,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    content: @Composable RowScope.() -> Unit,
 ) {
     val containerColor = style.containerColor(enabled).value
     val contentColor = style.contentColor(enabled).value
@@ -131,4 +130,95 @@ fun OraButton(
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun OraTonalButton(
+    onClick: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    label: String = "Button",
+    iconLeft: @Composable ((size: Dp) -> Unit)? = null,
+    iconRight: @Composable ((size: Dp) -> Unit)? = null,
+    size: OraButtonSize = OraButtonDefaults.size,
+    borderStroke: BorderStroke? = null,
+    contentPadding: PaddingValues = size.contentPadding,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    OraButton(
+        onClick = onClick,
+        modifier = modifier,
+        enabled = enabled,
+        loading = loading,
+        label = label,
+        iconLeft = iconLeft,
+        iconRight = iconRight,
+        style = OraButtonDefaults.buttonTonalColors(),
+        size = size,
+        borderStroke = borderStroke,
+        contentPadding = contentPadding,
+        interactionSource = interactionSource
+    )
+}
+
+@Preview
+@Composable
+fun OraOutlineButton(
+    onClick: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    label: String = "Button",
+    iconLeft: @Composable ((size: Dp) -> Unit)? = null,
+    iconRight: @Composable ((size: Dp) -> Unit)? = null,
+    size: OraButtonSize = OraButtonDefaults.size,
+    contentPadding: PaddingValues = size.contentPadding,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    OraButton(
+        onClick = onClick,
+        modifier = modifier,
+        enabled = enabled,
+        loading = loading,
+        label = label,
+        iconLeft = iconLeft,
+        iconRight = iconRight,
+        style = OraButtonDefaults.buttonOutlineColors(),
+        size = size,
+        borderStroke = OraButtonDefaults.outlineButtonBorder(enabled),
+        contentPadding = contentPadding,
+        interactionSource = interactionSource
+    )
+}
+
+@Preview
+@Composable
+fun OraTransparentButton(
+    onClick: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    label: String = "Button",
+    iconLeft: @Composable ((size: Dp) -> Unit)? = null,
+    iconRight: @Composable ((size: Dp) -> Unit)? = null,
+    size: OraButtonSize = OraButtonDefaults.size,
+    contentPadding: PaddingValues = size.contentPadding,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    OraButton(
+        onClick = onClick,
+        modifier = modifier,
+        enabled = enabled,
+        loading = loading,
+        label = label,
+        iconLeft = iconLeft,
+        iconRight = iconRight,
+        style = OraButtonDefaults.buttonTransparentColors(),
+        size = size,
+        borderStroke = null,
+        contentPadding = contentPadding,
+        interactionSource = interactionSource
+    )
 }

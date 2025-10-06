@@ -99,21 +99,12 @@ fun App() {
                     )
                 }
                 composable<ComponentNavigation> {
-                    // Placeholder component screen
-                    Column(
+                    ComponentScreen(
                         modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        ComponentScreen(
-                            modifier = Modifier
-                                .padding(innerPadding)
-                                .fillMaxSize(),
-                            scrollBehavior = scrollBehavior
-                        )
-                    }
+                            .padding(innerPadding)
+                            .fillMaxSize(),
+                        scrollBehavior = scrollBehavior
+                    )
                 }
             }
         }

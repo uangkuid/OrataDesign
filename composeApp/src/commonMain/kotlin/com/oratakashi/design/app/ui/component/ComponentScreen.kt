@@ -63,7 +63,6 @@ internal fun ComponentScreen(
         },
         content = { innerPadding ->
             Box() {
-                // Example: Replace with your own composable navigation if needed
                 NavHost(
                     navController = navController,
                     startDestination = ComponentListNavigation,

@@ -15,19 +15,12 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.oratakashi.design.app.models.ColorData
 import com.oratakashi.design.app.models.Constant
 import com.oratakashi.design.foundation.OrataTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
-internal data class ColorData(
-    val name: String,
-    val code: String,
-    val color: Color,
-    val background: Color
-)
 
 @Preview(
     showBackground = true

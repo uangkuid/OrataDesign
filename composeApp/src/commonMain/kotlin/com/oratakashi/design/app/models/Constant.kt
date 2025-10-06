@@ -1,12 +1,32 @@
 package com.oratakashi.design.app.models
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-import com.oratakashi.design.app.ui.colors.ColorData
-import com.oratakashi.design.app.ui.typography.TypographyData
+import com.oratakashi.design.app.models.TypographyData
 import com.oratakashi.design.foundation.OrataTheme
+import oratadesign.composeapp.generated.resources.Res
+import oratadesign.composeapp.generated.resources.ic_button_icon
 
 internal object Constant {
+    @Composable
+    fun componentList(): List<ComponentData> = listOf(
+        ComponentData(
+            title = "Button",
+            image = Res.drawable.ic_button_icon
+        ),
+        ComponentData(
+            title = "Button2",
+            image = Res.drawable.ic_button_icon
+        ),
+        ComponentData(
+            title = "Button3",
+            image = Res.drawable.ic_button_icon
+        ),
+        ComponentData(
+            title = "Button4",
+            image = Res.drawable.ic_button_icon
+        )
+    )
+
     @Composable
     fun primaryColors(): List<ColorData> = listOf(
         ColorData(

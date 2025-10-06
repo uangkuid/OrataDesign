@@ -70,6 +70,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             api(libs.navigation.compose)
             api(libs.kotlinx.serialization.json)
+            api(libs.composeIcons.feather)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

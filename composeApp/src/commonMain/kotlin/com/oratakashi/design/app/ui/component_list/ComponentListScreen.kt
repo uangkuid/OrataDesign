@@ -1,13 +1,15 @@
 package com.oratakashi.design.app.ui.component_list
 
+//import oratadesign.composeapp.generated.resources.ic_button_icon
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -15,14 +17,14 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import com.oratakashi.design.app.icons.ButtonIcon
 import com.oratakashi.design.app.models.ComponentData
 import com.oratakashi.design.app.models.Constant
 import com.oratakashi.design.foundation.OrataTheme
-import oratadesign.composeapp.generated.resources.Res
-import oratadesign.composeapp.generated.resources.ic_button_icon
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Preview(
@@ -30,6 +32,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 )
 @Composable
 fun ComponentListScreen(
+    navController: NavHostController? = null,
     modifier: Modifier = Modifier
 ) {
     val componentList = Constant.componentList()
@@ -37,13 +40,21 @@ fun ComponentListScreen(
         columns = GridCells.Adaptive(160.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp),
+        contentPadding = PaddingValues(
+            horizontal = 16.dp,
+            vertical = 16.dp
+        ),
         modifier = modifier
     ) {
         items(
             items = componentList, key = { it.title }
         ) { component ->
-            CardComponent(component = component)
+            CardComponent(
+                component = component,
+                onClick = {
+                    navController?.navigate(it.navigation?.route.orEmpty())
+                }
+            )
         }
     }
 }
@@ -53,12 +64,16 @@ fun ComponentListScreen(
 private fun CardComponent(
     component: ComponentData = ComponentData(
         title = "Card Title",
-        image = Res.drawable.ic_button_icon
-    )
+        image = ButtonIcon
+    ),
+    onClick: (ComponentData) -> Unit = { _ -> }
 ) {
     Card (
         modifier = Modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable(enabled = true) {
+                onClick(component)
+            },
     ) {
         Column(
             modifier = Modifier
@@ -66,7 +81,7 @@ private fun CardComponent(
                 .padding(16.dp)
         ) {
             Image(
-                painter = painterResource(component.image),
+                painter = rememberVectorPainter(component.image.icons()),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -74,6 +89,7 @@ private fun CardComponent(
                         minHeight = 80.dp
                     )
                     .fillMaxWidth()
+                    .aspectRatio(16f / 9f)
             )
             Text(
                 text = component.title, // Replace with actual content

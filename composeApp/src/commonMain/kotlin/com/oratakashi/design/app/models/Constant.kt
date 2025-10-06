@@ -1,7 +1,9 @@
 package com.oratakashi.design.app.models
 
 import androidx.compose.runtime.Composable
+import com.oratakashi.design.app.icons.ButtonIcon
 import com.oratakashi.design.app.models.TypographyData
+import com.oratakashi.design.app.navigation.ButtonNavigation
 import com.oratakashi.design.foundation.OrataTheme
 import oratadesign.composeapp.generated.resources.Res
 import oratadesign.composeapp.generated.resources.ic_button_icon
@@ -11,20 +13,9 @@ internal object Constant {
     fun componentList(): List<ComponentData> = listOf(
         ComponentData(
             title = "Button",
-            image = Res.drawable.ic_button_icon
+            image = ButtonIcon,
+            navigation = ButtonNavigation
         ),
-        ComponentData(
-            title = "Button2",
-            image = Res.drawable.ic_button_icon
-        ),
-        ComponentData(
-            title = "Button3",
-            image = Res.drawable.ic_button_icon
-        ),
-        ComponentData(
-            title = "Button4",
-            image = Res.drawable.ic_button_icon
-        )
     )
 
     @Composable

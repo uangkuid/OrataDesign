@@ -96,7 +96,7 @@ fun ButtonScreen(
             when(it) {
                 0 -> BasicButtonContent()
                 1 -> StateButtonContent()
-                else -> BasicButtonContent()
+                else -> SizeButtonContent()
             }
         }
     }

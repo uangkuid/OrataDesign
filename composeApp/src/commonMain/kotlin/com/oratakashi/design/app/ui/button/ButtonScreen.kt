@@ -74,7 +74,7 @@ fun ButtonScreen(
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Medium,
                             color = if (selectedTabIndex == index)
-                                OrataTheme.colors.secondary
+                                OrataTheme.colors.primary
                             else
                                 OrataTheme.colors.onSurfaceVariant
                         )

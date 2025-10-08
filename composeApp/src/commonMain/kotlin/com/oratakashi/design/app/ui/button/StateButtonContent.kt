@@ -9,14 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.oratakashi.design.app.component.ComponentSection
 import com.oratakashi.design.component.button.OraButton
-import com.oratakashi.design.component.button.OraOutlineButton
-import com.oratakashi.design.component.button.OraTonalButton
-import com.oratakashi.design.component.button.OraTransparentButton
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Preview(showBackground = true)
 @Composable
-fun BasicButtonContent() {
+fun StateButtonContent() {
     LazyColumn(
         contentPadding = PaddingValues(
             horizontal = 16.dp
@@ -24,10 +21,10 @@ fun BasicButtonContent() {
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         item(
-            key = "primary_button"
+            key = "default_state"
         ) {
             ComponentSection(
-                "Primary Button"
+                "Default State"
             ) {
                 OraButton(
                     label = "Label",
@@ -41,13 +38,14 @@ fun BasicButtonContent() {
         }
 
         item(
-            key = "tonal_button"
+            key = "loading_state"
         ) {
             ComponentSection(
-                "Tonal Button"
+                "Loading State"
             ) {
-                OraTonalButton(
+                OraButton(
                     label = "Label",
+                    loading = true,
                     onClick = {
 
                     },
@@ -58,13 +56,14 @@ fun BasicButtonContent() {
         }
 
         item(
-            key = "outlined_button"
+            key = "disabled_state"
         ) {
             ComponentSection(
-                "Outlined Button"
+                "Disabled State"
             ) {
-                OraOutlineButton(
+                OraButton(
                     label = "Label",
+                    enabled = false,
                     onClick = {
 
                     },
@@ -74,21 +73,5 @@ fun BasicButtonContent() {
             }
         }
 
-        item(
-            key = "transparent_button"
-        ) {
-            ComponentSection(
-                "Transparent Button"
-            ) {
-                OraTransparentButton(
-                    label = "Label",
-                    onClick = {
-
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                )
-            }
-        }
     }
 }

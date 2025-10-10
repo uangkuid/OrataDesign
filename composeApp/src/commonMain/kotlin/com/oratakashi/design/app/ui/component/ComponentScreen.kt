@@ -31,8 +31,10 @@ import androidx.navigation.compose.rememberNavController
 import com.oratakashi.design.app.navigation.ButtonNavigation
 import com.oratakashi.design.app.navigation.ComponentListNavigation
 import com.oratakashi.design.app.navigation.ComponentNavigation
+import com.oratakashi.design.app.navigation.TextFieldNavigation
 import com.oratakashi.design.app.ui.button.ButtonScreen
 import com.oratakashi.design.app.ui.component_list.ComponentListScreen
+import com.oratakashi.design.app.ui.textfield.TextFieldScreen
 import com.oratakashi.design.foundation.OrataTheme
 import compose.icons.AllIcons
 import compose.icons.FeatherIcons
@@ -109,6 +111,13 @@ internal fun ComponentScreen(
 
                     composable<ButtonNavigation> {
                         ButtonScreen(
+                            modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
+                                .fillMaxSize()
+                        )
+                    }
+
+                    composable<TextFieldNavigation> {
+                        TextFieldScreen(
                             modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
                                 .fillMaxSize()
                         )

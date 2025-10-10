@@ -5,6 +5,7 @@ import com.oratakashi.design.app.icons.ButtonIcon
 import com.oratakashi.design.app.icons.TextFieldIcon
 import com.oratakashi.design.app.models.TypographyData
 import com.oratakashi.design.app.navigation.ButtonNavigation
+import com.oratakashi.design.app.navigation.TextFieldNavigation
 import com.oratakashi.design.foundation.OrataTheme
 import oratadesign.composeapp.generated.resources.Res
 import oratadesign.composeapp.generated.resources.ic_button_icon
@@ -20,7 +21,7 @@ internal object Constant {
         ComponentData(
             title = "TextField",
             image = TextFieldIcon,
-            navigation = null
+            navigation = TextFieldNavigation
         ),
     )
 

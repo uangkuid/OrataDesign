@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.heightIn
@@ -14,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.CircularWavyProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.LocalContentColor
@@ -31,11 +29,10 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.oratakashi.design.foundation.typography.OraTypography
 import com.oratakashi.design.foundation.typography.toTextStyle
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-@Preview
+@Preview(showBackground = true)
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun OraButton(
@@ -132,7 +129,7 @@ fun OraButton(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun OraTonalButton(
     onClick: () -> Unit = {},
@@ -163,7 +160,7 @@ fun OraTonalButton(
     )
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun OraOutlineButton(
     onClick: () -> Unit = {},
@@ -193,7 +190,7 @@ fun OraOutlineButton(
     )
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun OraTransparentButton(
     onClick: () -> Unit = {},

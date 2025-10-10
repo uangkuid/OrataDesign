@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.oratakashi.design.foundation.OrataTheme
 
 @Composable
 internal fun ComponentSection(
@@ -24,9 +25,8 @@ internal fun ComponentSection(
     ) {
         Text(
             text = title,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Normal,
-            color = Color.Black,
+            style = OrataTheme.typography.bodyLarge(),
+            color = OrataTheme.colors.onSurface,
             modifier = Modifier.fillMaxWidth()
         )
 

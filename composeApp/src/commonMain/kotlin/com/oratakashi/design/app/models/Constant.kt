@@ -2,6 +2,7 @@ package com.oratakashi.design.app.models
 
 import androidx.compose.runtime.Composable
 import com.oratakashi.design.app.icons.ButtonIcon
+import com.oratakashi.design.app.icons.TextFieldIcon
 import com.oratakashi.design.app.models.TypographyData
 import com.oratakashi.design.app.navigation.ButtonNavigation
 import com.oratakashi.design.foundation.OrataTheme
@@ -15,6 +16,11 @@ internal object Constant {
             title = "Button",
             image = ButtonIcon,
             navigation = ButtonNavigation
+        ),
+        ComponentData(
+            title = "TextField",
+            image = TextFieldIcon,
+            navigation = null
         ),
     )
 

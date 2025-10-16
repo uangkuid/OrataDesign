@@ -43,5 +43,17 @@ interface OrataDesignColorScheme {
     val scrim: Color
     val background: Color
     val onBackground: Color
+    val warning: Color
+    val onWarning: Color
+    val warningContainer: Color
+    val onWarningContainer: Color
+    val success: Color
+    val onSuccess: Color
+    val successContainer: Color
+    val onSuccessContainer: Color
+    val info: Color
+    val onInfo: Color
+    val infoContainer: Color
+    val onInfoContainer: Color
 
 }

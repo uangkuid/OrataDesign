@@ -132,7 +132,17 @@ internal fun ColorScheme.toOrataDesignColorScheme(): OrataDesignColorScheme {
         override val scrim: Color = this@toOrataDesignColorScheme.scrim
         override val background: Color = this@toOrataDesignColorScheme.background
         override val onBackground: Color = this@toOrataDesignColorScheme.onBackground
-
-
+        override val warning: Color = OraPaletteTokens.warningLight
+        override val onWarning: Color = OraPaletteTokens.onWarningLight
+        override val warningContainer: Color = OraPaletteTokens.warningContainerLight
+        override val onWarningContainer: Color = OraPaletteTokens.onWarningContainerLight
+        override val success: Color = OraPaletteTokens.successLight
+        override val onSuccess: Color = OraPaletteTokens.onSuccessLight
+        override val successContainer: Color = OraPaletteTokens.successContainerLight
+        override val onSuccessContainer: Color = OraPaletteTokens.onSuccessContainerLight
+        override val info: Color = OraPaletteTokens.infoLight
+        override val onInfo: Color = OraPaletteTokens.onInfoLight
+        override val infoContainer: Color = OraPaletteTokens.infoContainerLight
+        override val onInfoContainer: Color = OraPaletteTokens.onInfoContainerLight
     }
 }

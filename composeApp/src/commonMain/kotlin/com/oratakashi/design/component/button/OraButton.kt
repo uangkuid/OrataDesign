@@ -32,6 +32,11 @@ import androidx.compose.ui.unit.dp
 import com.oratakashi.design.foundation.typography.toTextStyle
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
+/**
+ * OraButton is a Button component that follows the design system guidelines.
+ * @author oratakashi
+ * @since 16 Oct 2025
+ */
 @Preview(showBackground = true)
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable

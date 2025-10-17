@@ -18,7 +18,8 @@ enum class OraTextFieldSize(
     val contentPaddingValues: PaddingValues,
     val contentGap: Dp,
     val minHeight: Dp,
-    val minHeightTextArea: Dp
+    val minHeightTextArea: Dp,
+    val iconSize: Dp
 ) {
     Large(
         placeholderFont = OraTypographyKeyToken.BodyLarge,
@@ -26,11 +27,13 @@ enum class OraTextFieldSize(
         prefixFont = OraTypographyKeyToken.BodyLarge,
         suffixFont = OraTypographyKeyToken.BodyLarge,
         contentPaddingValues = PaddingValues(
+            vertical = 8.dp,
             horizontal = 16.dp,
         ),
         contentGap = 16.dp,
-        minHeight = 52.dp,
-        minHeightTextArea = 80.dp
+        minHeight = 40.dp,
+        minHeightTextArea = 80.dp,
+        iconSize = 24.dp
     ),
     Medium(
         placeholderFont = OraTypographyKeyToken.BodyMedium,
@@ -38,11 +41,13 @@ enum class OraTextFieldSize(
         prefixFont = OraTypographyKeyToken.BodyMedium,
         suffixFont = OraTypographyKeyToken.BodyMedium,
         contentPaddingValues = PaddingValues(
+            vertical = 8.dp,
             horizontal = 14.dp,
         ),
         contentGap = 14.dp,
-        minHeight = 44.dp,
-        minHeightTextArea = 72.dp
+        minHeight = 32.dp,
+        minHeightTextArea = 72.dp,
+        iconSize = 20.dp
     ),
     Small(
         placeholderFont = OraTypographyKeyToken.BodySmall,
@@ -50,10 +55,12 @@ enum class OraTextFieldSize(
         prefixFont = OraTypographyKeyToken.BodySmall,
         suffixFont = OraTypographyKeyToken.BodySmall,
         contentPaddingValues = PaddingValues(
+            vertical = 8.dp,
             horizontal = 8.dp,
         ),
         contentGap = 8.dp,
-        minHeight = 36.dp,
-        minHeightTextArea = 64.dp
+        minHeight = 24.dp,
+        minHeightTextArea = 64.dp,
+        iconSize = 16.dp
     )
 }

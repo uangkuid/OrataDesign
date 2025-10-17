@@ -28,13 +28,14 @@ data class OraTextFieldColors(
     internal fun borderColor(
         state: OraTextFieldState,
         enabled: Boolean,
+        focus: Boolean,
     ): State<Color> {
         val target = when {
             !enabled -> disabledBorderColor
-            state == OraTextFieldState.Focus -> focusColor
-            state == OraTextFieldState.Success -> successColor
-            state == OraTextFieldState.Error -> errorColor
-            state == OraTextFieldState.Locked -> disabledBorderColor
+            state is OraTextFieldState.Success -> successColor
+            state is OraTextFieldState.Error -> errorColor
+            state is OraTextFieldState.Locked -> disabledBorderColor
+            focus -> focusColor
             else -> borderColor
         }
 

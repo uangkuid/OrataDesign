@@ -22,29 +22,20 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 /**
- * Composable wrapper that accepts optional plain string values for the label,
- * error, success, hint and caption and converts them into small composable
- * Text elements. The converted composables are forwarded to
- * OraTextFieldContainerImpl which handles layout and styling.
+ * Composable wrapper that accepts OraTextFieldState to manage the state of the text field.
+ * It converts the state into composable elements and forwards them to OraTextFieldContainerImpl
+ * which handles layout and styling.
  *
- * This function is intended as a convenience API for callers that only need
- * to provide simple text values. For fully custom content, use
- * OraTextFieldContainerImpl directly by providing composable lambdas.
- *
+ * @param state the state of the text field (Default, Error, Success, or Locked).
  * @param label optional label string shown above the main content.
- * @param error optional error string shown below content (highest priority).
- * @param success optional success string shown below content when there is no error.
  * @param hint optional hint string shown below other messages.
- * @param caption optional caption string shown below content when there is no error or success.
  * @param content required composable that represents the main text field area.
  */
 @Composable
 internal fun OraTextFieldContainer(
+    state: OraTextFieldState = OraTextFieldState.Default(),
     label: String? = null,
-    error: String? = null,
-    success: String? = null,
     hint: String? = null,
-    caption: String? = null,
     content: @Composable () -> Unit
 ) {
     val decoratedLabel: @Composable (() -> Unit)? = label?.let {
@@ -53,7 +44,7 @@ internal fun OraTextFieldContainer(
         }
     }
 
-    val decoratedError: @Composable (() -> Unit)? = error?.let {
+    val decoratedError: @Composable (() -> Unit)? = if (state is OraTextFieldState.Error && state.caption != null) {
         @Composable {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -66,12 +57,12 @@ internal fun OraTextFieldContainer(
                         .width(12.dp)
                         .height(12.dp)
                 )
-                Text(text = it)
+                Text(text = state.caption)
             }
         }
-    }
+    } else null
 
-    val decoratedSuccess: @Composable (() -> Unit)? = success?.let {
+    val decoratedSuccess: @Composable (() -> Unit)? = if (state is OraTextFieldState.Success && state.caption != null) {
         @Composable {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -84,10 +75,10 @@ internal fun OraTextFieldContainer(
                         .width(12.dp)
                         .height(12.dp)
                 )
-                Text(text = it)
+                Text(text = state.caption)
             }
         }
-    }
+    } else null
 
     val decoratedHint: @Composable (() -> Unit)? = hint?.let {
         @Composable {
@@ -95,7 +86,7 @@ internal fun OraTextFieldContainer(
         }
     }
 
-    val decoratedCaption: @Composable (() -> Unit)? = caption?.let {
+    val decoratedCaption: @Composable (() -> Unit)? = if (state is OraTextFieldState.Default && state.caption != null) {
         @Composable {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -108,10 +99,10 @@ internal fun OraTextFieldContainer(
                         .width(12.dp)
                         .height(12.dp)
                 )
-                Text(text = it)
+                Text(text = state.caption)
             }
         }
-    }
+    } else null
 
     OraTextFieldContainerImpl(
         label = decoratedLabel,
@@ -245,37 +236,45 @@ private fun OraTextFieldContainerImpl(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Error", group = "Container")
 @Composable
-private fun OraTextFieldContainerPreview() {
+private fun ContainerError() {
     OrataAppTheme {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(10.dp)
+        OraTextFieldContainer(
+            state = OraTextFieldState.Error(caption = "Error message"),
+            label = "Label",
+            hint = "Hint message"
         ) {
-            OraTextFieldContainer(
-                label = "Label",
-                error = "Error message",
-                hint = "Hint message",
-                caption = "Caption message"
-            ) {
-                Text(text = "TextField Content")
-            }
-
-            OraTextFieldContainer(
-                label = "Label",
-                success = "Success message",
-                hint = "Hint message"
-            ) {
-                Text(text = "TextField Content")
-            }
-
-            OraTextFieldContainer(
-                label = "Label",
-                caption = "Caption message",
-                hint = "Hint message"
-            ) {
-                Text(text = "TextField Content")
-            }
+            Text(text = "TextField Content")
         }
     }
+}
+
+@Preview(showBackground = true, name = "Success", group = "Container")
+@Composable
+private fun ContainerSuccess() {
+    OrataAppTheme {
+        OraTextFieldContainer(
+            state = OraTextFieldState.Success(caption = "Success message"),
+            label = "Label",
+            hint = "Hint message"
+        ) {
+            Text(text = "TextField Content")
+        }
+    }
+}
+
+@Preview(showBackground = true, name = "Caption", group = "Container")
+@Composable
+private fun ContainerCaption() {
+    OrataAppTheme {
+        OraTextFieldContainer(
+            state = OraTextFieldState.Default(caption = "Caption message"),
+            label = "Label",
+            hint = "Hint message"
+        ) {
+            Text(text = "TextField Content")
+        }
+    }
+
 }

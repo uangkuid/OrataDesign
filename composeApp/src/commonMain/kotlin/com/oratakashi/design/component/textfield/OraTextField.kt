@@ -2,6 +2,7 @@ package com.oratakashi.design.component.textfield
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
@@ -29,10 +30,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.oratakashi.design.foundation.OrataAppTheme
+import com.oratakashi.design.foundation.OrataTheme
 import com.oratakashi.design.foundation.typography.OraProvideTextStyle
 import com.oratakashi.design.foundation.typography.toTextStyle
 import oratadesign.composeapp.generated.resources.Res
@@ -133,6 +136,23 @@ fun OraTextField(
         }
     }
 
+    val decoratedLockedAction: @Composable (() -> Unit) = {
+        OraProvideTextStyle(
+            color = OrataTheme.colors.primary,
+            textStyle = size.lockedActionFont.toTextStyle().copy(fontWeight = FontWeight.Bold),
+        ) {
+            Text(
+                text = if (state is OraTextFieldState.Locked) state.lockedActionText else "Change",
+                modifier = Modifier
+                    .clickable(enabled = enabled) {
+                        if (state is OraTextFieldState.Locked) {
+                            state.onClickLockedAction()
+                        }
+                    }
+            )
+        }
+    }
+
     val verticalAlignment =
         if (singleLine || maxLines == 1) Alignment.CenterVertically else Alignment.Top
     val heightModifier: Modifier = if (singleLine) {
@@ -150,7 +170,7 @@ fun OraTextField(
             modifier = modifier
                 .background(
                     color = when {
-                        !enabled || state == OraTextFieldState.Locked() -> colors.disabledContainerColor
+                        !enabled || state is OraTextFieldState.Locked -> colors.disabledContainerColor
                         else -> colors.containerColor
                     },
                     shape = RoundedCornerShape(16.dp)
@@ -158,10 +178,10 @@ fun OraTextField(
                 .border(
                     width = if (isFocus) 2.dp else 1.dp,
                     color = when {
-                        state == OraTextFieldState.Error() -> colors.errorColor
-                        state == OraTextFieldState.Success() -> colors.successColor
+                        state is OraTextFieldState.Error -> colors.errorColor
+                        state is OraTextFieldState.Success -> colors.successColor
                         isFocus -> colors.focusColor
-                        !enabled || state == OraTextFieldState.Locked() -> colors.disabledBorderColor
+                        !enabled || state is OraTextFieldState.Locked -> colors.disabledBorderColor
                         else -> colors.borderColor
                     },
                     shape = RoundedCornerShape(16.dp)
@@ -220,6 +240,11 @@ fun OraTextField(
                 Spacer(modifier = Modifier.size(size.contentGap))
                 decoratedSuffix()
             }
+
+            if (state is OraTextFieldState.Locked) {
+                Spacer(modifier = Modifier.size(size.contentGap))
+                decoratedLockedAction()
+            }
         }
     }
 }
@@ -272,6 +297,9 @@ private fun LargeDisabled() {
                 onValueChange = {},
                 size = OraTextFieldSize.Large,
                 enabled = false,
+                label = "Label Text",
+                state = OraTextFieldState.Default("Caption Text"),
+                hint = "Hint Text",
                 prefix = {
                     Text("Prefix")
                 },
@@ -303,7 +331,9 @@ private fun LargeError() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Large,
-                state = OraTextFieldState.Error(),
+                state = OraTextFieldState.Error("Caption Text"),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = {
                     Text("Prefix")
                 },
@@ -333,7 +363,9 @@ private fun LargeDefault() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Large,
-                state = OraTextFieldState.Default(),
+                state = OraTextFieldState.Default("Caption Text"),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = { Text("Prefix") },
                 iconLeft = {
                     Icon(
@@ -365,7 +397,9 @@ private fun LargeSuccess() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Large,
-                state = OraTextFieldState.Success(),
+                state = OraTextFieldState.Success("Caption Text"),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = { Text("Prefix") },
                 iconLeft = {
                     Icon(
@@ -397,7 +431,11 @@ private fun LargeLocked() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Large,
-                state = OraTextFieldState.Locked(),
+                state = OraTextFieldState.Locked("Caption Text", onClickLockedAction = {
+                    // Do nothing
+                }),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = { Text("Prefix") },
                 iconLeft = {
                     Icon(
@@ -431,6 +469,9 @@ private fun MediumEnabled() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Medium,
+                label = "Label Text",
+                state = OraTextFieldState.Default("Caption Text"),
+                hint = "Hint Text",
                 prefix = {
                     Text("Prefix")
                 },
@@ -463,6 +504,9 @@ private fun MediumDisabled() {
                 onValueChange = {},
                 size = OraTextFieldSize.Medium,
                 enabled = false,
+                label = "Label Text",
+                state = OraTextFieldState.Default("Caption Text"),
+                hint = "Hint Text",
                 prefix = {
                     Text("Prefix")
                 },
@@ -494,7 +538,9 @@ private fun MediumError() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Medium,
-                state = OraTextFieldState.Error(),
+                state = OraTextFieldState.Error("Caption Text"),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = {
                     Text("Prefix")
                 },
@@ -524,7 +570,9 @@ private fun MediumDefault() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Medium,
-                state = OraTextFieldState.Default(),
+                state = OraTextFieldState.Default("Caption Text"),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = { Text("Prefix") },
                 iconLeft = {
                     Icon(
@@ -556,7 +604,9 @@ private fun MediumSuccess() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Medium,
-                state = OraTextFieldState.Success(),
+                state = OraTextFieldState.Success("Caption Text"),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = { Text("Prefix") },
                 iconLeft = {
                     Icon(
@@ -588,7 +638,11 @@ private fun MediumLocked() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Medium,
-                state = OraTextFieldState.Locked(),
+                state = OraTextFieldState.Locked("Caption Text", onClickLockedAction = {
+                    // Do nothing
+                }),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = { Text("Prefix") },
                 iconLeft = {
                     Icon(
@@ -622,6 +676,9 @@ private fun SmallEnabled() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Small,
+                label = "Label Text",
+                state = OraTextFieldState.Default("Caption Text"),
+                hint = "Hint Text",
                 prefix = {
                     Text("Prefix")
                 },
@@ -654,6 +711,9 @@ private fun SmallDisabled() {
                 onValueChange = {},
                 size = OraTextFieldSize.Small,
                 enabled = false,
+                label = "Label Text",
+                state = OraTextFieldState.Default("Caption Text"),
+                hint = "Hint Text",
                 prefix = {
                     Text("Prefix")
                 },
@@ -685,7 +745,9 @@ private fun SmallError() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Small,
-                state = OraTextFieldState.Error(),
+                state = OraTextFieldState.Error("Caption Text"),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = {
                     Text("Prefix")
                 },
@@ -715,7 +777,9 @@ private fun SmallDefault() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Small,
-                state = OraTextFieldState.Default(),
+                state = OraTextFieldState.Default("Caption Text"),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = { Text("Prefix") },
                 iconLeft = {
                     Icon(
@@ -747,7 +811,9 @@ private fun SmallSuccess() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Small,
-                state = OraTextFieldState.Success(),
+                state = OraTextFieldState.Success("Caption Text"),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = { Text("Prefix") },
                 iconLeft = {
                     Icon(
@@ -779,7 +845,11 @@ private fun SmallLocked() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Small,
-                state = OraTextFieldState.Locked(),
+                state = OraTextFieldState.Locked("Caption Text", onClickLockedAction = {
+                    // Do nothing
+                }),
+                label = "Label Text",
+                hint = "Hint Text",
                 prefix = { Text("Prefix") },
                 iconLeft = {
                     Icon(

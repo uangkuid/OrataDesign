@@ -10,5 +10,9 @@ sealed class OraTextFieldState(open val caption: String? = null) {
     data class Default(override val caption: String? = null) : OraTextFieldState(caption)
     data class Success(override val caption: String? = null) : OraTextFieldState(caption)
     data class Error(override val caption: String? = null) : OraTextFieldState(caption)
-    data class Locked(override val caption: String? = null) : OraTextFieldState(caption)
+    data class Locked(
+        override val caption: String? = null,
+        val lockedActionText: String = "Change",
+        val onClickLockedAction: (() -> Unit)
+    ) : OraTextFieldState(caption)
 }

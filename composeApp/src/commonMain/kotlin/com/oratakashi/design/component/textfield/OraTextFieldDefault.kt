@@ -24,7 +24,7 @@ object OraTextFieldDefault {
         borderColor: Color = OrataTheme.colors.outline,
         disabledBorderColor: Color = OrataTheme.colors.outlineVariant,
         errorColor: Color = OrataTheme.colors.error,
-        successColor: Color = OrataTheme.colors.primary,
+        successColor: Color = OrataTheme.colors.success,
         focusColor: Color = OrataTheme.colors.primary,
         placeholderColor: Color = OrataTheme.colors.onSurfaceVariant,
     ): OraTextFieldColors {

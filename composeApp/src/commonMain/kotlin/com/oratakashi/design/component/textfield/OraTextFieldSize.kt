@@ -15,6 +15,7 @@ enum class OraTextFieldSize(
     val textFieldFont: OraTypographyKeyToken,
     val prefixFont: OraTypographyKeyToken,
     val suffixFont: OraTypographyKeyToken,
+    val lockedActionFont: OraTypographyKeyToken,
     val contentPaddingValues: PaddingValues,
     val contentGap: Dp,
     val minHeight: Dp,
@@ -26,6 +27,7 @@ enum class OraTextFieldSize(
         textFieldFont = OraTypographyKeyToken.BodyLarge,
         prefixFont = OraTypographyKeyToken.BodyLarge,
         suffixFont = OraTypographyKeyToken.BodyLarge,
+        lockedActionFont = OraTypographyKeyToken.BodyLarge,
         contentPaddingValues = PaddingValues(
             vertical = 8.dp,
             horizontal = 16.dp,
@@ -40,6 +42,7 @@ enum class OraTextFieldSize(
         textFieldFont = OraTypographyKeyToken.BodyMedium,
         prefixFont = OraTypographyKeyToken.BodyMedium,
         suffixFont = OraTypographyKeyToken.BodyMedium,
+        lockedActionFont = OraTypographyKeyToken.BodyMedium,
         contentPaddingValues = PaddingValues(
             vertical = 8.dp,
             horizontal = 14.dp,
@@ -54,6 +57,7 @@ enum class OraTextFieldSize(
         textFieldFont = OraTypographyKeyToken.BodySmall,
         prefixFont = OraTypographyKeyToken.BodySmall,
         suffixFont = OraTypographyKeyToken.BodySmall,
+        lockedActionFont = OraTypographyKeyToken.BodySmall,
         contentPaddingValues = PaddingValues(
             vertical = 8.dp,
             horizontal = 8.dp,

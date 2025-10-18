@@ -86,7 +86,7 @@ internal fun OraTextFieldContainer(
         }
     }
 
-    val decoratedCaption: @Composable (() -> Unit)? = if (state is OraTextFieldState.Default && state.caption != null) {
+    val decoratedCaption: @Composable (() -> Unit)? = if ((state is OraTextFieldState.Default || state is OraTextFieldState.Locked) && state.caption != null) {
         @Composable {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -99,7 +99,7 @@ internal fun OraTextFieldContainer(
                         .width(12.dp)
                         .height(12.dp)
                 )
-                Text(text = state.caption)
+                Text(text = state.caption.orEmpty())
             }
         }
     } else null

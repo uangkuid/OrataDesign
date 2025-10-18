@@ -141,81 +141,85 @@ fun OraTextField(
         Modifier.heightIn(min = size.minHeightTextArea)
     }
 
-    Row(
-        modifier = modifier
-            .background(
-                color = when {
-                    !enabled || state == OraTextFieldState.Locked() -> colors.disabledContainerColor
-                    else -> colors.containerColor
-                },
-                shape = RoundedCornerShape(16.dp)
-            )
-            .border(
-                width = if (isFocus) 2.dp else 1.dp,
-                color = when {
-                    state == OraTextFieldState.Error() -> colors.errorColor
-                    state == OraTextFieldState.Success() -> colors.successColor
-                    isFocus -> colors.focusColor
-                    !enabled || state == OraTextFieldState.Locked() -> colors.disabledBorderColor
-                    else -> colors.borderColor
-                },
-                shape = RoundedCornerShape(16.dp)
-            )
-            .padding(
-                paddingValues = size.contentPaddingValues
-            )
-            .then(heightModifier),
-        verticalAlignment = verticalAlignment
+    OraTextFieldContainer(
+        label = label,
+        hint = hint,
+        state = state
     ) {
-        if (decoratedPrefix != null) {
-            decoratedPrefix()
-            Spacer(modifier = Modifier.size(size.contentGap))
-            VerticalDivider(
-                modifier = Modifier.height(size.iconSize)
-            )
-            Spacer(modifier = Modifier.size(size.contentGap))
-        }
-
-        if (decoratedIconLeft != null) {
-            decoratedIconLeft()
-            Spacer(modifier = Modifier.size(size.contentGap))
-        }
-
-        BasicTextField(
-            modifier = Modifier.weight(1f),
-            value = value,
-            onValueChange = onValueChange,
-            singleLine = singleLine,
-            textStyle = size.textFieldFont.toTextStyle().copy(color = colors.contentColor),
-            cursorBrush = SolidColor(colors.focusColor),
-            interactionSource = interactionSource,
-            enabled = enabled,
-            keyboardOptions = keyboardOptions,
-            keyboardActions = keyboardActions,
-            maxLines = maxLines,
-            minLines = minLines,
-            visualTransformation = visualTransformation
-        ) { innerTextField ->
-            Box {
-                if (value.isBlank()) {
-                    decoratedPlaceholder()
-                }
-                innerTextField()
+        Row(
+            modifier = modifier
+                .background(
+                    color = when {
+                        !enabled || state == OraTextFieldState.Locked() -> colors.disabledContainerColor
+                        else -> colors.containerColor
+                    },
+                    shape = RoundedCornerShape(16.dp)
+                )
+                .border(
+                    width = if (isFocus) 2.dp else 1.dp,
+                    color = when {
+                        state == OraTextFieldState.Error() -> colors.errorColor
+                        state == OraTextFieldState.Success() -> colors.successColor
+                        isFocus -> colors.focusColor
+                        !enabled || state == OraTextFieldState.Locked() -> colors.disabledBorderColor
+                        else -> colors.borderColor
+                    },
+                    shape = RoundedCornerShape(16.dp)
+                )
+                .padding(paddingValues = size.contentPaddingValues)
+                .then(heightModifier),
+            verticalAlignment = verticalAlignment
+        ) {
+            if (decoratedPrefix != null) {
+                decoratedPrefix()
+                Spacer(modifier = Modifier.size(size.contentGap))
+                VerticalDivider(
+                    modifier = Modifier.height(size.iconSize)
+                )
+                Spacer(modifier = Modifier.size(size.contentGap))
             }
-        }
 
-        if (decoratedIconRight != null) {
-            Spacer(modifier = Modifier.size(size.contentGap))
-            decoratedIconRight()
-        }
+            if (decoratedIconLeft != null) {
+                decoratedIconLeft()
+                Spacer(modifier = Modifier.size(size.contentGap))
+            }
 
-        if (decoratedSuffix != null) {
-            Spacer(modifier = Modifier.size(size.contentGap))
-            VerticalDivider(
-                modifier = Modifier.height(size.iconSize)
-            )
-            Spacer(modifier = Modifier.size(size.contentGap))
-            decoratedSuffix()
+            BasicTextField(
+                modifier = Modifier.weight(1f),
+                value = value,
+                onValueChange = onValueChange,
+                singleLine = singleLine,
+                textStyle = size.textFieldFont.toTextStyle().copy(color = colors.contentColor),
+                cursorBrush = SolidColor(colors.focusColor),
+                interactionSource = interactionSource,
+                enabled = enabled,
+                keyboardOptions = keyboardOptions,
+                keyboardActions = keyboardActions,
+                maxLines = maxLines,
+                minLines = minLines,
+                visualTransformation = visualTransformation
+            ) { innerTextField ->
+                Box {
+                    if (value.isBlank()) {
+                        decoratedPlaceholder()
+                    }
+                    innerTextField()
+                }
+            }
+
+            if (decoratedIconRight != null) {
+                Spacer(modifier = Modifier.size(size.contentGap))
+                decoratedIconRight()
+            }
+
+            if (decoratedSuffix != null) {
+                Spacer(modifier = Modifier.size(size.contentGap))
+                VerticalDivider(
+                    modifier = Modifier.height(size.iconSize)
+                )
+                Spacer(modifier = Modifier.size(size.contentGap))
+                decoratedSuffix()
+            }
         }
     }
 }
@@ -233,6 +237,9 @@ private fun LargeEnabled() {
                 value = "",
                 onValueChange = {},
                 size = OraTextFieldSize.Large,
+                label = "Label Text",
+                state = OraTextFieldState.Default("Caption Text"),
+                hint = "Hint Text",
                 prefix = {
                     Text("Prefix")
                 },

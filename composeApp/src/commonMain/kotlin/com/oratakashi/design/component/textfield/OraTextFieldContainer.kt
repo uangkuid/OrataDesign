@@ -208,7 +208,7 @@ private fun OraTextFieldContainerImpl(
     }
 
     Column(
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         if (decoratedLabel != null) {
             decoratedLabel()

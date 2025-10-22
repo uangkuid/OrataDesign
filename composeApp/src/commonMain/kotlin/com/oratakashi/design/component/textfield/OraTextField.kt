@@ -52,6 +52,7 @@ fun OraTextField(
     onValueChange: (String) -> Unit,
     label: String? = null,
     hint: String? = null,
+    required: Boolean = false,
     colors: OraTextFieldColors = OraTextFieldDefault.textFieldColor(),
     state: OraTextFieldState = OraTextFieldState.Default(),
     size: OraTextFieldSize = OraTextFieldSize.Large,
@@ -162,6 +163,7 @@ fun OraTextField(
     }
 
     OraTextFieldContainer(
+        required = required,
         label = label,
         hint = hint,
         state = state

@@ -30,7 +30,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
     showBackground = true
 )
 @Composable
-fun ButtonScreen(
+internal fun ButtonScreen(
     modifier: Modifier = Modifier
 ) {
     val tabs = listOf("Basic", "State", "Size")

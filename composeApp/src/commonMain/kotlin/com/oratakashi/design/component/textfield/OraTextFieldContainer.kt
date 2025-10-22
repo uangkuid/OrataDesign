@@ -3,6 +3,8 @@ package com.oratakashi.design.component.textfield
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
@@ -33,11 +35,18 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
  */
 @Composable
 internal fun OraTextFieldContainer(
+    required: Boolean = false,
     state: OraTextFieldState = OraTextFieldState.Default(),
     label: String? = null,
     hint: String? = null,
     content: @Composable () -> Unit
 ) {
+    val decooratedRequired: @Composable (() -> Unit)? = if (required) {
+        @Composable {
+            Text(text = "*")
+        }
+    } else null
+
     val decoratedLabel: @Composable (() -> Unit)? = label?.let {
         @Composable {
             Text(text = it)
@@ -105,6 +114,7 @@ internal fun OraTextFieldContainer(
     } else null
 
     OraTextFieldContainerImpl(
+        required = decooratedRequired,
         label = decoratedLabel,
         error = decoratedError,
         success = decoratedSuccess,
@@ -145,6 +155,7 @@ internal fun OraTextFieldContainer(
  */
 @Composable
 private fun OraTextFieldContainerImpl(
+    required: @Composable (() -> Unit)?,
     label: @Composable (() -> Unit)?,
     error: @Composable (() -> Unit)?,
     success: @Composable (() -> Unit)?,
@@ -157,6 +168,17 @@ private fun OraTextFieldContainerImpl(
             OraProvideTextStyle(
                 OrataTheme.colors.onSurface,
                 OrataTheme.typography.bodyLarge()
+            ) {
+                it()
+            }
+        }
+    }
+
+    val decoratedRequired: @Composable (() -> Unit)? = required?.let {
+        @Composable {
+            OraProvideTextStyle(
+                OrataTheme.colors.error,
+                OrataTheme.typography.bodySmall()
             ) {
                 it()
             }
@@ -211,7 +233,16 @@ private fun OraTextFieldContainerImpl(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         if (decoratedLabel != null) {
-            decoratedLabel()
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                decoratedLabel()
+                if (decoratedRequired != null) {
+                    decoratedRequired()
+                }
+            }
         }
 
         content()
@@ -236,6 +267,7 @@ private fun OraTextFieldContainerImpl(
     }
 }
 
+// ===== Error Group =====
 @Preview(showBackground = true, name = "Error", group = "Container")
 @Composable
 private fun ContainerError() {
@@ -276,5 +308,19 @@ private fun ContainerCaption() {
             Text(text = "TextField Content")
         }
     }
+}
 
+@Preview(showBackground = true, name = "Required", group = "Container")
+@Composable
+private fun ContainerRequired() {
+    OrataAppTheme {
+        OraTextFieldContainer(
+            required = true,
+            state = OraTextFieldState.Default(caption = "Required field caption"),
+            label = "Label",
+            hint = "Hint message"
+        ) {
+            Text(text = "TextField Content")
+        }
+    }
 }

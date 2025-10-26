@@ -179,13 +179,11 @@ fun OraTextField(
                 )
                 .border(
                     width = if (isFocus) 2.dp else 1.dp,
-                    color = when {
-                        state is OraTextFieldState.Error -> colors.errorColor
-                        state is OraTextFieldState.Success -> colors.successColor
-                        isFocus -> colors.focusColor
-                        !enabled || state is OraTextFieldState.Locked -> colors.disabledBorderColor
-                        else -> colors.borderColor
-                    },
+                    color = colors.borderColor(
+                        state = state,
+                        enabled = enabled,
+                        focus = isFocus
+                    ).value,
                     shape = RoundedCornerShape(16.dp)
                 )
                 .padding(paddingValues = size.contentPaddingValues)

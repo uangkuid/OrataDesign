@@ -20,7 +20,7 @@ internal fun ComponentSection(
 ) {
     Column(
         modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.End,
+        horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(13.dp)
     ) {
         Text(

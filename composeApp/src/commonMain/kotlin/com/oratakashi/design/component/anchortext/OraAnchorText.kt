@@ -2,19 +2,36 @@ package com.oratakashi.design.component.anchortext
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import com.oratakashi.design.foundation.OrataAppTheme
-import com.oratakashi.design.component.anchortext.OraAnchorTextSize
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
+import com.oratakashi.design.foundation.OrataAppTheme
+import com.oratakashi.design.foundation.OrataTheme
+import com.oratakashi.design.foundation.typography.OraProvideTextStyle
+import com.oratakashi.design.foundation.typography.toTextStyle
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.ArrowLeft
 import compose.icons.feathericons.ArrowRight
@@ -26,13 +43,72 @@ fun OraAnchorText(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    underline: Boolean = false,
     colors: OraAnchorTextColor = OraAnchorTextDefaults.colors(),
     size: OraAnchorTextSize = OraAnchorTextSize.Large,
     iconLeft: @Composable (() -> Unit)? = null,
     iconRight: @Composable (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val isPressed by interactionSource.collectIsPressedAsState()
+    Surface(
+        onClick = onClick,
+        modifier = modifier.semantics { role = Role.Button },
+        enabled = enabled,
+        contentColor = colors.contentColor(enabled = enabled).value,
+        interactionSource = interactionSource,
+        shape = MaterialTheme.shapes.large
+    ) {
+        val contentColors = colors.contentColor(enabled).value
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(OraAnchorTextDefaults.ICON_SPACER),
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .padding(all = 8.dp)
+                .then(
+                    if (underline) {
+                        Modifier.drawBehind {
+                            val strokeWidth = 1.3.dp.toPx()
+                            val y = this.size.height - strokeWidth / 2
+                            drawLine(
+                                color = contentColors,
+                                start = Offset(0f, y),
+                                end = Offset(this.size.width, y),
+                                strokeWidth = strokeWidth
+                            )
+                        }
+                    } else Modifier
+                )
+                .padding(bottom = 4.dp)
+        ) {
+            if (iconLeft != null) {
+                Box(
+                    modifier = Modifier
+                        .heightIn(0.dp, size.iconSize)
+                        .widthIn(0.dp, size.iconSize),
+                ) {
+                    iconLeft()
+                }
+            }
+
+            OraProvideTextStyle(
+                color = colors.contentColor(enabled).value,
+                textStyle = size.labelTextFont.toTextStyle()
+            ) {
+                Text(text)
+            }
+
+
+            if (iconRight != null) {
+                Box(
+                    modifier = Modifier
+                        .heightIn(0.dp, size.iconSize)
+                        .widthIn(0.dp, size.iconSize),
+                ) {
+                    iconRight()
+                }
+            }
+        }
+    }
 }
 
 @Preview(showBackground = true, name = "Enabled", group = "Large")
@@ -46,14 +122,18 @@ private fun LargeEnabledPreview() {
                 text = "Anchor Text",
                 onClick = {},
                 size = OraAnchorTextSize.Large,
-                iconLeft = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
-                    contentDescription = null
-                ) },
-                iconRight = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowRight),
-                    contentDescription = null
-                ) }
+                iconLeft = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
+                        contentDescription = null
+                    )
+                },
+                iconRight = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowRight),
+                        contentDescription = null
+                    )
+                }
             )
         }
     }
@@ -64,21 +144,25 @@ private fun LargeEnabledPreview() {
 private fun LargeDisabledPreview() {
     OrataAppTheme {
         Column(
-            modifier = Modifier.fillMaxWidth().padding(16.dp)
+            modifier = Modifier.padding(16.dp)
         ) {
             OraAnchorText(
                 text = "Anchor Text",
                 onClick = {},
                 size = OraAnchorTextSize.Large,
                 enabled = false,
-                iconLeft = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
-                    contentDescription = null
-                ) },
-                iconRight = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowRight),
-                    contentDescription = null
-                ) }
+                iconLeft = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
+                        contentDescription = null
+                    )
+                },
+                iconRight = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowRight),
+                        contentDescription = null
+                    )
+                }
             )
         }
     }
@@ -95,14 +179,18 @@ private fun MediumEnabledPreview() {
                 text = "Anchor Text",
                 onClick = {},
                 size = OraAnchorTextSize.Medium,
-                iconLeft = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
-                    contentDescription = null
-                ) },
-                iconRight = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowRight),
-                    contentDescription = null
-                ) }
+                iconLeft = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
+                        contentDescription = null
+                    )
+                },
+                iconRight = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowRight),
+                        contentDescription = null
+                    )
+                }
             )
         }
     }
@@ -120,14 +208,18 @@ private fun MediumDisabledPreview() {
                 onClick = {},
                 size = OraAnchorTextSize.Medium,
                 enabled = false,
-                iconLeft = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
-                    contentDescription = null
-                ) },
-                iconRight = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowRight),
-                    contentDescription = null
-                ) }
+                iconLeft = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
+                        contentDescription = null
+                    )
+                },
+                iconRight = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowRight),
+                        contentDescription = null
+                    )
+                }
             )
         }
     }
@@ -144,14 +236,18 @@ private fun SmallEnabledPreview() {
                 text = "Anchor Text",
                 onClick = {},
                 size = OraAnchorTextSize.Small,
-                iconLeft = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
-                    contentDescription = null
-                ) },
-                iconRight = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowRight),
-                    contentDescription = null
-                ) }
+                iconLeft = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
+                        contentDescription = null
+                    )
+                },
+                iconRight = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowRight),
+                        contentDescription = null
+                    )
+                }
             )
         }
     }
@@ -169,14 +265,18 @@ private fun SmallDisabledPreview() {
                 onClick = {},
                 size = OraAnchorTextSize.Small,
                 enabled = false,
-                iconLeft = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
-                    contentDescription = null
-                ) },
-                iconRight = { Icon(
-                    painter = rememberVectorPainter(FeatherIcons.ArrowRight),
-                    contentDescription = null
-                ) }
+                iconLeft = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
+                        contentDescription = null
+                    )
+                },
+                iconRight = {
+                    Icon(
+                        painter = rememberVectorPainter(FeatherIcons.ArrowRight),
+                        contentDescription = null
+                    )
+                }
             )
         }
     }

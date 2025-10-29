@@ -10,12 +10,15 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.oratakashi.design.app.models.Constant
 import com.oratakashi.design.app.models.TypographyData
 import com.oratakashi.design.foundation.OrataTheme
+import com.oratakashi.design.foundation.typography.OraTypographyKeyToken
+import com.oratakashi.design.foundation.typography.toTextStyle
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Preview(
@@ -26,11 +29,11 @@ internal fun TypographyScreen(
     modifier: Modifier = Modifier
 ) {
     // use constant lists directly (they are static) and avoid calling @Composable remember here
-    val displayItems = Constant.displayItems()
-    val headlineItems = Constant.headlineItems()
-    val titleItems = Constant.titleItems()
-    val labelItems = Constant.labelItems()
-    val bodyItems = Constant.bodyItems()
+    val displayItems = remember { Constant.displayItems() }
+    val headlineItems = remember { Constant.headlineItems() }
+    val titleItems = remember { Constant.titleItems() }
+    val labelItems = remember { Constant.labelItems() }
+    val bodyItems = remember { Constant.bodyItems() }
 
     LazyColumn(
         modifier = modifier,
@@ -120,7 +123,7 @@ internal fun TypographyScreen(
 internal fun TypographyItem(
     data: TypographyData = TypographyData(
         title = "Display Large",
-        style = OrataTheme.typography.displayLarge(),
+        style = OraTypographyKeyToken.DisplayLarge,
         name = "Display",
         size = "Large",
         font = "Montserrat",
@@ -134,7 +137,7 @@ internal fun TypographyItem(
     ) {
         Text(
             text = data.title,
-            style = data.style,
+            style = data.style.toTextStyle(),
         )
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -149,7 +152,10 @@ internal fun TypographyItem(
             Text(text = "•", style = OrataTheme.typography.bodyMedium())
             Text(text = data.font, style = OrataTheme.typography.bodyMedium())
             Text(text = "•", style = OrataTheme.typography.bodyMedium())
-            Text(text = "${data.lineHeight}/${data.letterSpacing}", style = OrataTheme.typography.bodyMedium())
+            Text(
+                text = "${data.lineHeight}/${data.letterSpacing}",
+                style = OrataTheme.typography.bodyMedium()
+            )
         }
     }
 }

@@ -5,9 +5,11 @@ import com.oratakashi.design.app.icons.AnchorTextIcon
 import com.oratakashi.design.app.icons.ButtonIcon
 import com.oratakashi.design.app.icons.TextFieldIcon
 import com.oratakashi.design.app.models.TypographyData
+import com.oratakashi.design.app.navigation.AnchorTextNavigation
 import com.oratakashi.design.app.navigation.ButtonNavigation
 import com.oratakashi.design.app.navigation.TextFieldNavigation
 import com.oratakashi.design.foundation.OrataTheme
+import com.oratakashi.design.foundation.typography.OraTypographyKeyToken
 import oratadesign.composeapp.generated.resources.Res
 import oratadesign.composeapp.generated.resources.ic_button_icon
 
@@ -27,7 +29,7 @@ internal object Constant {
         ComponentData(
             title = "AnchorText",
             image = AnchorTextIcon,
-            navigation = TextFieldNavigation
+            navigation = AnchorTextNavigation
         ),
     )
 
@@ -227,11 +229,10 @@ internal object Constant {
         )
     )
 
-    @Composable
     fun displayItems(): List<TypographyData> = listOf(
         TypographyData(
             "Display Large",
-            OrataTheme.typography.displayLarge(),
+            OraTypographyKeyToken.DisplayLarge,
             "Display",
             "Large",
             "Montserrat",
@@ -240,7 +241,7 @@ internal object Constant {
         ),
         TypographyData(
             "Display Medium",
-            OrataTheme.typography.displayMedium(),
+            OraTypographyKeyToken.DisplayMedium,
             "Display",
             "Medium",
             "Montserrat",
@@ -249,7 +250,7 @@ internal object Constant {
         ),
         TypographyData(
             "Display Small",
-            OrataTheme.typography.displaySmall(),
+            OraTypographyKeyToken.DisplaySmall,
             "Display",
             "Small",
             "Montserrat",
@@ -258,11 +259,10 @@ internal object Constant {
         )
     )
 
-    @Composable
     fun headlineItems(): List<TypographyData> = listOf(
         TypographyData(
             "Headline Large",
-            OrataTheme.typography.headlineLarge(),
+            OraTypographyKeyToken.HeadlineLarge,
             "Headline",
             "Large",
             "Poppins",
@@ -271,7 +271,7 @@ internal object Constant {
         ),
         TypographyData(
             "Headline Medium",
-            OrataTheme.typography.headlineMedium(),
+            OraTypographyKeyToken.HeadlineMedium,
             "Headline",
             "Medium",
             "Poppins",
@@ -280,7 +280,7 @@ internal object Constant {
         ),
         TypographyData(
             "Headline Small",
-            OrataTheme.typography.headlineSmall(),
+            OraTypographyKeyToken.HeadlineSmall,
             "Headline",
             "Small",
             "Poppins",
@@ -289,11 +289,10 @@ internal object Constant {
         )
     )
 
-    @Composable
     fun titleItems(): List<TypographyData> = listOf(
         TypographyData(
             "Title Large",
-            OrataTheme.typography.titleLarge(),
+            OraTypographyKeyToken.TitleLarge,
             "Title",
             "Large",
             "Poppins",
@@ -302,7 +301,7 @@ internal object Constant {
         ),
         TypographyData(
             "Title Medium",
-            OrataTheme.typography.titleMedium(),
+            OraTypographyKeyToken.TitleMedium,
             "Title",
             "Medium",
             "Poppins",
@@ -311,7 +310,7 @@ internal object Constant {
         ),
         TypographyData(
             "Title Small",
-            OrataTheme.typography.titleSmall(),
+            OraTypographyKeyToken.TitleSmall,
             "Title",
             "Small",
             "Poppins",
@@ -320,11 +319,10 @@ internal object Constant {
         )
     )
 
-    @Composable
     fun labelItems(): List<TypographyData> = listOf(
         TypographyData(
             "Label Large",
-            OrataTheme.typography.labelLarge(),
+            OraTypographyKeyToken.LabelLarge,
             "Label",
             "Large",
             "Poppins",
@@ -333,7 +331,7 @@ internal object Constant {
         ),
         TypographyData(
             "Label Medium",
-            OrataTheme.typography.labelMedium(),
+            OraTypographyKeyToken.LabelMedium,
             "Label",
             "Medium",
             "Poppins",
@@ -342,7 +340,7 @@ internal object Constant {
         ),
         TypographyData(
             "Label Small",
-            OrataTheme.typography.labelSmall(),
+            OraTypographyKeyToken.LabelSmall,
             "Label",
             "Small",
             "Poppins",
@@ -351,11 +349,10 @@ internal object Constant {
         )
     )
 
-    @Composable
     fun bodyItems(): List<TypographyData> = listOf(
         TypographyData(
             "Body Large",
-            OrataTheme.typography.bodyLarge(),
+            OraTypographyKeyToken.BodyLarge,
             "Body",
             "Large",
             "Poppins",
@@ -364,7 +361,7 @@ internal object Constant {
         ),
         TypographyData(
             "Body Medium",
-            OrataTheme.typography.bodyMedium(),
+            OraTypographyKeyToken.BodyMedium,
             "Body",
             "Medium",
             "Poppins",
@@ -373,7 +370,7 @@ internal object Constant {
         ),
         TypographyData(
             "Body Small",
-            OrataTheme.typography.bodySmall(),
+            OraTypographyKeyToken.BodySmall,
             "Body",
             "Small",
             "Poppins",

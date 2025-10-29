@@ -28,10 +28,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.oratakashi.design.app.navigation.AnchorTextNavigation
 import com.oratakashi.design.app.navigation.ButtonNavigation
 import com.oratakashi.design.app.navigation.ComponentListNavigation
 import com.oratakashi.design.app.navigation.ComponentNavigation
 import com.oratakashi.design.app.navigation.TextFieldNavigation
+import com.oratakashi.design.app.ui.anchortext.AnchorTextScreen
 import com.oratakashi.design.app.ui.button.ButtonScreen
 import com.oratakashi.design.app.ui.component_list.ComponentListScreen
 import com.oratakashi.design.app.ui.textfield.TextFieldScreen
@@ -118,6 +120,13 @@ internal fun ComponentScreen(
 
                     composable<TextFieldNavigation> {
                         TextFieldScreen(
+                            modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
+                                .fillMaxSize()
+                        )
+                    }
+
+                    composable<AnchorTextNavigation> {
+                        AnchorTextScreen(
                             modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
                                 .fillMaxSize()
                         )

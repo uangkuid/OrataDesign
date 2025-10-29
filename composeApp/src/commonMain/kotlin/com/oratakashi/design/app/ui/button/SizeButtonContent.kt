@@ -14,7 +14,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Preview(showBackground = true)
 @Composable
-fun SizeButtonContent() {
+internal fun SizeButtonContent() {
     LazyColumn(
         contentPadding = PaddingValues(
             horizontal = 16.dp

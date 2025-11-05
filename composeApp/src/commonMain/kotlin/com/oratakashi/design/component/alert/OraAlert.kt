@@ -1,5 +1,6 @@
 package com.oratakashi.design.component.alert
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,6 +28,7 @@ import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.oratakashi.design.component.anchortext.OraAnchorText
+import com.oratakashi.design.component.anchortext.OraAnchorTextDefaults
 import com.oratakashi.design.foundation.OrataAppTheme
 import com.oratakashi.design.foundation.OrataTheme
 import com.oratakashi.design.foundation.typography.OraProvideTextStyle
@@ -110,8 +112,8 @@ fun OraAlert(
                 .alertOutline(
                     outlineColor = colors.borderColor,
                     surfaceColor = colors.containerColor,
-                    startOffset = 5.dp,
-                    outlineWidth = 2.dp,
+                    startOffset = 8.dp,
+                    outlineWidth = 1.dp,
                     radius = 4.dp
                 )
                 .padding(16.dp)
@@ -149,6 +151,106 @@ fun OraAlert(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun OraSuccessAlert(
+    title: String,
+    modifier: Modifier = Modifier,
+    description: String = "",
+    visible: Boolean = true,
+    showCloseIcon: Boolean = true,
+    onClose: (() -> Unit)? = null,
+    action: (@Composable () -> Unit)? = null,
+    icon: (@Composable () -> Unit)? = OraAlertDefaults.IconSuccess
+) {
+    AnimatedVisibility(visible = visible) {
+        OraAlert(
+            title = { Text(title) },
+            icon = icon,
+            modifier = modifier,
+            description = { Text(description) },
+            showCloseIcon = showCloseIcon,
+            onClose = onClose,
+            action = action,
+            colors = OraAlertDefaults.successColors()
+        )
+    }
+}
+
+@Composable
+fun OraInfoAlert(
+    title: String,
+    modifier: Modifier = Modifier,
+    description: String = "",
+    visible: Boolean = true,
+    showCloseIcon: Boolean = true,
+    onClose: (() -> Unit)? = null,
+    action: (@Composable () -> Unit)? = null,
+    icon: (@Composable () -> Unit)? = OraAlertDefaults.IconInfo
+) {
+    AnimatedVisibility(visible = visible) {
+        OraAlert(
+            title = { Text(title) },
+            icon = icon,
+            modifier = modifier,
+            description = { Text(description) },
+            showCloseIcon = showCloseIcon,
+            onClose = onClose,
+            action = action,
+            colors = OraAlertDefaults.infoColors()
+        )
+    }
+}
+
+@Composable
+fun OraWarningAlert(
+    title: String,
+    modifier: Modifier = Modifier,
+    description: String = "",
+    visible: Boolean = true,
+    showCloseIcon: Boolean = true,
+    onClose: (() -> Unit)? = null,
+    action: (@Composable () -> Unit)? = null,
+    icon: (@Composable () -> Unit)? = OraAlertDefaults.IconWarning
+) {
+    AnimatedVisibility(visible = visible) {
+        OraAlert(
+            title = { Text(title) },
+            icon = icon,
+            modifier = modifier,
+            description = { Text(description) },
+            showCloseIcon = showCloseIcon,
+            onClose = onClose,
+            action = action,
+            colors = OraAlertDefaults.warningColors()
+        )
+    }
+}
+
+@Composable
+fun OraErrorAlert(
+    title: String,
+    modifier: Modifier = Modifier,
+    description: String = "",
+    visible: Boolean = true,
+    showCloseIcon: Boolean = true,
+    onClose: (() -> Unit)? = null,
+    action: (@Composable () -> Unit)? = null,
+    icon: (@Composable () -> Unit)? = OraAlertDefaults.IconError
+) {
+    AnimatedVisibility(visible = visible) {
+        OraAlert(
+            title = { Text(title) },
+            icon = icon,
+            modifier = modifier,
+            description = { Text(description) },
+            showCloseIcon = showCloseIcon,
+            onClose = onClose,
+            action = action,
+            colors = OraAlertDefaults.errorColors()
+        )
     }
 }
 
@@ -199,6 +301,90 @@ fun PreviewAlert() {
                     onClick = { },
                 )
             },
+        )
+    }
+}
+
+@Preview(showBackground = true, name = "Success", group = "Alert")
+@Composable
+private fun PreviewSuccessAlert() {
+    OrataAppTheme {
+        OraSuccessAlert(
+            title = "Success Alert",
+            description = "This is a success alert.",
+            visible = true,
+            showCloseIcon = true,
+            onClose = {},
+            action = {
+                OraAnchorText(
+                    text = "Action",
+                    onClick = {},
+                    colors = OraAnchorTextDefaults.colors(contentColor = OrataTheme.colors.success)
+                )
+            }
+        )
+    }
+}
+
+@Preview(showBackground = true, name = "Info", group = "Alert")
+@Composable
+private fun PreviewInfoAlert() {
+    OrataAppTheme {
+        OraInfoAlert(
+            title = "Info Alert",
+            description = "This is an info alert.",
+            visible = true,
+            showCloseIcon = true,
+            onClose = {},
+            action = {
+                OraAnchorText(
+                    text = "Action",
+                    onClick = {},
+                    colors = OraAnchorTextDefaults.colors(contentColor = OrataTheme.colors.info)
+                )
+            }
+        )
+    }
+}
+
+@Preview(showBackground = true, name = "Warning", group = "Alert")
+@Composable
+private fun PreviewWarningAlert() {
+    OrataAppTheme {
+        OraWarningAlert(
+            title = "Warning Alert",
+            description = "This is a warning alert.",
+            visible = true,
+            showCloseIcon = true,
+            onClose = {},
+            action = {
+                OraAnchorText(
+                    text = "Action",
+                    onClick = {},
+                    colors = OraAnchorTextDefaults.colors(contentColor = OrataTheme.colors.warning)
+                )
+            }
+        )
+    }
+}
+
+@Preview(showBackground = true, name = "Error", group = "Alert")
+@Composable
+private fun PreviewErrorAlert() {
+    OrataAppTheme {
+        OraErrorAlert(
+            title = "Error Alert",
+            description = "This is an error alert.",
+            visible = true,
+            showCloseIcon = true,
+            onClose = {},
+            action = {
+                OraAnchorText(
+                    text = "Action",
+                    onClick = {},
+                    colors = OraAnchorTextDefaults.colors(contentColor = OrataTheme.colors.error)
+                )
+            }
         )
     }
 }

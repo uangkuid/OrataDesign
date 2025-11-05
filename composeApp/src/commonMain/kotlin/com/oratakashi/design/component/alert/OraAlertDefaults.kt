@@ -1,8 +1,15 @@
 package com.oratakashi.design.component.alert
 
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import com.oratakashi.design.foundation.OrataTheme
+import oratadesign.composeapp.generated.resources.Res
+import oratadesign.composeapp.generated.resources.ic_alert_triangle_filled
+import oratadesign.composeapp.generated.resources.ic_circle_check_filled
+import oratadesign.composeapp.generated.resources.ic_circle_x_filled
+import oratadesign.composeapp.generated.resources.ic_info_circle_filled
+import org.jetbrains.compose.resources.painterResource
 
 /**
  * OraAlertDefaults is an object that provides default values and configurations for [OraAlert] components.
@@ -60,7 +67,7 @@ object OraAlertDefaults {
         contentColor: Color = OrataTheme.colors.onSurface,
         borderColor: Color = OrataTheme.colors.onSuccessContainer,
         containerIconColor: Color = OrataTheme.colors.onSuccessContainer,
-        contentIconColor: Color = OrataTheme.colors.onSurface,
+        contentIconColor: Color = OrataTheme.colors.surface,
         actionColor: Color = OrataTheme.colors.onSuccessContainer,
     ): OraAlertColors {
         return OraAlertColors(
@@ -91,7 +98,7 @@ object OraAlertDefaults {
         contentColor: Color = OrataTheme.colors.onSurface,
         borderColor: Color = OrataTheme.colors.onInfoContainer,
         containerIconColor: Color = OrataTheme.colors.onInfoContainer,
-        contentIconColor: Color = OrataTheme.colors.onSurface,
+        contentIconColor: Color = OrataTheme.colors.surface,
         actionColor: Color = OrataTheme.colors.onInfoContainer,
     ): OraAlertColors {
         return OraAlertColors(
@@ -122,7 +129,7 @@ object OraAlertDefaults {
         contentColor: Color = OrataTheme.colors.onSurface,
         borderColor: Color = OrataTheme.colors.onWarningContainer,
         containerIconColor: Color = OrataTheme.colors.onWarningContainer,
-        contentIconColor: Color = OrataTheme.colors.onSurface,
+        contentIconColor: Color = OrataTheme.colors.surface,
         actionColor: Color = OrataTheme.colors.onWarningContainer,
     ): OraAlertColors {
         return OraAlertColors(
@@ -153,7 +160,7 @@ object OraAlertDefaults {
         contentColor: Color = OrataTheme.colors.onSurface,
         borderColor: Color = OrataTheme.colors.onErrorContainer,
         containerIconColor: Color = OrataTheme.colors.onErrorContainer,
-        contentIconColor: Color = OrataTheme.colors.onSurface,
+        contentIconColor: Color = OrataTheme.colors.surface,
         actionColor: Color = OrataTheme.colors.onErrorContainer,
     ): OraAlertColors {
         return OraAlertColors(
@@ -165,4 +172,56 @@ object OraAlertDefaults {
             actionColor = actionColor
         )
     }
+
+    /**
+     * IconSuccess provides a default success icon for the alert component.
+     * @author oratakashi
+     * @since 05 Nov 2025
+     */
+    val IconSuccess
+        get() = @Composable {
+            Icon(
+                painter = painterResource(Res.drawable.ic_circle_check_filled),
+                contentDescription = "success",
+            )
+        }
+
+    /**
+     * IconInfo provides a default info icon for the alert component.
+     * @author oratakashi
+     * @since 05 Nov 2025
+     */
+    val IconInfo
+        get() = @Composable {
+            Icon(
+                painter = painterResource(Res.drawable.ic_info_circle_filled),
+                contentDescription = "info",
+            )
+        }
+
+    /**
+     * IconWarning provides a default warning icon for the alert component.
+     * @author oratakashi
+     * @since 05 Nov 2025
+     */
+    val IconWarning
+        get() = @Composable {
+            Icon(
+                painter = painterResource(Res.drawable.ic_alert_triangle_filled),
+                contentDescription = "warning",
+            )
+        }
+
+    /**
+     * IconError provides a default error icon for the alert component.
+     * @author oratakashi
+     * @since 05 Nov 2025
+     */
+    val IconError
+        get() = @Composable {
+            Icon(
+                painter = painterResource(Res.drawable.ic_circle_x_filled),
+                contentDescription = "error",
+            )
+        }
 }

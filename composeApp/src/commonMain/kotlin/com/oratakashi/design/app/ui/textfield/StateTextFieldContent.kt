@@ -9,6 +9,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.oratakashi.design.app.component.ComponentSection
 import com.oratakashi.design.component.textfield.OraTextField
@@ -22,12 +25,15 @@ fun StateTextFieldContent() {
         contentPadding = PaddingValues(
             horizontal = 16.dp
         ),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        modifier = Modifier
+            .testTag("TextFieldContent_State")
     ) {
         item(
             key = "default_state"
         ) {
             val textState = remember { mutableStateOf("") }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Default State"
@@ -39,7 +45,9 @@ fun StateTextFieldContent() {
                     },
                     label = "Label",
                     placeholder = "Placeholder",
-                    state = OraTextFieldState.Default("Information")
+                    state = OraTextFieldState.Default("Information"),
+                    focusRequester = focusRequester,
+                    testTag = "TextField_State_Default"
                 )
             }
         }
@@ -48,6 +56,7 @@ fun StateTextFieldContent() {
             key = "error_state"
         ) {
             val textState = remember { mutableStateOf("") }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Error State"
@@ -59,7 +68,9 @@ fun StateTextFieldContent() {
                     },
                     label = "Label",
                     placeholder = "Placeholder",
-                    state = OraTextFieldState.Error("Information")
+                    state = OraTextFieldState.Error("Information"),
+                    focusRequester = focusRequester,
+                    testTag = "TextField_State_Error"
                 )
             }
         }
@@ -68,6 +79,7 @@ fun StateTextFieldContent() {
             key = "success_state"
         ) {
             val textState = remember { mutableStateOf("") }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Success State"
@@ -79,7 +91,9 @@ fun StateTextFieldContent() {
                     },
                     label = "Label",
                     placeholder = "Placeholder",
-                    state = OraTextFieldState.Success("Information")
+                    state = OraTextFieldState.Success("Information"),
+                    focusRequester = focusRequester,
+                    testTag = "TextField_State_Success"
                 )
             }
         }
@@ -100,7 +114,8 @@ fun StateTextFieldContent() {
                     label = "Label",
                     placeholder = "Placeholder",
                     state = OraTextFieldState.Default("Information"),
-                    enabled = false
+                    enabled = false,
+                    testTag = "TextField_State_Disabled"
                 )
             }
         }
@@ -110,6 +125,7 @@ fun StateTextFieldContent() {
         ) {
             val textState = remember { mutableStateOf("Locked Value") }
             var isLocked by remember { mutableStateOf(true) }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Locked State"
@@ -132,6 +148,8 @@ fun StateTextFieldContent() {
                     } else {
                         OraTextFieldState.Default("Information")
                     },
+                    focusRequester = focusRequester,
+                    testTag = "TextField_State_Locked"
                 )
             }
         }

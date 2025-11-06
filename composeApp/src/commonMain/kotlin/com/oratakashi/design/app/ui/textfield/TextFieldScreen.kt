@@ -20,6 +20,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,7 +28,7 @@ import com.oratakashi.design.foundation.OrataTheme
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 internal fun TextFieldScreen(
     modifier: Modifier = Modifier
@@ -76,7 +77,9 @@ internal fun TextFieldScreen(
                             else
                                 OrataTheme.colors.onSurfaceVariant
                         )
-                    }
+                    },
+                    modifier = Modifier
+                        .testTag("TextFieldTab_$title")
                 )
             }
         }

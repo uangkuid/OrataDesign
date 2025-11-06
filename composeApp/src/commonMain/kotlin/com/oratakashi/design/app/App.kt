@@ -17,6 +17,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.testTag
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -77,7 +78,9 @@ fun App() {
                             icon = {
                                 Icon(painterResource(screen.icon), contentDescription = null)
                             },
-                            label = { Text(screen.title()) }
+                            label = { Text(screen.title()) },
+                            modifier = Modifier
+                                .testTag("NavigationBarItem_${screen.title()}")
                         )
                     }
                 }

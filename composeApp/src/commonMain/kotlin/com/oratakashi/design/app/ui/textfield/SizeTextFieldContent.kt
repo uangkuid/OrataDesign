@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.unit.dp
 import com.oratakashi.design.app.component.ComponentSection
 import com.oratakashi.design.component.textfield.OraTextField
@@ -27,6 +28,7 @@ fun SizeTextFieldContent() {
             key = "size_small"
         ) {
             val textState = remember { mutableStateOf("") }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Size Small"
@@ -39,7 +41,9 @@ fun SizeTextFieldContent() {
                     label = "Label",
                     placeholder = "Placeholder",
                     size = OraTextFieldSize.Small,
-                    state = OraTextFieldState.Default("Information")
+                    state = OraTextFieldState.Default("Information"),
+                    focusRequester = focusRequester,
+                    testTag = "TextField_Size_Small"
                 )
             }
         }
@@ -48,6 +52,7 @@ fun SizeTextFieldContent() {
             key = "size_medium"
         ) {
             val textState = remember { mutableStateOf("") }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Size Medium"
@@ -60,7 +65,9 @@ fun SizeTextFieldContent() {
                     label = "Label",
                     placeholder = "Placeholder",
                     size = OraTextFieldSize.Medium,
-                    state = OraTextFieldState.Default("Information")
+                    state = OraTextFieldState.Default("Information"),
+                    focusRequester = focusRequester,
+                    testTag = "TextField_Size_Medium"
                 )
             }
         }
@@ -69,6 +76,7 @@ fun SizeTextFieldContent() {
             key = "size_large"
         ) {
             val textState = remember { mutableStateOf("") }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Size Large"
@@ -81,7 +89,9 @@ fun SizeTextFieldContent() {
                     label = "Label",
                     placeholder = "Placeholder",
                     size = OraTextFieldSize.Large,
-                    state = OraTextFieldState.Default("Information")
+                    state = OraTextFieldState.Default("Information"),
+                    focusRequester = focusRequester,
+                    testTag = "TextField_Size_Large"
                 )
             }
         }

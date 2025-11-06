@@ -4,12 +4,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.unit.dp
 import com.oratakashi.design.app.component.ComponentSection
 import com.oratakashi.design.component.textfield.OraTextField
@@ -31,6 +30,7 @@ fun BasicTextFieldContent(
             key = "basic_textfield"
         ) {
             val textState = remember { mutableStateOf("") }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Basic Textfield"
@@ -42,7 +42,9 @@ fun BasicTextFieldContent(
                     },
                     modifier = modifier
                         .fillMaxWidth(),
-                    placeholder = "Placeholder"
+                    placeholder = "Placeholder",
+                    focusRequester = focusRequester,
+                    testTag = "TextField_Basic"
                 )
             }
         }
@@ -51,6 +53,7 @@ fun BasicTextFieldContent(
             key = "label_textfield"
         ) {
             val textState = remember { mutableStateOf("") }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Textfield with Label"
@@ -63,7 +66,9 @@ fun BasicTextFieldContent(
                     },
                     modifier = modifier
                         .fillMaxWidth(),
-                    placeholder = "Placeholder"
+                    placeholder = "Placeholder",
+                    focusRequester = focusRequester,
+                    testTag = "TextField_Label"
                 )
             }
         }
@@ -72,6 +77,7 @@ fun BasicTextFieldContent(
             key = "caption_textfield"
         ) {
             val textState = remember { mutableStateOf("") }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Textfield with Caption"
@@ -85,7 +91,9 @@ fun BasicTextFieldContent(
                     modifier = modifier
                         .fillMaxWidth(),
                     placeholder = "Placeholder",
-                    state = OraTextFieldState.Default("Information")
+                    state = OraTextFieldState.Default("Information"),
+                    focusRequester = focusRequester,
+                    testTag = "TextField_Caption"
                 )
             }
         }
@@ -94,6 +102,7 @@ fun BasicTextFieldContent(
             key = "required_textfield"
         ) {
             val textState = remember { mutableStateOf("") }
+            val focusRequester = remember { FocusRequester() }
 
             ComponentSection(
                 "Required Textfield"
@@ -108,7 +117,9 @@ fun BasicTextFieldContent(
                         .fillMaxWidth(),
                     placeholder = "Placeholder",
                     state = OraTextFieldState.Default("Information"),
-                    required = true
+                    required = true,
+                    focusRequester = focusRequester,
+                    testTag = "TextField_Required"
                 )
             }
         }

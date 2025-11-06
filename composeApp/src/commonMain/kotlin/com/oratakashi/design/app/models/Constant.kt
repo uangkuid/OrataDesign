@@ -1,6 +1,7 @@
 package com.oratakashi.design.app.models
 
 import androidx.compose.runtime.Composable
+import com.oratakashi.design.app.icons.AlertIcon
 import com.oratakashi.design.app.icons.AnchorTextIcon
 import com.oratakashi.design.app.icons.ButtonIcon
 import com.oratakashi.design.app.icons.TextFieldIcon
@@ -31,6 +32,11 @@ internal object Constant {
             image = AnchorTextIcon,
             navigation = AnchorTextNavigation
         ),
+        ComponentData(
+            title = "Alert",
+            image = AlertIcon,
+            navigation = AnchorTextNavigation
+        )
     )
 
     @Composable

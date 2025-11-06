@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.oratakashi.design.app.icons.ButtonIcon
@@ -53,7 +54,8 @@ fun ComponentListScreen(
                 component = component,
                 onClick = {
                     navController?.navigate(it.navigation?.route.orEmpty())
-                }
+                },
+                modifier = Modifier.testTag("Component_${component.title}")
             )
         }
     }
@@ -66,10 +68,11 @@ private fun CardComponent(
         title = "Card Title",
         image = ButtonIcon
     ),
-    onClick: (ComponentData) -> Unit = { _ -> }
+    onClick: (ComponentData) -> Unit = { _ -> },
+    modifier: Modifier = Modifier
 ) {
     Card (
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clickable(enabled = true) {
                 onClick(component)

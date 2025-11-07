@@ -6,6 +6,7 @@ import com.oratakashi.design.app.icons.AnchorTextIcon
 import com.oratakashi.design.app.icons.ButtonIcon
 import com.oratakashi.design.app.icons.TextFieldIcon
 import com.oratakashi.design.app.models.TypographyData
+import com.oratakashi.design.app.navigation.AlertNavigation
 import com.oratakashi.design.app.navigation.AnchorTextNavigation
 import com.oratakashi.design.app.navigation.ButtonNavigation
 import com.oratakashi.design.app.navigation.TextFieldNavigation
@@ -35,7 +36,7 @@ internal object Constant {
         ComponentData(
             title = "Alert",
             image = AlertIcon,
-            navigation = AnchorTextNavigation
+            navigation = AlertNavigation
         )
     )
 

@@ -95,7 +95,7 @@ internal fun OrataDesignColorScheme.toMaterialDarkColorScheme(): ColorScheme {
     )
 }
 
-internal fun ColorScheme.toOrataDesignColorScheme(): OrataDesignColorScheme {
+internal fun ColorScheme.toOrataDesignColorScheme(isDark: Boolean): OrataDesignColorScheme {
     return object: OrataDesignColorScheme {
         override val primary: Color = this@toOrataDesignColorScheme.primary
         override val onPrimary: Color = this@toOrataDesignColorScheme.onPrimary
@@ -132,17 +132,17 @@ internal fun ColorScheme.toOrataDesignColorScheme(): OrataDesignColorScheme {
         override val scrim: Color = this@toOrataDesignColorScheme.scrim
         override val background: Color = this@toOrataDesignColorScheme.background
         override val onBackground: Color = this@toOrataDesignColorScheme.onBackground
-        override val warning: Color = OraPaletteTokens.warningLight
-        override val onWarning: Color = OraPaletteTokens.onWarningLight
-        override val warningContainer: Color = OraPaletteTokens.warningContainerLight
-        override val onWarningContainer: Color = OraPaletteTokens.onWarningContainerLight
-        override val success: Color = OraPaletteTokens.successLight
-        override val onSuccess: Color = OraPaletteTokens.onSuccessLight
-        override val successContainer: Color = OraPaletteTokens.successContainerLight
-        override val onSuccessContainer: Color = OraPaletteTokens.onSuccessContainerLight
-        override val info: Color = OraPaletteTokens.infoLight
-        override val onInfo: Color = OraPaletteTokens.onInfoLight
-        override val infoContainer: Color = OraPaletteTokens.infoContainerLight
-        override val onInfoContainer: Color = OraPaletteTokens.onInfoContainerLight
+        override val warning: Color = if (isDark) OraPaletteTokens.warningDark else OraPaletteTokens.warningLight
+        override val onWarning: Color = if (isDark) OraPaletteTokens.onWarningDark else OraPaletteTokens.onWarningLight
+        override val warningContainer: Color = if (isDark) OraPaletteTokens.warningContainerDark else OraPaletteTokens.warningContainerLight
+        override val onWarningContainer: Color = if (isDark) OraPaletteTokens.onWarningContainerDark else OraPaletteTokens.onWarningContainerLight
+        override val success: Color = if (isDark) OraPaletteTokens.successDark else OraPaletteTokens.successLight
+        override val onSuccess: Color = if (isDark) OraPaletteTokens.onSuccessDark else OraPaletteTokens.onSuccessLight
+        override val successContainer: Color = if (isDark) OraPaletteTokens.successContainerDark else OraPaletteTokens.successContainerLight
+        override val onSuccessContainer: Color = if (isDark) OraPaletteTokens.onSuccessContainerDark else OraPaletteTokens.onSuccessContainerLight
+        override val info: Color = if (isDark) OraPaletteTokens.infoDark else OraPaletteTokens.infoLight
+        override val onInfo: Color = if (isDark) OraPaletteTokens.onInfoDark else OraPaletteTokens.onInfoLight
+        override val infoContainer: Color = if (isDark) OraPaletteTokens.infoContainerDark else OraPaletteTokens.infoContainerLight
+        override val onInfoContainer: Color = if (isDark) OraPaletteTokens.onInfoContainerDark else OraPaletteTokens.onInfoContainerLight
     }
 }

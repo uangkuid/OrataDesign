@@ -1,6 +1,8 @@
 package com.oratakashi.design.component.alert
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -165,7 +167,11 @@ fun OraSuccessAlert(
     action: (@Composable () -> Unit)? = null,
     icon: (@Composable () -> Unit)? = OraAlertDefaults.IconSuccess
 ) {
-    AnimatedVisibility(visible = visible) {
+    AnimatedVisibility(
+        visible = visible,
+        enter = fadeIn(),
+        exit = fadeOut()
+    ) {
         OraAlert(
             title = { Text(title) },
             icon = icon,
@@ -190,7 +196,11 @@ fun OraInfoAlert(
     action: (@Composable () -> Unit)? = null,
     icon: (@Composable () -> Unit)? = OraAlertDefaults.IconInfo
 ) {
-    AnimatedVisibility(visible = visible) {
+    AnimatedVisibility(
+        visible = visible,
+        enter = fadeIn(),
+        exit = fadeOut()
+    ) {
         OraAlert(
             title = { Text(title) },
             icon = icon,
@@ -215,7 +225,11 @@ fun OraWarningAlert(
     action: (@Composable () -> Unit)? = null,
     icon: (@Composable () -> Unit)? = OraAlertDefaults.IconWarning
 ) {
-    AnimatedVisibility(visible = visible) {
+    AnimatedVisibility(
+        visible = visible,
+        enter = fadeIn(),
+        exit = fadeOut()
+    ) {
         OraAlert(
             title = { Text(title) },
             icon = icon,
@@ -240,7 +254,11 @@ fun OraErrorAlert(
     action: (@Composable () -> Unit)? = null,
     icon: (@Composable () -> Unit)? = OraAlertDefaults.IconError
 ) {
-    AnimatedVisibility(visible = visible) {
+    AnimatedVisibility(
+        visible = visible,
+        enter = fadeIn(),
+        exit = fadeOut()
+    ) {
         OraAlert(
             title = { Text(title) },
             icon = icon,
@@ -305,7 +323,31 @@ fun PreviewAlert() {
     }
 }
 
-@Preview(showBackground = true, name = "Success", group = "Alert")
+@Preview
+@Composable
+fun PreviewAlertDark() {
+    OrataAppTheme(darkTheme = true) {
+        OraAlert(
+            title = { Text("Title") },
+            description = { Text("Description") },
+            icon = {
+                Icon(vectorResource(Res.drawable.ic_alert_triangle_filled), null)
+            },
+            showCloseIcon = true,
+            onClose = {
+
+            },
+            action = {
+                OraAnchorText(
+                    text = "Action",
+                    onClick = { },
+                )
+            },
+        )
+    }
+}
+
+@Preview( name = "Success", group = "Success")
 @Composable
 private fun PreviewSuccessAlert() {
     OrataAppTheme {
@@ -326,7 +368,28 @@ private fun PreviewSuccessAlert() {
     }
 }
 
-@Preview(showBackground = true, name = "Info", group = "Alert")
+@Preview( name = "Success Dark", group = "Success")
+@Composable
+private fun PreviewSuccessAlertDark() {
+    OrataAppTheme(darkTheme = true) {
+        OraSuccessAlert(
+            title = "Success Alert",
+            description = "This is a success alert.",
+            visible = true,
+            showCloseIcon = true,
+            onClose = {},
+            action = {
+                OraAnchorText(
+                    text = "Action",
+                    onClick = {},
+                    colors = OraAnchorTextDefaults.colors(contentColor = OrataTheme.colors.success)
+                )
+            }
+        )
+    }
+}
+
+@Preview( name = "Info", group = "Info")
 @Composable
 private fun PreviewInfoAlert() {
     OrataAppTheme {
@@ -347,7 +410,28 @@ private fun PreviewInfoAlert() {
     }
 }
 
-@Preview(showBackground = true, name = "Warning", group = "Alert")
+@Preview( name = "Info Dark", group = "Info")
+@Composable
+private fun PreviewInfoAlertDark() {
+    OrataAppTheme(darkTheme = true) {
+        OraInfoAlert(
+            title = "Info Alert",
+            description = "This is an info alert.",
+            visible = true,
+            showCloseIcon = true,
+            onClose = {},
+            action = {
+                OraAnchorText(
+                    text = "Action",
+                    onClick = {},
+                    colors = OraAnchorTextDefaults.colors(contentColor = OrataTheme.colors.info)
+                )
+            }
+        )
+    }
+}
+
+@Preview( name = "Warning", group = "Warning")
 @Composable
 private fun PreviewWarningAlert() {
     OrataAppTheme {
@@ -368,10 +452,52 @@ private fun PreviewWarningAlert() {
     }
 }
 
-@Preview(showBackground = true, name = "Error", group = "Alert")
+@Preview( name = "Warning Dark", group = "Warning")
+@Composable
+private fun PreviewWarningAlertDark() {
+    OrataAppTheme(darkTheme = true) {
+        OraWarningAlert(
+            title = "Warning Alert",
+            description = "This is a warning alert.",
+            visible = true,
+            showCloseIcon = true,
+            onClose = {},
+            action = {
+                OraAnchorText(
+                    text = "Action",
+                    onClick = {},
+                    colors = OraAnchorTextDefaults.colors(contentColor = OrataTheme.colors.warning)
+                )
+            }
+        )
+    }
+}
+
+@Preview( name = "Error", group = "Error")
 @Composable
 private fun PreviewErrorAlert() {
     OrataAppTheme {
+        OraErrorAlert(
+            title = "Error Alert",
+            description = "This is an error alert.",
+            visible = true,
+            showCloseIcon = true,
+            onClose = {},
+            action = {
+                OraAnchorText(
+                    text = "Action",
+                    onClick = {},
+                    colors = OraAnchorTextDefaults.colors(contentColor = OrataTheme.colors.error)
+                )
+            }
+        )
+    }
+}
+
+@Preview( name = "Error Dark", group = "Error")
+@Composable
+private fun PreviewErrorAlertDark() {
+    OrataAppTheme(darkTheme = true) {
         OraErrorAlert(
             title = "Error Alert",
             description = "This is an error alert.",

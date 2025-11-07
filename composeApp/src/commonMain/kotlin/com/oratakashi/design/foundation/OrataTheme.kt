@@ -57,7 +57,7 @@ fun OrataAppTheme(
     // Remember color scheme to avoid recreation on every recomposition
     val actualColorScheme = remember(darkTheme, colorScheme, dynamicColorScheme) {
         if (dynamicColorScheme != null && dynamicColor) {
-            dynamicColorScheme.toOrataDesignColorScheme()
+            dynamicColorScheme.toOrataDesignColorScheme(isDark = darkTheme)
         } else {
             colorScheme ?: if (darkTheme) darkOraColorScheme() else lightOraColorScheme()
         }

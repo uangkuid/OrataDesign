@@ -1,5 +1,6 @@
 package com.oratakashi.design.app.ui.alert
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -45,11 +46,11 @@ fun AlertScreen(
         modifier = modifier
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(23.dp)
     ) {
         // Tabs Section
         PrimaryTabRow(
             selectedTabIndex = selectedTabIndex,
+            modifier = Modifier.background(Color.Blue),
             indicator = {
                 // Use the integer overload of tabIndicatorOffset to position the indicator by index
                 TabRowDefaults.PrimaryIndicator(
@@ -85,13 +86,13 @@ fun AlertScreen(
 
         HorizontalPager(
             state = pagerState,
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.weight(1f),
             verticalAlignment = Alignment.Top
         ) {
             when(it) {
                 0 -> ThemeAlertContent()
-                1 -> StateButtonContent()
-                else -> SizeButtonContent()
+                1 -> VariantAlertContent()
+                else -> VariantAlertContent()
             }
         }
     }

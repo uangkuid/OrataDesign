@@ -38,11 +38,6 @@ import oratadesign.composeapp.generated.resources.ic_component
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-sealed class Screen(val route: String, val title: String) {
-    object Foundation : Screen("foundation", "Foundation")
-    object Component : Screen("component", "Component")
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @Preview

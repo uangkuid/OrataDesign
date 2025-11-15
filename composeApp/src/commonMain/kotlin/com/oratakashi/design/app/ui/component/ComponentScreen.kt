@@ -38,6 +38,7 @@ import com.oratakashi.design.app.ui.alert.AlertScreen
 import com.oratakashi.design.app.ui.anchortext.AnchorTextScreen
 import com.oratakashi.design.app.ui.button.ButtonScreen
 import com.oratakashi.design.app.ui.component_list.ComponentListScreen
+import com.oratakashi.design.app.ui.snackbar.SnackbarScreen
 import com.oratakashi.design.app.ui.textfield.TextFieldScreen
 import com.oratakashi.design.foundation.OrataTheme
 import compose.icons.AllIcons
@@ -139,6 +140,8 @@ internal fun ComponentScreen(
                             modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
                                 .fillMaxSize()
                         )
+//                        SnackbarScreen(modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
+//                            .fillMaxSize())
                     }
                 }
             }

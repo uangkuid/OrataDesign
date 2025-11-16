@@ -10,6 +10,11 @@ import com.oratakashi.design.foundation.OrataTheme
  * @since 16 Nov 2025
  */
 object OraSnackbarDefaults {
+    /**
+     * colors is a function that returns the default colors for the OraSnackbar component.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     fun colors(
         containerColor: Color = OrataTheme.colors.surface,
@@ -27,6 +32,11 @@ object OraSnackbarDefaults {
         actionColor = actionColor,
     )
 
+    /**
+     * themeColors is a function that returns the theme colors for the OraSnackbar component.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     internal fun themeColors(
         containerColor: Color,
@@ -39,4 +49,8 @@ object OraSnackbarDefaults {
         closeIconColor = contentColor,
         actionColor = contentColor,
     )
+
+    const val SnackbarInBetweenDelayMillis = 0
+    const val SnackbarFadeInMillis = 150
+    const val SnackbarFadeOutMillis = 75
 }

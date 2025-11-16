@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 import com.oratakashi.design.foundation.OrataTheme
 
-object AlertIcon : DynamicIcons {
+internal object AlertIcon : DynamicIcons {
     @Composable
     override fun icons(): ImageVector {
         return ImageVector.Builder(

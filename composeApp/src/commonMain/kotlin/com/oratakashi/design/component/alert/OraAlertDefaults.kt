@@ -31,11 +31,6 @@ object OraAlertDefaults {
      * @param actionColor the action color of this alert component
      */
     @Composable
-    /**
-     * colors function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun colors(
         containerColor: Color = OrataTheme.colors.primaryContainer,
         contentColor: Color = OrataTheme.colors.onSurface,
@@ -67,11 +62,6 @@ object OraAlertDefaults {
      * @param actionColor the action color of this alert component
      */
     @Composable
-    /**
-     * successColors function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun successColors(
         containerColor: Color = OrataTheme.colors.successContainer,
         contentColor: Color = OrataTheme.colors.onSurface,
@@ -103,11 +93,6 @@ object OraAlertDefaults {
      * @param actionColor the action color of this alert component
      */
     @Composable
-    /**
-     * infoColors function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun infoColors(
         containerColor: Color = OrataTheme.colors.infoContainer,
         contentColor: Color = OrataTheme.colors.onSurface,
@@ -139,11 +124,6 @@ object OraAlertDefaults {
      * @param actionColor the action color of this alert component
      */
     @Composable
-    /**
-     * warningColors function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun warningColors(
         containerColor: Color = OrataTheme.colors.warningContainer,
         contentColor: Color = OrataTheme.colors.onSurface,
@@ -175,11 +155,6 @@ object OraAlertDefaults {
      * @param actionColor the action color of this alert component
      */
     @Composable
-    /**
-     * errorColors function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun errorColors(
         containerColor: Color = OrataTheme.colors.errorContainer,
         contentColor: Color = OrataTheme.colors.onSurface,

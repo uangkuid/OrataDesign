@@ -24,11 +24,6 @@ object OraButtonDefaults {
      * @return A BorderStroke object with appropriate width and color for the button's state.
      */
     @Composable
-    /**
-     * outlineButtonBorder function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun outlineButtonBorder(isEnable: Boolean): BorderStroke {
         return if (isEnable) {
             BorderStroke(width = OraButtonOutlineToken.OutlineWidth, color = OraButtonOutlineToken.OutlineColor)
@@ -46,11 +41,6 @@ object OraButtonDefaults {
      * @return An OraButtonColors object encapsulating the specified colors for the button's states
      */
     @Composable
-    /**
-     * buttonSolidColors function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun buttonSolidColors(
         containerColor: Color = OraButtonSolidToken.ContainerColor,
         contentColor: Color = OraButtonSolidToken.LabelTextColor,
@@ -72,11 +62,6 @@ object OraButtonDefaults {
      * @return An OraButtonColors object encapsulating the specified colors for the button's states.
      */
     @Composable
-    /**
-     * buttonOutlineColors function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun buttonOutlineColors(
         containerColor: Color = OraButtonOutlineToken.ContainerColor,
         contentColor: Color = OraButtonOutlineToken.LabelTextColor,
@@ -98,11 +83,6 @@ object OraButtonDefaults {
      * @return An OraButtonColors object encapsulating the specified colors for the button's states.
      */
     @Composable
-    /**
-     * buttonTonalColors function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun buttonTonalColors(
         containerColor: Color = OraButtonTonalToken.ContainerColor,
         contentColor: Color = OraButtonTonalToken.LabelTextColor,
@@ -124,11 +104,6 @@ object OraButtonDefaults {
      * @return An OraButtonColors object encapsulating the specified colors for the button's states.
      */
     @Composable
-    /**
-     * buttonTransparentColors function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun buttonTransparentColors(
         containerColor: Color = OraButtonTransparentToken.ContainerColor,
         contentColor: Color = OraButtonTransparentToken.LabelTextColor,

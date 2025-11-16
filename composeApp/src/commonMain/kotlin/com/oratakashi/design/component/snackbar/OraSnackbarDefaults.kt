@@ -16,11 +16,6 @@ object OraSnackbarDefaults {
      * @since 16 Nov 2025
      */
     @Composable
-    /**
-     * colors function for the Orata Design System.
-     * @author oratakashi
-     * @since 16 Nov 2025
-     */
     fun colors(
         containerColor: Color = OrataTheme.colors.surface,
         iconColor: Color = OrataTheme.colors.onSurface,

@@ -45,11 +45,6 @@ internal val LocalOrataTypography = staticCompositionLocalOf<OrataDesignTypograp
  * overriding only the parts of the theme definition that need to change.
  */
 @Composable
-/**
- * OrataAppTheme function for the Orata Design System.
- * @author oratakashi
- * @since 16 Nov 2025
- */
 fun OrataAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     colorScheme: OrataDesignColorScheme? = null, // Made nullable to defer creation

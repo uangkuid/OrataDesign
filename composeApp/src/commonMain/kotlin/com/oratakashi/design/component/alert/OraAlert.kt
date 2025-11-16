@@ -55,11 +55,6 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
  * @param colors An OraAlertColors object that defines the container and content colors of the alert component.
  */
 @Composable
-/**
- * OraAlert function for the Orata Design System.
- * @author oratakashi
- * @since 16 Nov 2025
- */
 fun OraAlert(
     title: @Composable () -> Unit,
     icon: @Composable (() -> Unit)? = null,

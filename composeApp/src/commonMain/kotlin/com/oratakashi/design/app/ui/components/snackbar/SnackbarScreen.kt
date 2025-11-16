@@ -18,6 +18,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.unit.dp
 
 @Composable
+/**
+ * CustomSnackbarHost function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun CustomSnackbarHost(
     hostState: SnackbarHostState,
     modifier: Modifier = Modifier
@@ -75,6 +80,11 @@ fun CustomSnackbarHost(
 @Suppress("DEPRECATION")
 @Preview
 @Composable
+/**
+ * SnackbarScreen function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun SnackbarScreen(
     modifier: Modifier = Modifier
 ) {

@@ -56,6 +56,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
  * @param interactionSource The [MutableInteractionSource] representing the stream of
  */
 @Composable
+/**
+ * OraAnchorText function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun OraAnchorText(
     text: String,
     onClick: () -> Unit,

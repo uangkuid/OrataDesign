@@ -47,8 +47,42 @@ import oratadesign.composeapp.generated.resources.ic_typography
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
+/**
+ * OraTextField is a text field component that follows the design system guidelines.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ * @param modifier The modifier to be applied to this text field
+ * @param value The input text to be shown in the text field
+ * @param onValueChange The callback that is triggered when the input service updates the text
+ * @param label The optional label to be displayed above the text field
+ * @param hint The optional hint text to be displayed below the text field
+ * @param required Whether the field is required
+ * @param colors The colors to be used for this text field
+ * @param state The current state of the text field (Default, Error, Success, etc.)
+ * @param size The size configuration for this text field
+ * @param interactionSource The MutableInteractionSource representing the stream of interactions
+ * @param enabled Controls the enabled state of the text field
+ * @param iconRight The optional icon to be displayed on the right side
+ * @param iconLeft The optional icon to be displayed on the left side
+ * @param prefix The optional prefix to be displayed before the text
+ * @param suffix The optional suffix to be displayed after the text
+ * @param placeholder The placeholder text to be displayed when the text field is empty
+ * @param keyboardOptions Software keyboard options that contain configuration
+ * @param keyboardActions When the input service emits an IME action
+ * @param singleLine When set to true, this text field becomes a single line
+ * @param maxLines The maximum number of lines allowed in the text field
+ * @param minLines The minimum number of lines to show
+ * @param visualTransformation The visual transformation filter for changing the visual representation
+ * @param focusRequester The optional focus requester to control focus
+ * @param testTag The optional test tag for testing purposes
+ */
 @Suppress("UNUSED_PARAMETER")
 @Composable
+/**
+ * OraTextField function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun OraTextField(
     modifier: Modifier = Modifier,
     value: String,

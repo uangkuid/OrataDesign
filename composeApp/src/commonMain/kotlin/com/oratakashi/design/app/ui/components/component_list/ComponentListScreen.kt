@@ -32,6 +32,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
     showBackground = true
 )
 @Composable
+/**
+ * ComponentListScreen function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun ComponentListScreen(
     navController: NavHostController? = null,
     modifier: Modifier = Modifier

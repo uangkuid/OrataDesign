@@ -12,50 +12,130 @@ import com.oratakashi.design.foundation.OrataTheme
  * @since 06 Sep 2025
  */
 @Immutable
+/**
+ * OraTypography provides functionality for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 class OraTypography: OrataDesignTypography {
     @Composable
+    /**
+     * displayLarge function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun displayLarge(): TextStyle = OraTypographyTokens.DisplayLarge
 
     @Composable
+    /**
+     * displayMedium function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun displayMedium(): TextStyle = OraTypographyTokens.DisplayMedium
 
     @Composable
+    /**
+     * displaySmall function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun displaySmall(): TextStyle = OraTypographyTokens.DisplaySmall
 
     @Composable
+    /**
+     * headlineLarge function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun headlineLarge(): TextStyle = OraTypographyTokens.HeadlineLarge
 
     @Composable
+    /**
+     * headlineMedium function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun headlineMedium(): TextStyle = OraTypographyTokens.HeadlineMedium
 
     @Composable
+    /**
+     * headlineSmall function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun headlineSmall(): TextStyle = OraTypographyTokens.HeadlineSmall
 
     @Composable
+    /**
+     * titleLarge function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun titleLarge(): TextStyle = OraTypographyTokens.TitleLarge
 
     @Composable
+    /**
+     * titleMedium function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun titleMedium(): TextStyle = OraTypographyTokens.TitleMedium
 
     @Composable
+    /**
+     * titleSmall function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun titleSmall(): TextStyle = OraTypographyTokens.TitleSmall
 
     @Composable
+    /**
+     * labelLarge function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun labelLarge(): TextStyle = OraTypographyTokens.LabelLarge
 
     @Composable
+    /**
+     * labelMedium function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun labelMedium(): TextStyle = OraTypographyTokens.LabelMedium
 
     @Composable
+    /**
+     * labelSmall function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun labelSmall(): TextStyle = OraTypographyTokens.LabelSmall
 
     @Composable
+    /**
+     * bodyLarge function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun bodyLarge(): TextStyle = OraTypographyTokens.BodyLarge
 
     @Composable
+    /**
+     * bodyMedium function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun bodyMedium(): TextStyle = OraTypographyTokens.BodyMedium
 
     @Composable
+    /**
+     * bodySmall function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun bodySmall(): TextStyle = OraTypographyTokens.BodySmall
 
     /**

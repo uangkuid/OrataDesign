@@ -13,6 +13,11 @@ import androidx.compose.ui.text.TextStyle
  * @since 06 Sep 2025
  */
 @Composable
+/**
+ * OraProvideTextStyle function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun OraProvideTextStyle(
     color: Color,
     textStyle: TextStyle,

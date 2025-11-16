@@ -55,6 +55,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
  * @param colors An OraAlertColors object that defines the container and content colors of the alert component.
  */
 @Composable
+/**
+ * OraAlert function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun OraAlert(
     title: @Composable () -> Unit,
     icon: @Composable (() -> Unit)? = null,
@@ -156,6 +161,19 @@ fun OraAlert(
     }
 }
 
+/**
+ * OraSuccessAlert displays a success-themed alert with animation support.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ * @param title The title text of the alert
+ * @param modifier The modifier to be applied to this alert
+ * @param description The description text of the alert
+ * @param visible Controls the visibility of the alert with fade animation
+ * @param showCloseIcon Whether to show the close icon
+ * @param onClose The callback to be invoked when the close icon is clicked
+ * @param action The optional action composable to be displayed
+ * @param icon The optional icon to be displayed, defaults to success icon
+ */
 @Composable
 fun OraSuccessAlert(
     title: String,
@@ -185,6 +203,19 @@ fun OraSuccessAlert(
     }
 }
 
+/**
+ * OraInfoAlert displays an info-themed alert with animation support.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ * @param title The title text of the alert
+ * @param modifier The modifier to be applied to this alert
+ * @param description The description text of the alert
+ * @param visible Controls the visibility of the alert with fade animation
+ * @param showCloseIcon Whether to show the close icon
+ * @param onClose The callback to be invoked when the close icon is clicked
+ * @param action The optional action composable to be displayed
+ * @param icon The optional icon to be displayed, defaults to info icon
+ */
 @Composable
 fun OraInfoAlert(
     title: String,
@@ -214,6 +245,19 @@ fun OraInfoAlert(
     }
 }
 
+/**
+ * OraWarningAlert displays a warning-themed alert with animation support.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ * @param title The title text of the alert
+ * @param modifier The modifier to be applied to this alert
+ * @param description The description text of the alert
+ * @param visible Controls the visibility of the alert with fade animation
+ * @param showCloseIcon Whether to show the close icon
+ * @param onClose The callback to be invoked when the close icon is clicked
+ * @param action The optional action composable to be displayed
+ * @param icon The optional icon to be displayed, defaults to warning icon
+ */
 @Composable
 fun OraWarningAlert(
     title: String,
@@ -243,6 +287,19 @@ fun OraWarningAlert(
     }
 }
 
+/**
+ * OraErrorAlert displays an error-themed alert with animation support.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ * @param title The title text of the alert
+ * @param modifier The modifier to be applied to this alert
+ * @param description The description text of the alert
+ * @param visible Controls the visibility of the alert with fade animation
+ * @param showCloseIcon Whether to show the close icon
+ * @param onClose The callback to be invoked when the close icon is clicked
+ * @param action The optional action composable to be displayed
+ * @param icon The optional icon to be displayed, defaults to error icon
+ */
 @Composable
 fun OraErrorAlert(
     title: String,
@@ -301,6 +358,11 @@ private fun Modifier.alertOutline(
 
 @Preview
 @Composable
+/**
+ * PreviewAlert function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun PreviewAlert() {
     OrataAppTheme {
         OraAlert(
@@ -325,6 +387,11 @@ fun PreviewAlert() {
 
 @Preview
 @Composable
+/**
+ * PreviewAlertDark function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun PreviewAlertDark() {
     OrataAppTheme(darkTheme = true) {
         OraAlert(

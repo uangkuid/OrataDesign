@@ -202,11 +202,37 @@ fun ColoredBox() {
 
 ## 📖 Documentation
 
-The codebase includes comprehensive KDoc comments for all public APIs. Key documentation locations:
+The codebase includes comprehensive KDoc comments for all public APIs following a consistent format:
 
-- Typography System: `composeApp/src/commonMain/kotlin/com/oratakashi/design/foundation/typography/`
-- Color System: `composeApp/src/commonMain/kotlin/com/oratakashi/design/foundation/color/`
-- Components: `composeApp/src/commonMain/kotlin/com/oratakashi/design/component/`
+```kotlin
+/**
+ * [Function/Class description]
+ * @author oratakashi
+ * @since [Date]
+ * @param [parameter] [parameter description] (if applicable)
+ * @return [return description] (if applicable)
+ */
+```
+
+Key documentation locations:
+
+- **Typography System**: `composeApp/src/commonMain/kotlin/com/oratakashi/design/foundation/typography/`
+  - Complete typography scale with Display, Headline, Title, Label, and Body styles
+  - Font family configurations and text style providers
+  
+- **Color System**: `composeApp/src/commonMain/kotlin/com/oratakashi/design/foundation/color/`
+  - Color schemes for light and dark themes
+  - Palette tokens and color scheme key tokens
+  - Dynamic color support for supported platforms
+  
+- **Components**: `composeApp/src/commonMain/kotlin/com/oratakashi/design/component/`
+  - **Buttons** (`button/`): OraButton, OraTonalButton, OraOutlineButton, OraTransparentButton
+  - **Alerts** (`alert/`): OraAlert, OraSuccessAlert, OraInfoAlert, OraWarningAlert, OraErrorAlert
+  - **Text Fields** (`textfield/`): OraTextField with customizable states and sizes
+  - **Anchor Text** (`anchortext/`): OraAnchorText for interactive text links
+  - **Snackbar** (`snackbar/`): OraSnackbar for temporary notifications
+
+All functions include detailed parameter descriptions and usage examples in the KDoc comments.
 
 ## 🤝 Contributing
 

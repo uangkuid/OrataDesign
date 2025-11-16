@@ -14,6 +14,11 @@ import com.oratakashi.design.foundation.OrataTheme
 
 internal object AlertIcon : DynamicIcons {
     @Composable
+    /**
+     * icons function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun icons(): ImageVector {
         return ImageVector.Builder(
             name = "AlertIcon",

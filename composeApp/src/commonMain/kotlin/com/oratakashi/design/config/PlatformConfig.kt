@@ -9,7 +9,17 @@ import androidx.compose.runtime.Composable
  * @since 06 Sep 2025
  */
 expect object PlatformConfig {
+    /**
+     * isDynamicColorAvailable function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun isDynamicColorAvailable(): Boolean
     @Composable
+    /**
+     * getDynamicColor function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun getDynamicColor(isDark: Boolean): ColorScheme?
 }

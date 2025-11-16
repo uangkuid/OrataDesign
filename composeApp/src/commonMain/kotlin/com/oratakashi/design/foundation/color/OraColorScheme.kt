@@ -59,8 +59,18 @@ data class OraColorScheme(
     override val onInfoContainer: Color = OraPaletteTokens.onInfoContainerLight,
 ): OrataDesignColorScheme
 
+/**
+ * lightOraColorScheme function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun lightOraColorScheme() = OraColorScheme()
 
+/**
+ * darkOraColorScheme function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun darkOraColorScheme() = OraColorScheme(
     primary = OraPaletteTokens.primaryDark,
     onPrimary = OraPaletteTokens.onPrimaryDark,

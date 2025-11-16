@@ -16,6 +16,11 @@ object OraTextFieldDefault {
      * @since 16 Oct 2025
      */
     @Composable
+    /**
+     * textFieldColor function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun textFieldColor(
         containerColor: Color = OrataTheme.colors.surface,
         disabledContainerColor: Color = OrataTheme.colors.surfaceVariant,

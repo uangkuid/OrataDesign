@@ -10,10 +10,20 @@ import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.stringResource
 
 @Serializable
+/**
+ * FoundationNavigation provides functionality for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 object FoundationNavigation : MenuNavigation {
     override val icon: DrawableResource
         get() = Res.drawable.ic_foundation
 
     @Composable
+    /**
+     * title function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun title(): String = stringResource(Res.string.label_foundation)
 }

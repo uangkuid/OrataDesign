@@ -17,6 +17,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Preview(showBackground = true)
 @Composable
+/**
+ * SizeTextFieldContent function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun SizeTextFieldContent() {
     LazyColumn(
         contentPadding = PaddingValues(

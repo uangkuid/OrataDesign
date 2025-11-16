@@ -21,6 +21,11 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 object OrataFontFamily {
     @OptIn(ExperimentalResourceApi::class)
     @Composable
+    /**
+     * poppins function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun poppins() = FontFamily(
         Font(Res.font.poppins_regular, FontWeight.Normal),
         Font(Res.font.poppins_medium, FontWeight.Medium),
@@ -29,6 +34,11 @@ object OrataFontFamily {
 
     @OptIn(ExperimentalResourceApi::class)
     @Composable
+    /**
+     * montserrat function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun montserrat() = FontFamily(
         Font(Res.font.montserrat_regular, FontWeight.Normal),
         Font(Res.font.montserrat_medium, FontWeight.Medium),

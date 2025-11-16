@@ -36,6 +36,18 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
  * OraButton is a Button component that follows the design system guidelines.
  * @author oratakashi
  * @since 16 Oct 2025
+ * @param onClick The callback to be invoked when this button is clicked
+ * @param modifier The modifier to be applied to this button
+ * @param enabled Controls the enabled state of the button
+ * @param loading Controls the loading state showing a progress indicator
+ * @param label The text to be displayed inside the button
+ * @param iconLeft The optional icon to be displayed on the left side
+ * @param iconRight The optional icon to be displayed on the right side
+ * @param style The color configuration for this button
+ * @param size The size configuration for this button
+ * @param borderStroke The optional border stroke for this button
+ * @param contentPadding The padding to be applied to the button content
+ * @param interactionSource The MutableInteractionSource representing the stream of interactions
  */
 @Preview(showBackground = true)
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
@@ -134,6 +146,22 @@ fun OraButton(
     }
 }
 
+/**
+ * OraTonalButton is a tonal variant of OraButton with container colors following the design system guidelines.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ * @param onClick The callback to be invoked when this button is clicked
+ * @param modifier The modifier to be applied to this button
+ * @param enabled Controls the enabled state of the button
+ * @param loading Controls the loading state showing a progress indicator
+ * @param label The text to be displayed inside the button
+ * @param iconLeft The optional icon to be displayed on the left side
+ * @param iconRight The optional icon to be displayed on the right side
+ * @param size The size configuration for this button
+ * @param borderStroke The optional border stroke for this button
+ * @param contentPadding The padding to be applied to the button content
+ * @param interactionSource The MutableInteractionSource representing the stream of interactions
+ */
 @Preview(showBackground = true)
 @Composable
 fun OraTonalButton(
@@ -165,6 +193,21 @@ fun OraTonalButton(
     )
 }
 
+/**
+ * OraOutlineButton is an outlined variant of OraButton with border following the design system guidelines.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ * @param onClick The callback to be invoked when this button is clicked
+ * @param modifier The modifier to be applied to this button
+ * @param enabled Controls the enabled state of the button
+ * @param loading Controls the loading state showing a progress indicator
+ * @param label The text to be displayed inside the button
+ * @param iconLeft The optional icon to be displayed on the left side
+ * @param iconRight The optional icon to be displayed on the right side
+ * @param size The size configuration for this button
+ * @param contentPadding The padding to be applied to the button content
+ * @param interactionSource The MutableInteractionSource representing the stream of interactions
+ */
 @Preview(showBackground = true)
 @Composable
 fun OraOutlineButton(
@@ -195,6 +238,21 @@ fun OraOutlineButton(
     )
 }
 
+/**
+ * OraTransparentButton is a transparent variant of OraButton with no background following the design system guidelines.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ * @param onClick The callback to be invoked when this button is clicked
+ * @param modifier The modifier to be applied to this button
+ * @param enabled Controls the enabled state of the button
+ * @param loading Controls the loading state showing a progress indicator
+ * @param label The text to be displayed inside the button
+ * @param iconLeft The optional icon to be displayed on the left side
+ * @param iconRight The optional icon to be displayed on the right side
+ * @param size The size configuration for this button
+ * @param contentPadding The padding to be applied to the button content
+ * @param interactionSource The MutableInteractionSource representing the stream of interactions
+ */
 @Preview(showBackground = true)
 @Composable
 fun OraTransparentButton(

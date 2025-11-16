@@ -6,4 +6,9 @@ import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.DrawableResource
 
 @Serializable
+/**
+ * ComponentListNavigation provides functionality for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 object ComponentListNavigation: BaseNavigation

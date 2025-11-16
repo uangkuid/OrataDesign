@@ -12,6 +12,11 @@ import kotlin.hashCode
  * @since 16 Nov 2025
  */
 @Stable
+/**
+ * OraSnackbarVisuals provides functionality for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 interface OraSnackbarVisuals {
     val title: String
     val message: String?
@@ -22,6 +27,11 @@ interface OraSnackbarVisuals {
     val theme: OraSnackbarTheme?
 }
 
+/**
+ * OraSnackbarData provides functionality for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 interface OraSnackbarData {
     val visuals: OraSnackbarVisuals
 

@@ -16,6 +16,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Preview(showBackground = true)
 @Composable
+/**
+ * VariantAnchorTextContent function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun VariantAnchorTextContent() {
     LazyColumn(
         contentPadding = PaddingValues(

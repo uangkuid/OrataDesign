@@ -24,6 +24,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Preview(showBackground = true)
 @Composable
+/**
+ * ThemeAlertContent function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun ThemeAlertContent() {
     LazyColumn(
         contentPadding = PaddingValues(

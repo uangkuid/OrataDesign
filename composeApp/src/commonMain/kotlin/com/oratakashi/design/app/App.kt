@@ -30,6 +30,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @Preview
+/**
+ * App function for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 fun App() {
     OrataAppTheme {
         val navController = rememberNavController()

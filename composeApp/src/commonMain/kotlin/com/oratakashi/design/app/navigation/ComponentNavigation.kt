@@ -10,10 +10,20 @@ import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.stringResource
 
 @Serializable
+/**
+ * ComponentNavigation provides functionality for the Orata Design System.
+ * @author oratakashi
+ * @since 16 Nov 2025
+ */
 object ComponentNavigation: MenuNavigation {
     override val icon: DrawableResource
         get() = Res.drawable.ic_component
 
     @Composable
+    /**
+     * title function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     override fun title(): String = stringResource(Res.string.label_component)
 }

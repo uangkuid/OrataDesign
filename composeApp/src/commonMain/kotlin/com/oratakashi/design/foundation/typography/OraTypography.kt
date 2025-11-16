@@ -12,49 +12,131 @@ import com.oratakashi.design.foundation.OrataTheme
  * @since 06 Sep 2025
  */
 @Immutable
+/**
+ * OraTypography provides the complete typography system for the Orata Design System.
+ * It implements OrataDesignTypography interface with predefined text styles for Display, Headline,
+ * Title, Label, and Body variants.
+ * @author oratakashi
+ * @since 06 Sep 2025
+ */
 class OraTypography: OrataDesignTypography {
+    /**
+     * Returns the large display text style (57sp) using Montserrat font.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun displayLarge(): TextStyle = OraTypographyTokens.DisplayLarge
 
+    /**
+     * Returns the medium display text style (45sp) using Montserrat font.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun displayMedium(): TextStyle = OraTypographyTokens.DisplayMedium
 
+    /**
+     * Returns the small display text style (36sp) using Montserrat font.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun displaySmall(): TextStyle = OraTypographyTokens.DisplaySmall
 
+    /**
+     * Returns the large headline text style (32sp) using Poppins font.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun headlineLarge(): TextStyle = OraTypographyTokens.HeadlineLarge
 
+    /**
+     * Returns the medium headline text style (28sp) using Poppins font.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun headlineMedium(): TextStyle = OraTypographyTokens.HeadlineMedium
 
+    /**
+     * Returns the small headline text style (24sp) using Poppins font.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun headlineSmall(): TextStyle = OraTypographyTokens.HeadlineSmall
 
+    /**
+     * Returns the large title text style (22sp) using Poppins font.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun titleLarge(): TextStyle = OraTypographyTokens.TitleLarge
 
+    /**
+     * Returns the medium title text style (16sp) using Poppins font.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun titleMedium(): TextStyle = OraTypographyTokens.TitleMedium
 
+    /**
+     * Returns the small title text style (14sp) using Poppins font.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun titleSmall(): TextStyle = OraTypographyTokens.TitleSmall
 
+    /**
+     * Returns the large label text style for UI components.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun labelLarge(): TextStyle = OraTypographyTokens.LabelLarge
 
+    /**
+     * Returns the medium label text style for UI components.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun labelMedium(): TextStyle = OraTypographyTokens.LabelMedium
 
+    /**
+     * Returns the small label text style for UI components.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun labelSmall(): TextStyle = OraTypographyTokens.LabelSmall
 
+    /**
+     * Returns the large body text style for content.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun bodyLarge(): TextStyle = OraTypographyTokens.BodyLarge
 
+    /**
+     * Returns the medium body text style for content.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun bodyMedium(): TextStyle = OraTypographyTokens.BodyMedium
 
+    /**
+     * Returns the small body text style for content.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     @Composable
     override fun bodySmall(): TextStyle = OraTypographyTokens.BodySmall
 

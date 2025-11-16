@@ -17,6 +17,11 @@ import oratadesign.composeapp.generated.resources.ic_button_icon
 
 internal object Constant {
     @Composable
+    /**
+     * componentList function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun componentList(): List<ComponentData> = listOf(
         ComponentData(
             title = "Button",
@@ -41,6 +46,11 @@ internal object Constant {
     )
 
     @Composable
+    /**
+     * primaryColors function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun primaryColors(): List<ColorData> = listOf(
         ColorData(
             name = "Primary",
@@ -69,6 +79,11 @@ internal object Constant {
     )
 
     @Composable
+    /**
+     * secondaryColors function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun secondaryColors(): List<ColorData> = listOf(
         ColorData(
             name = "Secondary",
@@ -97,6 +112,11 @@ internal object Constant {
     )
 
     @Composable
+    /**
+     * tertiaryColors function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun tertiaryColors(): List<ColorData> = listOf(
         ColorData(
             name = "Tertiary",
@@ -125,6 +145,11 @@ internal object Constant {
     )
 
     @Composable
+    /**
+     * errorColors function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun errorColors(): List<ColorData> = listOf(
         ColorData(
             name = "Error",
@@ -153,6 +178,11 @@ internal object Constant {
     )
 
     @Composable
+    /**
+     * surfaceColors function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun surfaceColors(): List<ColorData> = listOf(
         ColorData(
             name = "Surface Dim",
@@ -175,6 +205,11 @@ internal object Constant {
     )
 
     @Composable
+    /**
+     * surfaceContainerColors function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun surfaceContainerColors(): List<ColorData> = listOf(
         ColorData(
             name = "Surf. Container Lowest",
@@ -209,6 +244,11 @@ internal object Constant {
     )
 
     @Composable
+    /**
+     * outlineColors function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun outlineColors(): List<ColorData> = listOf(
         ColorData(
             name = "On Surface",
@@ -236,6 +276,11 @@ internal object Constant {
         )
     )
 
+    /**
+     * displayItems function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun displayItems(): List<TypographyData> = listOf(
         TypographyData(
             "Display Large",
@@ -266,6 +311,11 @@ internal object Constant {
         )
     )
 
+    /**
+     * headlineItems function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun headlineItems(): List<TypographyData> = listOf(
         TypographyData(
             "Headline Large",
@@ -296,6 +346,11 @@ internal object Constant {
         )
     )
 
+    /**
+     * titleItems function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun titleItems(): List<TypographyData> = listOf(
         TypographyData(
             "Title Large",
@@ -326,6 +381,11 @@ internal object Constant {
         )
     )
 
+    /**
+     * labelItems function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun labelItems(): List<TypographyData> = listOf(
         TypographyData(
             "Label Large",
@@ -356,6 +416,11 @@ internal object Constant {
         )
     )
 
+    /**
+     * bodyItems function for the Orata Design System.
+     * @author oratakashi
+     * @since 16 Nov 2025
+     */
     fun bodyItems(): List<TypographyData> = listOf(
         TypographyData(
             "Body Large",

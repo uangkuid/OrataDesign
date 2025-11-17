@@ -51,6 +51,6 @@ object OraSnackbarDefaults {
     )
 
     const val SnackbarInBetweenDelayMillis = 0
-    const val SnackbarFadeInMillis = 150
-    const val SnackbarFadeOutMillis = 75
+    const val SnackbarSlideInMillis = 150
+    const val SnackbarSlideOutMillis = 75
 }

@@ -13,9 +13,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
@@ -25,6 +27,7 @@ import androidx.navigation.NavHostController
 import com.oratakashi.design.app.icons.ButtonIcon
 import com.oratakashi.design.app.models.ComponentData
 import com.oratakashi.design.app.models.Constant
+import com.oratakashi.design.app.navigation.contract.BaseNavigation
 import com.oratakashi.design.foundation.OrataTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -38,12 +41,14 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
  * @since 16 Nov 2025
  */
 fun ComponentListScreen(
-    navController: NavHostController? = null,
+    isTopAppBarVisible: Boolean = true,
+    onClick: (BaseNavigation?) -> Unit = { _ -> },
     modifier: Modifier = Modifier
 ) {
     val componentList = Constant.componentList()
+
     LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
+        columns = GridCells.Adaptive(150.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         contentPadding = PaddingValues(
@@ -58,7 +63,7 @@ fun ComponentListScreen(
             CardComponent(
                 component = component,
                 onClick = {
-                    navController?.navigate(it.navigation?.route.orEmpty())
+                    onClick.invoke(it.navigation)
                 },
                 modifier = Modifier.testTag("Component_${component.title}")
             )

@@ -8,9 +8,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.adaptive.WindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
-import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffoldDefaults
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -47,7 +47,7 @@ fun App(
         val items = listOf(FoundationNavigation, ComponentNavigation)
         val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
         val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val navigationType = NavigationSuiteScaffoldDefaults.calculateFromAdaptiveInfo(currentWindowAdaptiveInfo())
+        val navigationType = calculateFromAdaptiveInfo(currentWindowAdaptiveInfo())
         NavigationSuiteScaffold(
             navigationSuiteItems = {
                 val currentRoute = navBackStackEntry?.destination?.route
@@ -74,7 +74,7 @@ fun App(
                         label = { Text(screen.title()) },
                         modifier = Modifier
                             .then(
-                                if (navigationType == NavigationSuiteType.NavigationRail) {
+                                if (navigationType != NavigationSuiteType.NavigationBar) {
                                     Modifier.padding(
                                         top = 10.dp,
                                         start = 10.dp,
@@ -88,6 +88,7 @@ fun App(
                     )
                 }
             },
+            layoutType = navigationType,
             modifier = Modifier
                 .nestedScroll(scrollBehavior.nestedScrollConnection)
         ) {
@@ -113,6 +114,18 @@ fun App(
                     )
                 }
             }
+        }
+    }
+}
+
+private fun calculateFromAdaptiveInfo(adaptiveInfo: WindowAdaptiveInfo): NavigationSuiteType {
+    return with(adaptiveInfo) {
+        if (windowPosture.isTabletop || windowSizeClass.minWidthDp == 0 || windowSizeClass.minWidthDp == 0) {
+            NavigationSuiteType.NavigationBar
+        } else if (windowSizeClass.minWidthDp >= 600 && windowSizeClass.minHeightDp >= 600) {
+            NavigationSuiteType.WideNavigationRailExpanded
+        } else {
+            NavigationSuiteType.NavigationRail
         }
     }
 }

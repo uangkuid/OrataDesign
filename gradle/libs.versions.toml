@@ -20,6 +20,11 @@ plugin-serialization = "2.2.21"
 kotlinx-serialization-json = "1.9.0"
 composeIcons = "1.1.1"
 
+material-adaptive = "1.2.0"
+material-adaptive-layout = "1.2.0"
+material-adaptive-navigation = "1.2.0"
+material-adaptive-navigation-suite = "1.9.0"
+
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
@@ -36,6 +41,10 @@ navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-co
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "material3" }
 composeIcons-feather = { module = "br.com.devsrsouza.compose.icons:feather", version.ref = "composeIcons" }
+material-adaptive = { module = "org.jetbrains.compose.material3.adaptive:adaptive", version.ref = "material-adaptive" }
+material-layout = { module = "org.jetbrains.compose.material3.adaptive:adaptive-layout", version.ref = "material-adaptive-layout" }
+material-navigation = { module = "org.jetbrains.compose.material3.adaptive:adaptive-navigation", version.ref = "material-adaptive-navigation" }
+material-navigation-suite = { module = "org.jetbrains.compose.material3:material3-adaptive-navigation-suite", version.ref = "material-adaptive-navigation-suite" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -10,8 +10,10 @@ import androidx.compose.runtime.Composable
 interface BaseNavigation {
     val route: String?
         get() = this::class.qualifiedName
-//    val title: String?
-//        @Composable
+    val title: String?
+        get() = this::class.simpleName?.replace("Navigation", "")
+
+    //        @Composable
 //        get() = this::class.simpleName?.replace("Navigation", "")
     @Composable
     /**

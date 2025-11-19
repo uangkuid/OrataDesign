@@ -170,99 +170,11 @@ internal fun ComponentScreen(
                     enter = fadeIn(),
                     exit = fadeOut()
                 ) {
-                    Box(modifier = Modifier.fillMaxSize())
+                    EmptyComponentScreen()
                 }
             }
         },
     )
-
-//    Scaffold(
-//        modifier = modifier.apply {
-//            if (scrollBehavior != null) nestedScroll(scrollBehavior.nestedScrollConnection)
-//        },
-//        topBar = {
-//            LargeTopAppBar(
-//                title = {
-//                    Text(
-//                        navBackStackEntry?.destination?.route
-//                            ?.replace("com.oratakashi.design.app.navigation.", "")
-//                            ?.replace("Navigation", "")
-//                            ?.replace("List", "").orEmpty(),
-//                        maxLines = 1,
-//                        overflow = TextOverflow.Ellipsis,
-//                        style = OrataTheme.typography.displaySmall(),
-//                        color = OrataTheme.colors.onSurface
-//                    )
-//                },
-//                navigationIcon = {
-//                    if (navBackStackEntry?.destination?.route != ComponentListNavigation.route) {
-//                        IconButton(
-//                            onClick = {
-//                                navController.navigateUp()
-//                            },
-//                            colors = IconButtonDefaults.iconButtonColors(
-//                                contentColor = OrataTheme.colors.onSurfaceVariant
-//                            ),
-//                            modifier = Modifier
-//                                .padding(end = 8.dp)
-//                        ) {
-//                            Icon(
-//                                painter = rememberVectorPainter(FeatherIcons.ArrowLeft),
-//                                contentDescription = null
-//                            )
-//                        }
-//                    }
-//                },
-//                scrollBehavior = scrollBehavior,
-//            )
-//        },
-//        content = { innerPadding ->
-//            Box {
-//                NavHost(
-//                    navController = navController,
-//                    startDestination = ComponentListNavigation,
-//                    enterTransition = { fadeIn() },
-//                    exitTransition = { fadeOut() },
-//                ) {
-//                    composable<ComponentListNavigation> {
-//                        ComponentListScreen(
-//                            modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
-//                                .fillMaxSize(),
-//                            navController = navController,
-//                        )
-//                    }
-//
-//                    composable<ButtonNavigation> {
-//                        ButtonScreen(
-//                            modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
-//                                .fillMaxSize()
-//                        )
-//                    }
-//
-//                    composable<TextFieldNavigation> {
-//                        TextFieldScreen(
-//                            modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
-//                                .fillMaxSize()
-//                        )
-//                    }
-//
-//                    composable<AnchorTextNavigation> {
-//                        AnchorTextScreen(
-//                            modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
-//                                .fillMaxSize()
-//                        )
-//                    }
-//
-//                    composable<AlertNavigation> {
-//                        AlertScreen(
-//                            modifier = Modifier.padding(top = innerPadding.calculateTopPadding())
-//                                .fillMaxSize()
-//                        )
-//                    }
-//                }
-//            }
-//        },
-//    )
 }
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)

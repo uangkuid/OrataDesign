@@ -1,5 +1,7 @@
 package com.oratakashi.design.app.models
 
+import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
+import androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue
 import androidx.compose.runtime.Composable
 import com.oratakashi.design.app.icons.AlertIcon
 import com.oratakashi.design.app.icons.AnchorTextIcon
@@ -450,4 +452,9 @@ internal object Constant {
             "16"
         )
     )
+
+    @OptIn(ExperimentalMaterial3AdaptiveApi::class)
+    fun isListDetailPaneOpened(listPane: ThreePaneScaffoldValue): Boolean {
+        return listPane.primary.toString() == "PaneAdaptedValue[Expanded]" && listPane.secondary.toString() == "PaneAdaptedValue[Expanded]"
+    }
 }

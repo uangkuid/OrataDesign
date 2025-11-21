@@ -16,67 +16,12 @@ import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.unit.dp
+import com.oratakashi.design.app.component.ComponentContent
+import com.oratakashi.design.app.navigation.SnackbarNavigation
 
-@Composable
-/**
- * CustomSnackbarHost function for the Orata Design System.
- * @author oratakashi
- * @since 16 Nov 2025
- */
-fun CustomSnackbarHost(
-    hostState: SnackbarHostState,
-    modifier: Modifier = Modifier
-) {
-    val currentSnackbarData = hostState.currentSnackbarData
 
-    // Auto dismiss dengan duration dari SnackbarVisuals
-    LaunchedEffect(currentSnackbarData) {
-        if (currentSnackbarData != null) {
-            val durationMillis = when (currentSnackbarData.visuals.duration) {
-                SnackbarDuration.Short -> 4000L
-                SnackbarDuration.Long -> 10000L
-                SnackbarDuration.Indefinite -> return@LaunchedEffect
-            }
-            kotlinx.coroutines.delay(durationMillis)
-            currentSnackbarData.dismiss()
-        }
-    }
 
-    AnimatedVisibility(
-        visible = currentSnackbarData != null,
-        enter = slideInVertically(
-            initialOffsetY = { it },
-            animationSpec = tween(durationMillis = 300)
-        ),
-        exit = slideOutVertically(
-            targetOffsetY = { it },
-            animationSpec = tween(durationMillis = 300)
-        ),
-        modifier = modifier
-    ) {
-        if (currentSnackbarData != null) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-            ) {
-                Snackbar(
-                    modifier = Modifier.fillMaxWidth(),
-                    action = {
-                        TextButton(
-                            onClick = { currentSnackbarData.dismiss() }
-                        ) {
-                            Text("Dismiss")
-                        }
-                    }
-                ) {
-                    Text(currentSnackbarData.visuals.message)
-                }
-            }
-        }
-    }
-}
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Suppress("DEPRECATION")
 @Preview
 @Composable
@@ -86,30 +31,20 @@ fun CustomSnackbarHost(
  * @since 16 Nov 2025
  */
 fun SnackbarScreen(
+    scrollBehavior: TopAppBarScrollBehavior? = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(),
+    onBackPress: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
-    Scaffold(
-        snackbarHost = {
-            _root_ide_package_.com.oratakashi.design.app.ui.components.snackbar.CustomSnackbarHost(
-                hostState = snackbarHostState
-            )
-        },
+    val tabs = listOf("Theme", "Variant")
+
+    ComponentContent(
+        onBackClick = onBackPress,
+        navigation = SnackbarNavigation,
+        scrollBehavior = scrollBehavior,
+        tabs = tabs,
         modifier = modifier
-    ) { innerPadding ->
-        Button(
-            onClick = {
-                scope.launch {
-                    snackbarHostState.showSnackbar(
-                        message = "Hello from Snackbar!",
-                        duration = SnackbarDuration.Short
-                    )
-                }
-            },
-            modifier = Modifier.padding(innerPadding)
-        ) {
-            Text("Show Snackbar")
-        }
+    ) {
+
+
     }
 }

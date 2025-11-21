@@ -25,7 +25,7 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SlideInSlideOutSnackbarAnimation(
-    current: OraSnackbarData,
+    current: OraSnackbarData?,
     modifier: Modifier = Modifier,
     content: @Composable (OraSnackbarData) -> Unit
 ) {

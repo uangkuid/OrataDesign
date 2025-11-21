@@ -23,11 +23,13 @@ import com.oratakashi.design.app.models.Constant
 import com.oratakashi.design.app.navigation.AlertNavigation
 import com.oratakashi.design.app.navigation.AnchorTextNavigation
 import com.oratakashi.design.app.navigation.ButtonNavigation
+import com.oratakashi.design.app.navigation.SnackbarNavigation
 import com.oratakashi.design.app.navigation.TextFieldNavigation
 import com.oratakashi.design.app.ui.components.alert.AlertScreen
 import com.oratakashi.design.app.ui.components.anchortext.AnchorTextScreen
 import com.oratakashi.design.app.ui.components.button.ButtonScreen
 import com.oratakashi.design.app.ui.components.component_list.ComponentListScreen
+import com.oratakashi.design.app.ui.components.snackbar.SnackbarScreen
 import com.oratakashi.design.app.ui.components.textfield.TextFieldScreen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -53,12 +55,6 @@ internal fun ComponentScreen(
             coroutineScope = coroutineScope,
             navigator = navigator
         )
-    }
-
-    LaunchedEffect(navigator.scaffoldValue) {
-        println("Current Destination: ${navigator.currentDestination}")
-        println("Current scaffoldValue: ${navigator.scaffoldValue}")
-        println("Current scaffoldValue.secondary: ${navigator.scaffoldValue.secondary}")
     }
 
     ListDetailPaneScaffold(
@@ -131,6 +127,21 @@ internal fun ComponentScreen(
                     exit = fadeOut()
                 ) {
                     AlertScreen(
+                        onBackPress = {
+                            navigateBack(
+                                coroutineScope = coroutineScope,
+                                navigator = navigator
+                            )
+                        }
+                    )
+                }
+
+                AnimatedVisibility(
+                    visible = content == SnackbarNavigation.route,
+                    enter = fadeIn(),
+                    exit = fadeOut()
+                ) {
+                    SnackbarScreen(
                         onBackPress = {
                             navigateBack(
                                 coroutineScope = coroutineScope,

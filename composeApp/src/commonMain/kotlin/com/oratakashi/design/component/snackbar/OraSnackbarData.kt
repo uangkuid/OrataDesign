@@ -53,7 +53,7 @@ internal class SnackbarVisualsImpl(
     override val actionLabel: String?,
     override val withDismissAction: Boolean,
     override val duration: OraSnackbarDuration,
-    override val theme: OraSnackbarTheme?
+    override val theme: OraSnackbarTheme
 ): OraSnackbarVisuals {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

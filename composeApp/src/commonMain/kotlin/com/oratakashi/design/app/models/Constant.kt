@@ -6,11 +6,13 @@ import androidx.compose.runtime.Composable
 import com.oratakashi.design.app.icons.AlertIcon
 import com.oratakashi.design.app.icons.AnchorTextIcon
 import com.oratakashi.design.app.icons.ButtonIcon
+import com.oratakashi.design.app.icons.SnackbarIcon
 import com.oratakashi.design.app.icons.TextFieldIcon
 import com.oratakashi.design.app.models.TypographyData
 import com.oratakashi.design.app.navigation.AlertNavigation
 import com.oratakashi.design.app.navigation.AnchorTextNavigation
 import com.oratakashi.design.app.navigation.ButtonNavigation
+import com.oratakashi.design.app.navigation.SnackbarNavigation
 import com.oratakashi.design.app.navigation.TextFieldNavigation
 import com.oratakashi.design.foundation.OrataTheme
 import com.oratakashi.design.foundation.typography.OraTypographyKeyToken
@@ -44,6 +46,11 @@ internal object Constant {
             title = "Alert",
             image = AlertIcon,
             navigation = AlertNavigation
+        ),
+        ComponentData(
+            title = "Snackbar",
+            image = SnackbarIcon,
+            navigation = SnackbarNavigation
         )
     )
 

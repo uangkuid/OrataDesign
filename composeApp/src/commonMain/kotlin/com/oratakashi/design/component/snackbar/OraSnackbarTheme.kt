@@ -59,7 +59,7 @@ fun OraSnackbarTheme.toColor(): OraSnackbarColor {
             titleColor = OrataTheme.colors.onSurface,
             descriptionColor = OrataTheme.colors.onSurface,
             closeIconColor = OrataTheme.colors.onSurface,
-            actionColor = OrataTheme.colors.onSurface
+            actionColor = OrataTheme.colors.primary
         )
 
         OraSnackbarTheme.Tertiary -> OraSnackbarColor(

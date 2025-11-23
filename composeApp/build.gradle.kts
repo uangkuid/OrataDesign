@@ -78,7 +78,8 @@ kotlin {
             api(libs.material.navigation.suite)
             api(libs.material.layout)
             api(libs.material.navigation)
-            implementation("org.jetbrains.compose.ui:ui-backhandler:1.9.1")
+            implementation("org.jetbrains.compose.ui:ui-backhandler:1.9.3")
+            implementation("tech.annexflow.compose:constraintlayout-compose-multiplatform:0.6.1")
 
         }
         commonTest.dependencies {

@@ -18,7 +18,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.unit.dp
 import com.oratakashi.design.app.component.ComponentContent
 import com.oratakashi.design.app.navigation.SnackbarNavigation
-
+import com.oratakashi.design.component.snackbar.OraSnackbar
+import com.oratakashi.design.component.snackbar.OraSnackbarHost
+import com.oratakashi.design.component.snackbar.OraSnackbarHostState
+import com.oratakashi.design.component.snackbar.OraSnackbarTheme
+import com.oratakashi.design.component.snackbar.toColor
+import compose.icons.FeatherIcons
+import compose.icons.feathericons.Info
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,15 +42,40 @@ fun SnackbarScreen(
     modifier: Modifier = Modifier
 ) {
     val tabs = listOf("Theme", "Variant")
+    val snackbarHostState = remember { OraSnackbarHostState() }
 
     ComponentContent(
         onBackClick = onBackPress,
         navigation = SnackbarNavigation,
         scrollBehavior = scrollBehavior,
         tabs = tabs,
-        modifier = modifier
+        modifier = modifier,
+        snackbarHost = {
+            OraSnackbarHost(
+                hostState = snackbarHostState,
+                snackbar = {
+
+                }
+            )
+        }
     ) {
-
-
+        OraSnackbar(
+            title = {
+                Text("This is title")
+            },
+            description = {
+                Text("This is description")
+            },
+            icon = {
+                Icon(FeatherIcons.Info, null)
+            },
+            colors = OraSnackbarTheme.Default.toColor(),
+            onClose = {
+            },
+            showCloseIcon = false,
+            action = {
+                Text("UNDO")
+            }
+        )
     }
 }

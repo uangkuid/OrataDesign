@@ -49,6 +49,7 @@ internal fun <T: BaseNavigation> ComponentContent(
     modifier: Modifier = Modifier,
     tabs: List<String> = emptyList(),
     onBackClick: () -> Unit = {},
+    snackbarHost: @Composable () -> Unit = {},
     content: @Composable (Int) -> Unit = { _ -> }
 ) {
     val pagerState = rememberPagerState(
@@ -59,6 +60,7 @@ internal fun <T: BaseNavigation> ComponentContent(
     val selectedTabIndex by remember { derivedStateOf { pagerState.currentPage } }
 
     Scaffold(
+        snackbarHost = snackbarHost,
         modifier = modifier.then(
             if (scrollBehavior != null) {
                 Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)

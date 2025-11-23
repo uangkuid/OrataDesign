@@ -9,4 +9,6 @@ import kotlinx.serialization.Serializable
  * @author oratakashi
  * @since 16 Nov 2025
  */
-object AnchorTextNavigation : BaseNavigation
+object AnchorTextNavigation : BaseNavigation {
+    override fun getSerializer() = serializer()
+}

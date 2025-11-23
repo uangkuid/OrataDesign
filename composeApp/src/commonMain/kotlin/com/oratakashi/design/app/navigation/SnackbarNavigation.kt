@@ -4,4 +4,6 @@ import com.oratakashi.design.app.navigation.contract.BaseNavigation
 import kotlinx.serialization.Serializable
 
 @Serializable
-object SnackbarNavigation: BaseNavigation
+object SnackbarNavigation: BaseNavigation {
+    override fun getSerializer() = serializer()
+}

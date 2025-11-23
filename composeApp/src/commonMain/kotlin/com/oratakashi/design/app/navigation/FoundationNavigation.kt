@@ -16,6 +16,7 @@ import org.jetbrains.compose.resources.stringResource
  * @since 16 Nov 2025
  */
 object FoundationNavigation : MenuNavigation {
+    override fun getSerializer() = serializer()
     override val icon: DrawableResource
         get() = Res.drawable.ic_foundation
 

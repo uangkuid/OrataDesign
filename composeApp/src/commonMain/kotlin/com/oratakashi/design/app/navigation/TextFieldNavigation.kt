@@ -9,4 +9,6 @@ import kotlinx.serialization.Serializable
  * @author oratakashi
  * @since 16 Nov 2025
  */
-object TextFieldNavigation: BaseNavigation
+object TextFieldNavigation: BaseNavigation {
+    override fun getSerializer() = serializer()
+}

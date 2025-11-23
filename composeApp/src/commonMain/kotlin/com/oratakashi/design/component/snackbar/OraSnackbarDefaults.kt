@@ -17,7 +17,7 @@ object OraSnackbarDefaults {
      */
     @Composable
     fun colors(
-        containerColor: Color = OrataTheme.colors.surface,
+        containerColor: Color = OrataTheme.colors.surfaceContainer,
         iconColor: Color = OrataTheme.colors.onSurface,
         titleColor: Color = OrataTheme.colors.onSurface,
         descriptionColor: Color = OrataTheme.colors.onSurfaceVariant,

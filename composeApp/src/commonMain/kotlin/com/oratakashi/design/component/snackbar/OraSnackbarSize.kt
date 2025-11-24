@@ -14,7 +14,8 @@ enum class OraSnackbarSize(
     val contentPadding: PaddingValues,
     val iconSize: Dp,
     val titleTextStyle: OraTypographyKeyToken,
-    val descriptionTextStyle: OraTypographyKeyToken
+    val descriptionTextStyle: OraTypographyKeyToken,
+    val actionTextStyle: OraTypographyKeyToken,
 ) {
     Large(
         contentPadding = PaddingValues(
@@ -23,7 +24,8 @@ enum class OraSnackbarSize(
         ),
         iconSize = 24.dp,
         titleTextStyle = OraTypographyKeyToken.BodyLarge,
-        descriptionTextStyle = OraTypographyKeyToken.BodyMedium
+        descriptionTextStyle = OraTypographyKeyToken.BodyMedium,
+        actionTextStyle = OraTypographyKeyToken.BodyLarge
     ),
     Small(
         contentPadding = PaddingValues(
@@ -32,6 +34,7 @@ enum class OraSnackbarSize(
         ),
         iconSize = 20.dp,
         titleTextStyle = OraTypographyKeyToken.BodyMedium,
-        descriptionTextStyle = OraTypographyKeyToken.BodySmall
+        descriptionTextStyle = OraTypographyKeyToken.BodySmall,
+        actionTextStyle = OraTypographyKeyToken.BodyMedium
     )
 }

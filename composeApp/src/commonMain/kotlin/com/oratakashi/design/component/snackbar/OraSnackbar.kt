@@ -1,6 +1,7 @@
 package com.oratakashi.design.component.snackbar
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -52,6 +53,11 @@ fun OraSnackbar(
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp)
+            .border(
+                width = 1.dp,
+                color = OrataTheme.colors.outlineVariant,
+                shape = MaterialTheme.shapes.large
+            )
             .shadow(
                 elevation = 3.dp,
                 shape = MaterialTheme.shapes.large
@@ -101,7 +107,7 @@ fun OraSnackbar(
             @Composable {
                 OraProvideTextStyle(
                     color = colors.actionColor,
-                    textStyle = OrataTheme.typography.bodyLarge().copy(
+                    textStyle = size.actionTextStyle.toTextStyle().copy(
                         fontWeight = FontWeight.Medium
                     )
                 ) {
@@ -146,6 +152,10 @@ fun OraSnackbar(
                         end.linkTo(vDivider.start, margin = 12.dp)
                     } else {
                         end.linkTo(parent.end)
+                    }
+
+                    if (description == null) {
+                        bottom.linkTo(parent.bottom)
                     }
 
                     width = Dimension.fillToConstraints
@@ -204,6 +214,8 @@ fun OraSnackbar(
                         end.linkTo(parent.end)
                         top.linkTo(parent.top)
                         bottom.linkTo(parent.bottom)
+                        height = Dimension.preferredValue(size.iconSize)
+                        width = Dimension.preferredWrapContent
                     },
                 onClick = {
                     onClose?.invoke()
@@ -245,9 +257,9 @@ private fun SnackbarPreview() {
                     modifier = Modifier.fillMaxWidth()
                 )
             },
-            description = {
-                Text("This is description")
-            },
+//            description = {
+//                Text("This is description")
+//            },
             icon = {
                 Icon(FeatherIcons.Info, null)
             },

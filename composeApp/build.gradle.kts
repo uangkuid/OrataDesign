@@ -78,8 +78,8 @@ kotlin {
             api(libs.material.navigation.suite)
             api(libs.material.layout)
             api(libs.material.navigation)
-            implementation("org.jetbrains.compose.ui:ui-backhandler:1.9.3")
-            implementation("tech.annexflow.compose:constraintlayout-compose-multiplatform:0.6.1")
+            implementation(libs.ui.backhandler)
+            implementation(libs.constraintlayout.compose.multiplatform)
 
         }
         commonTest.dependencies {
@@ -95,11 +95,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.oratakashi.design"
+    namespace = "com.oratakashi.design.app"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.oratakashi.design"
+        applicationId = "com.oratakashi.design.app"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -130,7 +130,7 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "com.oratakashi.design.MainKt"
+        mainClass = "com.oratakashi.design.app.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)

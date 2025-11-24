@@ -2,7 +2,6 @@ package com.oratakashi.design.app.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -13,6 +12,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.LargeFlexibleTopAppBar
+import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
@@ -40,14 +40,39 @@ import compose.icons.feathericons.ArrowLeft
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
-@Preview(showBackground = true)
 @Composable
-internal fun <T: BaseNavigation> ComponentContent(
+private fun TabRowContent(
+    tabs: List<String>,
+    selectedTabIndex: Int,
+    onTabClick: (Int) -> Unit
+) {
+    tabs.forEachIndexed { index, title ->
+        Tab(
+            selected = selectedTabIndex == index,
+            onClick = { onTabClick(index) },
+            text = {
+                Text(
+                    text = title,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = if (selectedTabIndex == index)
+                        OrataTheme.colors.primary
+                    else
+                        OrataTheme.colors.onSurfaceVariant
+                )
+            }
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+internal fun <T : BaseNavigation> ComponentContent(
     navigation: T? = null,
     scrollBehavior: TopAppBarScrollBehavior? = null,
     modifier: Modifier = Modifier,
     tabs: List<String> = emptyList(),
+    isScrollableTab: Boolean = false,
     onBackClick: () -> Unit = {},
     snackbarHost: @Composable () -> Unit = {},
     content: @Composable (Int) -> Unit = { _ -> }
@@ -58,6 +83,7 @@ internal fun <T: BaseNavigation> ComponentContent(
     )
     val coroutineScope = rememberCoroutineScope()
     val selectedTabIndex by remember { derivedStateOf { pagerState.currentPage } }
+
 
     Scaffold(
         snackbarHost = snackbarHost,
@@ -106,37 +132,49 @@ internal fun <T: BaseNavigation> ComponentContent(
                     .padding(innerPadding),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                PrimaryTabRow(
-                    selectedTabIndex = selectedTabIndex,
-                    modifier = Modifier.background(Color.Blue),
-                    indicator = {
-                        // Use the integer overload of tabIndicatorOffset to position the indicator by index
-                        TabRowDefaults.PrimaryIndicator(
-                            modifier = Modifier.tabIndicatorOffset(selectedTabIndex),
-                        )
-                    },
-                    divider = {
-                        HorizontalDivider(color = Color(0xFFC1C7CE))
-                    }
-                ) {
-                    tabs.forEachIndexed { index, title ->
-                        Tab(
-                            selected = selectedTabIndex == index,
-                            onClick = {
+                if (isScrollableTab) {
+                    PrimaryScrollableTabRow(
+                        selectedTabIndex = selectedTabIndex,
+                        modifier = Modifier.background(Color.Blue),
+                        indicator = {
+                            TabRowDefaults.PrimaryIndicator(
+                                modifier = Modifier.tabIndicatorOffset(selectedTabIndex),
+                            )
+                        },
+                        divider = {
+                            HorizontalDivider(color = Color(0xFFC1C7CE))
+                        }
+                    ) {
+                        TabRowContent(
+                            tabs = tabs,
+                            selectedTabIndex = selectedTabIndex,
+                            onTabClick = { index ->
                                 coroutineScope.launch {
                                     pagerState.animateScrollToPage(index)
                                 }
-                            },
-                            text = {
-                                Text(
-                                    text = title,
-                                    fontSize = 14.sp,
-                                    fontWeight = FontWeight.Medium,
-                                    color = if (selectedTabIndex == index)
-                                        OrataTheme.colors.primary
-                                    else
-                                        OrataTheme.colors.onSurfaceVariant
-                                )
+                            }
+                        )
+                    }
+                } else {
+                    PrimaryTabRow(
+                        selectedTabIndex = selectedTabIndex,
+                        modifier = Modifier.background(Color.Blue),
+                        indicator = {
+                            TabRowDefaults.PrimaryIndicator(
+                                modifier = Modifier.tabIndicatorOffset(selectedTabIndex),
+                            )
+                        },
+                        divider = {
+                            HorizontalDivider(color = Color(0xFFC1C7CE))
+                        }
+                    ) {
+                        TabRowContent(
+                            tabs = tabs,
+                            selectedTabIndex = selectedTabIndex,
+                            onTabClick = { index ->
+                                coroutineScope.launch {
+                                    pagerState.animateScrollToPage(index)
+                                }
                             }
                         )
                     }
@@ -149,6 +187,38 @@ internal fun <T: BaseNavigation> ComponentContent(
                 ) {
                     content.invoke(it)
                 }
+            }
+        }
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview(showBackground = true, name = "Scrollable Tab Preview")
+@Composable
+@Suppress("UnusedPrivateMember")
+private fun ComponentContentScrollableTabPreview() {
+    ComponentContent<BaseNavigation>(
+        tabs = listOf("Tab 1", "Tab 2", "Tab 3", "Tab 4", "Tab 5", "Tab 6"),
+        isScrollableTab = true,
+        content = { index ->
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = "Scrollable Tab Content: Tab ${index + 1}")
+            }
+        }
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview(showBackground = true, name = "Static Tab Preview")
+@Composable
+@Suppress("UnusedPrivateMember")
+private fun ComponentContentStaticTabPreview() {
+    ComponentContent<BaseNavigation>(
+        tabs = listOf("Tab 1", "Tab 2", "Tab 3"),
+        isScrollableTab = false,
+        content = { index ->
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = "Static Tab Content: Tab ${index + 1}")
             }
         }
     )

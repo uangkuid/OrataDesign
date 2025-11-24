@@ -49,7 +49,7 @@ internal object SnackbarIcon : DynamicIcons {
 
                 // Snackbar container with border
                 path(
-                    fill = SolidColor(Color.White),
+                    fill = SolidColor(OrataTheme.colors.surfaceContainer),
                     fillAlpha = 1.0f,
                     stroke = SolidColor(OrataTheme.colors.outlineVariant),
                     strokeAlpha = 1.0f,

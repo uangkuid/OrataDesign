@@ -1,21 +1,13 @@
 package com.oratakashi.design.app.ui.components.snackbar
 
-import androidx.compose.material3.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import kotlinx.coroutines.launch
-import org.jetbrains.compose.ui.tooling.preview.Preview
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
-import androidx.compose.animation.core.tween
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.unit.dp
 import com.oratakashi.design.app.component.ComponentContent
 import com.oratakashi.design.app.navigation.SnackbarNavigation
 import com.oratakashi.design.component.snackbar.OraSnackbar
@@ -25,10 +17,10 @@ import com.oratakashi.design.component.snackbar.OraSnackbarTheme
 import com.oratakashi.design.component.snackbar.toColor
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.Info
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Suppress("DEPRECATION")
 @Preview
 @Composable
 /**
@@ -41,7 +33,7 @@ fun SnackbarScreen(
     onBackPress: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val tabs = listOf("Theme", "Variant")
+    val tabs = listOf("Size", "Theme", "Variant", "Playground")
     val snackbarHostState = remember { OraSnackbarHostState() }
 
     ComponentContent(
@@ -50,6 +42,7 @@ fun SnackbarScreen(
         scrollBehavior = scrollBehavior,
         tabs = tabs,
         modifier = modifier,
+        isScrollableTab = true,
         snackbarHost = {
             OraSnackbarHost(
                 hostState = snackbarHostState,
@@ -59,23 +52,29 @@ fun SnackbarScreen(
             )
         }
     ) {
-        OraSnackbar(
-            title = {
-                Text("This is title")
-            },
-            description = {
-                Text("This is description")
-            },
-            icon = {
-                Icon(FeatherIcons.Info, null)
-            },
-            colors = OraSnackbarTheme.Default.toColor(),
-            onClose = {
-            },
-            showCloseIcon = false,
-            action = {
-                Text("UNDO")
+        when (it) {
+            0 -> SizeSnackbarContent()
+            1 -> ThemeSnackbarContent()
+            else -> {
+                OraSnackbar(
+                    title = {
+                        Text("This is title")
+                    },
+                    description = {
+                        Text("This is description")
+                    },
+                    icon = {
+                        Icon(FeatherIcons.Info, null)
+                    },
+                    colors = OraSnackbarTheme.Default.toColor(),
+                    onClose = {
+                    },
+                    showCloseIcon = false,
+                    action = {
+                        Text("UNDO")
+                    }
+                )
             }
-        )
+        }
     }
 }

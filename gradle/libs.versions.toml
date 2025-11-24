@@ -11,6 +11,7 @@ androidx-lifecycle = "2.9.6"
 androidx-testExt = "1.2.1"
 composeHotReload = "1.0.0-rc02"
 composeMultiplatform = "1.10.0-beta01"
+constraintlayoutComposeMultiplatform = "0.6.1"
 material3="1.10.0-alpha04"
 junit = "4.13.2"
 kotlin = "2.2.21"
@@ -24,8 +25,10 @@ material-adaptive = "1.2.0"
 material-adaptive-layout = "1.2.0"
 material-adaptive-navigation = "1.2.0"
 material-adaptive-navigation-suite = "1.9.0"
+uiBackhandler = "1.9.3"
 
 [libraries]
+constraintlayout-compose-multiplatform = { module = "tech.annexflow.compose:constraintlayout-compose-multiplatform", version.ref = "constraintlayoutComposeMultiplatform" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -45,6 +48,7 @@ material-adaptive = { module = "org.jetbrains.compose.material3.adaptive:adaptiv
 material-layout = { module = "org.jetbrains.compose.material3.adaptive:adaptive-layout", version.ref = "material-adaptive-layout" }
 material-navigation = { module = "org.jetbrains.compose.material3.adaptive:adaptive-navigation", version.ref = "material-adaptive-navigation" }
 material-navigation-suite = { module = "org.jetbrains.compose.material3:material3-adaptive-navigation-suite", version.ref = "material-adaptive-navigation-suite" }
+ui-backhandler = { module = "org.jetbrains.compose.ui:ui-backhandler", version.ref = "uiBackhandler" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -55,6 +55,7 @@ fun SnackbarScreen(
         when (it) {
             0 -> SizeSnackbarContent()
             1 -> ThemeSnackbarContent()
+            2 -> VariantSnackbarContent()
             else -> {
                 OraSnackbar(
                     title = {

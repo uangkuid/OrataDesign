@@ -130,7 +130,7 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "com.oratakashi.design.app.MainKt"
+        mainClass = "com.oratakashi.design.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)

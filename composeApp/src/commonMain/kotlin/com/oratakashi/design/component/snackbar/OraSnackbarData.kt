@@ -25,6 +25,7 @@ interface OraSnackbarVisuals {
     val withDismissAction: Boolean
     val duration: OraSnackbarDuration
     val theme: OraSnackbarTheme?
+    val size: OraSnackbarSize?
 }
 
 /**
@@ -53,7 +54,8 @@ internal class SnackbarVisualsImpl(
     override val actionLabel: String?,
     override val withDismissAction: Boolean,
     override val duration: OraSnackbarDuration,
-    override val theme: OraSnackbarTheme
+    override val theme: OraSnackbarTheme,
+    override val size: OraSnackbarSize?
 ): OraSnackbarVisuals {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -66,6 +68,9 @@ internal class SnackbarVisualsImpl(
         if (actionLabel != other.actionLabel) return false
         if (withDismissAction != other.withDismissAction) return false
         if (duration != other.duration) return false
+        if (icon != other.icon) return false
+        if (theme != other.theme) return false
+        if (size != other.size) return false
 
         return true
     }

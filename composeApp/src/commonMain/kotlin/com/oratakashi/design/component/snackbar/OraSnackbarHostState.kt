@@ -72,7 +72,8 @@ class OraSnackbarHostState {
         withDismissAction: Boolean = false,
         duration: OraSnackbarDuration =
             if (actionLabel == null) OraSnackbarDuration.Short else OraSnackbarDuration.Indefinite,
-        theme: OraSnackbarTheme = OraSnackbarTheme.Default
+        theme: OraSnackbarTheme = OraSnackbarTheme.Default,
+        size: OraSnackbarSize = OraSnackbarSize.Large
     ): SnackbarResult =
         showSnackbar(
             SnackbarVisualsImpl(
@@ -82,7 +83,8 @@ class OraSnackbarHostState {
                 actionLabel,
                 withDismissAction,
                 duration,
-                theme
+                theme,
+                size
             )
         )
 

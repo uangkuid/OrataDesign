@@ -1,5 +1,12 @@
 package com.oratakashi.design.component.snackbar
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -23,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import androidx.constraintlayout.core.widgets.Optimizer
 import com.oratakashi.design.foundation.OrataAppTheme
 import com.oratakashi.design.foundation.OrataTheme
 import com.oratakashi.design.foundation.typography.OraProvideTextStyle
@@ -60,8 +68,14 @@ fun OraSnackbar(
     action: @Composable (() -> Unit)? = null,
     showCloseIcon: Boolean = false,
     onClose: (() -> Unit)? = null,
+    actionKey: Any? = null,
+    descriptionKey: Any? = null,
 ) {
     ConstraintLayout(
+//        animateChangesSpec = spring(
+//            stiffness = Spring.StiffnessHigh,
+//            dampingRatio = Spring.DampingRatioNoBouncy
+//        ),
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp)
@@ -92,50 +106,18 @@ fun OraSnackbar(
             }
         }
 
-        val decoratedDescriptionContent: @Composable (() -> Unit)? = description?.let {
-            @Composable {
-                OraProvideTextStyle(
-                    color = colors.descriptionColor,
-                    textStyle = size.descriptionTextStyle.toTextStyle()
-                ) {
-                    it()
-                }
-            }
-        }
+        val hasDescription = description != null
+        val hasIcon = icon != null
+        val hasAction = action != null
 
-        val decoratedIconContent: @Composable (() -> Unit)? = icon?.let { iconContent ->
-            @Composable {
-                CompositionLocalProvider(
-                    LocalContentColor provides colors.iconColor
-                ) {
-                    Box(modifier = Modifier.sizeIn(0.dp, size.iconSize)) {
-                        iconContent()
-                    }
-                }
-            }
-        }
-
-        val decoratedActionContent: @Composable (() -> Unit)? = action?.let { actionContent ->
-            @Composable {
-                OraProvideTextStyle(
-                    color = colors.actionColor,
-                    textStyle = size.actionTextStyle.toTextStyle().copy(
-                        fontWeight = FontWeight.Medium
-                    )
-                ) {
-                    actionContent()
-                }
-            }
-        }
-
-        if (decoratedIconContent != null) {
+        if (hasIcon) {
             Box(
                 modifier = Modifier
                     .constrainAs(ivIcon) {
                         top.linkTo(tvTitle.top)
                         start.linkTo(parent.start)
 
-                        if (decoratedDescriptionContent != null) {
+                        if (hasDescription) {
                             bottom.linkTo(tvDescription.bottom, margin = 4.dp)
                         } else {
                             bottom.linkTo(tvTitle.bottom)
@@ -145,7 +127,13 @@ fun OraSnackbar(
                         height = Dimension.preferredWrapContent
                     }
             ) {
-                decoratedIconContent()
+                CompositionLocalProvider(
+                    LocalContentColor provides colors.iconColor
+                ) {
+                    Box(modifier = Modifier.sizeIn(0.dp, size.iconSize)) {
+                        icon()
+                    }
+                }
             }
         }
 
@@ -154,19 +142,19 @@ fun OraSnackbar(
                 .constrainAs(tvTitle) {
                     top.linkTo(parent.top)
 
-                    if (decoratedIconContent != null) {
+                    if (hasIcon) {
                         start.linkTo(ivIcon.end, margin = 12.dp)
                     } else {
                         start.linkTo(parent.start)
                     }
 
-                    if (showCloseIcon || decoratedActionContent != null) {
+                    if (showCloseIcon || hasAction) {
                         end.linkTo(vDivider.start, margin = 12.dp)
                     } else {
                         end.linkTo(parent.end)
                     }
 
-                    if (description == null) {
+                    if (!hasDescription) {
                         bottom.linkTo(parent.bottom)
                     }
 
@@ -176,18 +164,18 @@ fun OraSnackbar(
             decoratedTitleContent()
         }
 
-        if (decoratedDescriptionContent != null) {
+        if (hasDescription) {
             Box(
                 modifier = Modifier.constrainAs(tvDescription) {
                     top.linkTo(tvTitle.bottom, margin = 4.dp)
                     bottom.linkTo(parent.bottom)
-                    if (decoratedIconContent != null) {
+                    if (hasIcon) {
                         start.linkTo(ivIcon.end, margin = 12.dp)
                     } else {
                         start.linkTo(parent.start)
                     }
 
-                    if (showCloseIcon || decoratedActionContent != null) {
+                    if (showCloseIcon || hasAction) {
                         end.linkTo(vDivider.start, margin = 12.dp)
                     } else {
                         end.linkTo(parent.end)
@@ -196,11 +184,18 @@ fun OraSnackbar(
                     width = Dimension.fillToConstraints
                 }
             ) {
-                decoratedDescriptionContent()
+                OraProvideTextStyle(
+                    color = colors.descriptionColor,
+                    textStyle = size.descriptionTextStyle.toTextStyle()
+                ) {
+                    androidx.compose.runtime.key(descriptionKey) {
+                        description()
+                    }
+                }
             }
         }
 
-        if (!showCloseIcon && decoratedActionContent == null) return@ConstraintLayout
+        if (!showCloseIcon && !hasAction) return@ConstraintLayout
 
         VerticalDivider(
             modifier = Modifier
@@ -244,7 +239,7 @@ fun OraSnackbar(
             return@ConstraintLayout
         }
 
-        else if (decoratedActionContent != null) {
+        else if (hasAction) {
             Box(
                 modifier = Modifier.constrainAs(tvAction) {
                     end.linkTo(parent.end)
@@ -252,7 +247,16 @@ fun OraSnackbar(
                     bottom.linkTo(parent.bottom)
                 }
             ) {
-                decoratedActionContent()
+                OraProvideTextStyle(
+                    color = colors.actionColor,
+                    textStyle = size.actionTextStyle.toTextStyle().copy(
+                        fontWeight = FontWeight.Medium
+                    )
+                ) {
+                    androidx.compose.runtime.key(actionKey) {
+                        action()
+                    }
+                }
             }
         }
     }
@@ -279,14 +283,14 @@ fun OraSnackbar(
         title = {
             Text(text = snackbarData.visuals.title)
         },
-        description = snackbarData.visuals.message?.let {
-            @Composable {
-                Text(text = it)
+        description = snackbarData.visuals.message?.let { msg ->
+            {
+                Text(text = msg)
             }
         },
-        icon = snackbarData.visuals.icon?.let {
-            @Composable {
-                Icon(imageVector = it, contentDescription = "")
+        icon = snackbarData.visuals.icon?.let { ic ->
+            {
+                Icon(imageVector = ic, contentDescription = "")
             }
         },
         size = snackbarData.visuals.size ?: OraSnackbarSize.Large,
@@ -294,16 +298,18 @@ fun OraSnackbar(
         onClose = {
             snackbarData.dismiss()
         },
-        action = snackbarData.visuals.actionLabel?.let {
-            @Composable {
+        action = snackbarData.visuals.actionLabel?.let { label ->
+            {
                 Text(
-                    text = it,
+                    text = label,
                     modifier = Modifier.clickable {
                         snackbarData.performAction()
                     }
                 )
             }
-        }
+        },
+        actionKey = snackbarData.visuals.actionLabel,
+        descriptionKey = snackbarData.visuals.message
     )
 }
 
@@ -332,14 +338,14 @@ fun OraSnackbar(
         title = {
             Text(text = visuals.title)
         },
-        description = visuals.message?.let {
-            @Composable {
-                Text(text = it)
+        description = visuals.message?.let { msg ->
+            {
+                Text(text = msg)
             }
         },
-        icon = visuals.icon?.let {
-            @Composable {
-                Icon(imageVector = it, contentDescription = "")
+        icon = visuals.icon?.let { ic ->
+            {
+                Icon(imageVector = ic, contentDescription = "")
             }
         },
         size = visuals.size ?: OraSnackbarSize.Large,
@@ -347,16 +353,18 @@ fun OraSnackbar(
         onClose = {
             onDismiss?.invoke()
         },
-        action = visuals.actionLabel?.let {
-            @Composable {
+        action = visuals.actionLabel?.let { label ->
+            {
                 Text(
-                    text = it,
+                    text = label,
                     modifier = Modifier.clickable {
                         onAction?.invoke()
                     }
                 )
             }
-        }
+        },
+        actionKey = visuals.actionLabel,
+        descriptionKey = visuals.message
     )
 }
 

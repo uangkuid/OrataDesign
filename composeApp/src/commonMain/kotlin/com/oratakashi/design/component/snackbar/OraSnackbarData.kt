@@ -47,6 +47,7 @@ interface OraSnackbarData {
     fun dismiss()
 }
 
+@Stable
 internal class SnackbarVisualsImpl(
     override val title: String,
     override val message: String?,

@@ -1,17 +1,30 @@
 package com.oratakashi.design.app.ui.components.snackbar
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import kotlinx.coroutines.launch
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -22,7 +35,14 @@ import com.oratakashi.design.component.snackbar.OraSnackbarTheme
 import com.oratakashi.design.component.snackbar.OraSnackbarVisuals
 import com.oratakashi.design.component.snackbar.SnackbarVisualsImpl
 import com.oratakashi.design.component.snackbar.toColor
+import com.oratakashi.design.component.textfield.OraTextField
+import com.oratakashi.design.component.textfield.OraTextFieldState
 import com.oratakashi.design.foundation.OrataTheme
+import compose.icons.FeatherIcons
+import compose.icons.feathericons.Check
+import compose.icons.feathericons.Info
+import compose.icons.feathericons.X
+import kotlinx.coroutines.delay
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Preview(showBackground = true)
@@ -31,16 +51,22 @@ fun PlaygroundSnackbarContent(
     openSnackbar: () -> Unit = {}
 ) {
     val scrollState = rememberScrollState()
-    val snackbarData: OraSnackbarVisuals = remember { SnackbarVisualsImpl(
-        title = "This is title",
-        message = "This is description",
-        icon = null,
-        actionLabel = null,
-        withDismissAction = false,
-        duration = com.oratakashi.design.component.snackbar.OraSnackbarDuration.Short,
-        theme = OraSnackbarTheme.Default,
-        size = null
+    var snackbarData by remember { mutableStateOf<OraSnackbarVisuals>(
+        SnackbarVisualsImpl(
+            title = "This is title",
+            message = "This is description",
+            icon = null,
+            actionLabel = null,
+            withDismissAction = false,
+            duration = com.oratakashi.design.component.snackbar.OraSnackbarDuration.Short,
+            theme = OraSnackbarTheme.Default,
+            size = null
+        )
     ) }
+
+
+    var descriptionInput by remember { mutableStateOf(snackbarData.message ?: "") }
+    var actionInput by remember { mutableStateOf(snackbarData.actionLabel ?: "") }
 
     ConstraintLayout(
         modifier = Modifier
@@ -97,6 +123,196 @@ fun PlaygroundSnackbarContent(
                 .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
         ) {
 
+            LazyColumn(
+                modifier = Modifier
+                    .padding(it)
+                    .fillMaxSize(),
+                contentPadding = PaddingValues(
+                    top = 16.dp,
+                    start = 16.dp,
+                    end = 16.dp
+                ),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                item("label_configuration") {
+                    Text(
+                        text = "Configuration",
+                        style = OrataTheme.typography.titleLarge(),
+                        color = OrataTheme.colors.onSurface,
+                        modifier = Modifier
+                    )
+                }
+                
+                item("field_title") {
+                    OraTextField(
+                        label = "Title",
+                        value = snackbarData.title,
+                        required = true,
+                        state = if (snackbarData.title.isEmpty()) {
+                            OraTextFieldState.Error("Title is required")
+                        } else {
+                            OraTextFieldState.Default()
+                        },
+                        onValueChange = {
+                            snackbarData = SnackbarVisualsImpl(
+                                title = it,
+                                message = snackbarData.message,
+                                icon = snackbarData.icon,
+                                actionLabel = snackbarData.actionLabel,
+                                withDismissAction = snackbarData.withDismissAction,
+                                duration = snackbarData.duration,
+                                theme = snackbarData.theme ?: OraSnackbarTheme.Default,
+                                size = snackbarData.size
+                            )
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    )
+                }
+
+                item("field_description") {
+                    OraTextField(
+                        label = "Description",
+                        value = snackbarData.message.orEmpty(),
+                        onValueChange = { newValue ->
+                            snackbarData = SnackbarVisualsImpl(
+                                title = snackbarData.title,
+                                message = newValue.ifBlank { null },
+                                icon = snackbarData.icon,
+                                actionLabel = snackbarData.actionLabel,
+                                withDismissAction = snackbarData.withDismissAction,
+                                duration = snackbarData.duration,
+                                theme = snackbarData.theme ?: OraSnackbarTheme.Default,
+                                size = snackbarData.size
+                            )
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    )
+                }
+
+                item("field_action_label") {
+                    OraTextField(
+                        label = "Action Label",
+                        state = OraTextFieldState.Default("Dismiss button will removed when action label is set"),
+                        value = snackbarData.actionLabel.orEmpty(),
+                        onValueChange = { newValue ->
+                            snackbarData = SnackbarVisualsImpl(
+                                title = snackbarData.title,
+                                message = snackbarData.message,
+                                icon = snackbarData.icon,
+                                actionLabel = newValue.ifBlank { null },
+                                withDismissAction = if (newValue.isNotBlank()) {
+                                    false // Selalu false jika ada action label
+                                } else {
+                                    snackbarData.withDismissAction // Gunakan nilai original
+                                },
+                                duration = snackbarData.duration,
+                                theme = snackbarData.theme ?: OraSnackbarTheme.Default,
+                                size = snackbarData.size
+                            )
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    )
+                }
+
+                item("field_close_button") {
+                    Row(
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(
+                            text = "Show Close Button",
+                            style = OrataTheme.typography.bodyMedium(),
+                            color = OrataTheme.colors.onSurface,
+                            modifier = Modifier
+                                .padding(end = 8.dp)
+                                .weight(1f)
+                        )
+                        Switch(
+                            checked = snackbarData.withDismissAction,
+                            onCheckedChange = { checked ->
+                                snackbarData = SnackbarVisualsImpl(
+                                    title = snackbarData.title,
+                                    message = snackbarData.message,
+                                    icon = snackbarData.icon,
+                                    actionLabel = snackbarData.actionLabel,
+                                    withDismissAction = checked,
+                                    duration = snackbarData.duration,
+                                    theme = snackbarData.theme ?: OraSnackbarTheme.Default,
+                                    size = snackbarData.size
+                                )
+                            },
+                            thumbContent = {
+                                if (snackbarData.withDismissAction) {
+                                    // You can use your own icon here, e.g. Icons.Default.Close
+                                    Icon(
+                                        imageVector = FeatherIcons.X,
+                                        contentDescription = "Close Icon"
+                                    )
+                                } else {
+                                    Icon(
+                                        imageVector = FeatherIcons.Check,
+                                        contentDescription = "Check Icon"
+                                    )
+                                }
+                            }
+                        )
+                    }
+                }
+
+                item("field_show_icon") {
+                    Row(
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(
+                            text = "Show Icon",
+                            style = OrataTheme.typography.bodyMedium(),
+                            color = OrataTheme.colors.onSurface,
+                            modifier = Modifier
+                                .padding(end = 8.dp)
+                                .weight(1f)
+                        )
+                        Switch(
+                            checked = snackbarData.icon != null,
+                            onCheckedChange = { checked ->
+                                snackbarData = SnackbarVisualsImpl(
+                                    title = snackbarData.title,
+                                    message = snackbarData.message,
+                                    icon = if (checked) {
+                                        FeatherIcons.Info
+                                    } else {
+                                        null
+                                    },
+                                    actionLabel = snackbarData.actionLabel,
+                                    withDismissAction = snackbarData.withDismissAction,
+                                    duration = snackbarData.duration,
+                                    theme = snackbarData.theme ?: OraSnackbarTheme.Default,
+                                    size = snackbarData.size
+                                )
+                            },
+                            thumbContent = {
+                                if (snackbarData.icon != null) {
+                                    // You can use your own icon here, e.g. Icons.Default.Close
+                                    Icon(
+                                        imageVector = FeatherIcons.X,
+                                        contentDescription = "Close Icon"
+                                    )
+                                } else {
+                                    Icon(
+                                        imageVector = FeatherIcons.Check,
+                                        contentDescription = "Check Icon"
+                                    )
+                                }
+                            }
+                        )
+                    }
+                }
+            }
         }
     }
 }

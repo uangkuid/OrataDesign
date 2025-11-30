@@ -1,31 +1,29 @@
 package com.oratakashi.design.app.ui.components.snackbar
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import kotlinx.coroutines.launch
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
@@ -34,7 +32,6 @@ import com.oratakashi.design.component.snackbar.OraSnackbar
 import com.oratakashi.design.component.snackbar.OraSnackbarTheme
 import com.oratakashi.design.component.snackbar.OraSnackbarVisuals
 import com.oratakashi.design.component.snackbar.SnackbarVisualsImpl
-import com.oratakashi.design.component.snackbar.toColor
 import com.oratakashi.design.component.textfield.OraTextField
 import com.oratakashi.design.component.textfield.OraTextFieldState
 import com.oratakashi.design.foundation.OrataTheme
@@ -42,7 +39,6 @@ import compose.icons.FeatherIcons
 import compose.icons.feathericons.Check
 import compose.icons.feathericons.Info
 import compose.icons.feathericons.X
-import kotlinx.coroutines.delay
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Preview(showBackground = true)
@@ -50,7 +46,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun PlaygroundSnackbarContent(
     openSnackbar: () -> Unit = {}
 ) {
-    val scrollState = rememberScrollState()
+    val focusManager = LocalFocusManager.current
+
     var snackbarData by remember { mutableStateOf<OraSnackbarVisuals>(
         SnackbarVisualsImpl(
             title = "This is title",
@@ -64,9 +61,6 @@ fun PlaygroundSnackbarContent(
         )
     ) }
 
-
-    var descriptionInput by remember { mutableStateOf(snackbarData.message ?: "") }
-    var actionInput by remember { mutableStateOf(snackbarData.actionLabel ?: "") }
 
     ConstraintLayout(
         modifier = Modifier
@@ -98,19 +92,7 @@ fun PlaygroundSnackbarContent(
             }
         )
 
-        Scaffold(
-            containerColor = OrataTheme.colors.surfaceContainer,
-            bottomBar = {
-                OraButton(
-                    label = "Show Snackbar",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    onClick = {
-
-                    }
-                )
-            },
+        Box(
             modifier = Modifier.constrainAs(formPlayground) {
                 top.linkTo(snackbarPreview.bottom, 8.dp)
                 start.linkTo(parent.start)
@@ -121,16 +103,22 @@ fun PlaygroundSnackbarContent(
                 height = Dimension.fillToConstraints
             }
                 .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
+                .background(OrataTheme.colors.surfaceContainer)
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = null
+                ) {
+                    focusManager.clearFocus()
+                }
         ) {
-
             LazyColumn(
                 modifier = Modifier
-                    .padding(it)
                     .fillMaxSize(),
                 contentPadding = PaddingValues(
                     top = 16.dp,
                     start = 16.dp,
-                    end = 16.dp
+                    end = 16.dp,
+                    bottom = 96.dp // Tambahkan padding bottom untuk memberi ruang untuk button
                 ),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
@@ -312,6 +300,24 @@ fun PlaygroundSnackbarContent(
                         )
                     }
                 }
+            }
+
+            // Sticky button at bottom
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth()
+                    .background(OrataTheme.colors.surfaceContainer)
+            ) {
+                OraButton(
+                    label = "Show Snackbar",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    onClick = {
+
+                    }
+                )
             }
         }
     }

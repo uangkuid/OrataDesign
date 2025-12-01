@@ -19,6 +19,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalAccessibilityManager
+import com.oratakashi.design.component.snackbar.animation.FadeInFadeOutWithScale
 import com.oratakashi.design.component.snackbar.animation.SlideInSlideOutSnackbarAnimation
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -148,6 +149,12 @@ fun OraSnackbarHost(
             currentSnackbarData.dismiss()
         }
     }
+
+//    FadeInFadeOutWithScale(
+//        current = hostState.currentSnackbarData,
+//        modifier = modifier,
+//        content = snackbar
+//    )
 
     SlideInSlideOutSnackbarAnimation(
         current = hostState.currentSnackbarData,

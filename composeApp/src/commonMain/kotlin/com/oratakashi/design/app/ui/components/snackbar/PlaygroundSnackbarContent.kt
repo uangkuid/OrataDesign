@@ -44,7 +44,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Preview(showBackground = true)
 @Composable
 fun PlaygroundSnackbarContent(
-    openSnackbar: () -> Unit = {}
+    openSnackbar: (data: OraSnackbarVisuals) -> Unit = {}
 ) {
     val focusManager = LocalFocusManager.current
 
@@ -104,12 +104,6 @@ fun PlaygroundSnackbarContent(
             }
                 .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
                 .background(OrataTheme.colors.surfaceContainer)
-                .clickable(
-                    interactionSource = remember { MutableInteractionSource() },
-                    indication = null
-                ) {
-                    focusManager.clearFocus()
-                }
         ) {
             LazyColumn(
                 modifier = Modifier
@@ -315,7 +309,7 @@ fun PlaygroundSnackbarContent(
                         .fillMaxWidth()
                         .padding(16.dp),
                     onClick = {
-
+                        openSnackbar.invoke(snackbarData)
                     }
                 )
             }

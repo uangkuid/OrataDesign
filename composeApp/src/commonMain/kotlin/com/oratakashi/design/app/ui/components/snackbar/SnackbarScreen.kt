@@ -7,6 +7,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import com.oratakashi.design.app.component.ComponentContent
 import com.oratakashi.design.app.navigation.SnackbarNavigation
@@ -17,6 +18,7 @@ import com.oratakashi.design.component.snackbar.OraSnackbarTheme
 import com.oratakashi.design.component.snackbar.toColor
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.Info
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 
@@ -35,6 +37,7 @@ fun SnackbarScreen(
 ) {
     val tabs = listOf("Size", "Theme", "Variant", "Playground")
     val snackbarHostState = remember { OraSnackbarHostState() }
+    val scope = rememberCoroutineScope()
 
     ComponentContent(
         onBackClick = onBackPress,
@@ -47,7 +50,7 @@ fun SnackbarScreen(
             OraSnackbarHost(
                 hostState = snackbarHostState,
                 snackbar = {
-
+                    OraSnackbar(it)
                 }
             )
         }
@@ -56,7 +59,9 @@ fun SnackbarScreen(
             0 -> SizeSnackbarContent()
             1 -> ThemeSnackbarContent()
             2 -> VariantSnackbarContent()
-            3 -> PlaygroundSnackbarContent()
+            3 -> PlaygroundSnackbarContent(openSnackbar = {
+                scope.launch { snackbarHostState.showSnackbar(it) }
+            })
             else -> {
                 OraSnackbar(
                     title = {

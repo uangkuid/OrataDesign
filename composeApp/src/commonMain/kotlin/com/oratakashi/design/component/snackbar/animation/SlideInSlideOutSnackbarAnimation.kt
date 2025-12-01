@@ -38,41 +38,44 @@ fun SlideInSlideOutSnackbarAnimation(
         }
         state.items.clear()
         keys.fastFilterNotNull().forEach { key ->
-            SlideInSlideOutAnimationItem(key) { children ->
-                val isVisible = key == current
-                val duration = if (isVisible) SnackbarSlideInMillis else SnackbarSlideOutMillis
-                val delay = SnackbarSlideOutMillis + SnackbarInBetweenDelayMillis
-                val animationDelay = if (isVisible && keys.fastFilterNotNull().size != 1) {
-                    delay
-                } else {
-                    0
-                }
-
-                val offsetY = animatedSlideInSlideOut(
-                    animationDuration = duration,
-                    animationDelay = animationDelay,
-                    visible = isVisible,
-                    onAnimationFinish = {
-                        if (key != state.current) {
-                            // leave only the current in the list
-                            state.items.removeAll { it.key != state.current }
-                        }
+            state.items.add(
+                SlideInSlideOutAnimationItem(key) { children ->
+                    val isVisible = key == current
+                    val duration = if (isVisible) SnackbarSlideInMillis else SnackbarSlideOutMillis
+                    val delay = SnackbarSlideOutMillis + SnackbarInBetweenDelayMillis
+                    val animationDelay = if (isVisible && keys.fastFilterNotNull().size != 1) {
+                        delay
+                    } else {
+                        0
                     }
-                )
 
-                Box(
-                    modifier = Modifier
-                        .graphicsLayer {
-                            translationY = offsetY.value
+                    val offsetY = animatedSlideInSlideOut(
+                        animationDuration = duration,
+                        animationDelay = animationDelay,
+                        visible = isVisible,
+                        onAnimationFinish = {
+                            if (key != state.current) {
+                                // leave only the current in the list
+                                state.items.removeAll { it.key != state.current }
+                                state.scope?.invalidate()
+                            }
                         }
-                        .semantics {
-                            liveRegion = LiveRegionMode.Polite
-                            dismiss { key.dismiss(); true }
-                        }
-                ) {
-                    children()
+                    )
+
+                    Box(
+                        modifier = Modifier
+                            .graphicsLayer {
+                                translationY = offsetY.value
+                            }
+                            .semantics {
+                                liveRegion = LiveRegionMode.Polite
+                                dismiss { key.dismiss(); true }
+                            }
+                    ) {
+                        children()
+                    }
                 }
-            }
+            )
         }
     }
 

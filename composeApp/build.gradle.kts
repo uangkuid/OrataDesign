@@ -1,4 +1,5 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.compose.internal.utils.getLocalProperty
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -12,6 +13,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
     alias(libs.plugins.kotlinSerialization)
+    id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
 kotlin {
@@ -95,7 +97,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.oratakashi.design.app"
+    namespace = "com.oratakashi.design"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -138,4 +140,13 @@ compose.desktop {
             packageVersion = "1.0.0"
         }
     }
+}
+
+mavenPublishing {
+    publishToMavenCentral()
+
+//    signAllPublications()
+
+    coordinates(getLocalProperty("GROUP"), getLocalProperty("POM_ARTIFACT_ID"), getLocalProperty("VERSION_NAME"))
+
 }

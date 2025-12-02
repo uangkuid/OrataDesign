@@ -4,12 +4,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarData
 import androidx.compose.material3.SnackbarDuration
-import androidx.compose.material3.SnackbarDuration.Indefinite
 import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
-import androidx.compose.material3.SnackbarResult.ActionPerformed
-import androidx.compose.material3.SnackbarResult.Dismissed
 import androidx.compose.material3.SnackbarVisuals
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -19,7 +15,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalAccessibilityManager
-import com.oratakashi.design.component.snackbar.animation.FadeInFadeOutWithScale
 import com.oratakashi.design.component.snackbar.animation.SlideInSlideOutSnackbarAnimation
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.suspendCancellableCoroutine

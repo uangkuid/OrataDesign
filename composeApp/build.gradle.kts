@@ -143,7 +143,7 @@ compose.desktop {
 }
 
 mavenPublishing {
-    publishToMavenCentral()
+//    publishToMavenCentral()
 
 //    signAllPublications()
 

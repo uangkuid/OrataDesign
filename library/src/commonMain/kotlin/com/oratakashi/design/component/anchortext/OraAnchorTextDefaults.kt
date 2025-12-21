@@ -20,10 +20,10 @@ object OraAnchorTextDefaults {
      * @since 16 Nov 2025
      */
     fun colors(
-        contentColor: Color = OrataTheme.colors.primary,
-        disabledContentColor: Color = OrataTheme.colors.onSurfaceVariant,
-    ): OraAnchorTextColor {
-        return OraAnchorTextColor(
+        contentColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.primary,
+        disabledContentColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSurfaceVariant,
+    ): com.oratakashi.design.component.anchortext.OraAnchorTextColor {
+        return _root_ide_package_.com.oratakashi.design.component.anchortext.OraAnchorTextColor(
             contentColor = contentColor,
             disabledContentColor = disabledContentColor
         )

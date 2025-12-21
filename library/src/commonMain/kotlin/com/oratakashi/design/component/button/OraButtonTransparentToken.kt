@@ -17,19 +17,19 @@ object OraButtonTransparentToken {
         get() = Color.Transparent
     val IconColor: Color
         @Composable
-        get() = OrataTheme.colors.primary
+        get() = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.primary
     val DisabledIconColor: Color
         @Composable
-        get() = OrataTheme.colors.onSurfaceVariant
+        get() = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSurfaceVariant
     val LabelTextColor: Color
         @Composable
-        get() = OrataTheme.colors.primary
+        get() = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.primary
     val DisabledContainerColor: Color
         @Composable
-        get() = OrataTheme.colors.surfaceContainer
+        get() = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer
     val DisabledLabelTextColor: Color
         @Composable
-        get() = OrataTheme.colors.onSurfaceVariant
-    val ButtonSizeVariant = OraButtonSize.Medium
+        get() = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSurfaceVariant
+    val ButtonSizeVariant = _root_ide_package_.com.oratakashi.design.component.button.OraButtonSize.Medium
 }
 

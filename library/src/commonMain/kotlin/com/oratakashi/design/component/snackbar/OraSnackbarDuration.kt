@@ -24,14 +24,14 @@ enum class OraSnackbarDuration {
     Indefinite
 }
 
-internal fun OraSnackbarDuration.toMillis(
+internal fun com.oratakashi.design.component.snackbar.OraSnackbarDuration.toMillis(
     hasAction: Boolean,
     accessibilityManager: AccessibilityManager?
 ): Long {
     val original = when (this) {
-        OraSnackbarDuration.Indefinite -> Long.MAX_VALUE
-        OraSnackbarDuration.Long -> 10000L
-        OraSnackbarDuration.Short -> 4000L
+        _root_ide_package_.com.oratakashi.design.component.snackbar.OraSnackbarDuration.Indefinite -> Long.MAX_VALUE
+        _root_ide_package_.com.oratakashi.design.component.snackbar.OraSnackbarDuration.Long -> 10000L
+        _root_ide_package_.com.oratakashi.design.component.snackbar.OraSnackbarDuration.Short -> 4000L
     }
     if (accessibilityManager == null) {
         return original

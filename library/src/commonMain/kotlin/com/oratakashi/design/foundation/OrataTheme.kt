@@ -23,15 +23,15 @@ import com.oratakashi.design.foundation.typography.toMaterialTypography
 /**
  * OrataDesignColorScheme is a class that contains all the colors used in the Orata Design System.
  */
-internal val LocalOrataDesignColorScheme = staticCompositionLocalOf<OrataDesignColorScheme> {
-    lightOraColorScheme()
+internal val LocalOrataDesignColorScheme = staticCompositionLocalOf<com.oratakashi.design.foundation.color.OrataDesignColorScheme> {
+    _root_ide_package_.com.oratakashi.design.foundation.color.lightOraColorScheme()
 }
 
 /**
  * OrataDesignTypography is a class that contains all the typography used in the Orata Design System.
  */
-internal val LocalOrataTypography = staticCompositionLocalOf<OrataDesignTypography> {
-    DefaultOraTypography
+internal val LocalOrataTypography = staticCompositionLocalOf<com.oratakashi.design.foundation.typography.OrataDesignTypography> {
+    _root_ide_package_.com.oratakashi.design.foundation.typography.DefaultOraTypography
 }
 
 /**
@@ -49,26 +49,26 @@ internal val LocalOrataTypography = staticCompositionLocalOf<OrataDesignTypograp
 @Composable
 fun OrataAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    colorScheme: OrataDesignColorScheme? = null, // Made nullable to defer creation
-    typography: OrataDesignTypography = OrataTheme.typography,
+    colorScheme: com.oratakashi.design.foundation.color.OrataDesignColorScheme? = null, // Made nullable to defer creation
+    typography: com.oratakashi.design.foundation.typography.OrataDesignTypography = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.typography,
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val dynamicColorScheme = PlatformConfig.getDynamicColor(darkTheme)
+    val dynamicColorScheme = _root_ide_package_.com.oratakashi.design.config.PlatformConfig.getDynamicColor(darkTheme)
     // Remember color scheme to avoid recreation on every recomposition
     val actualColorScheme = remember(darkTheme, colorScheme, dynamicColorScheme) {
         if (dynamicColorScheme != null && dynamicColor) {
             dynamicColorScheme.toOrataDesignColorScheme(isDark = darkTheme)
         } else {
-            colorScheme ?: if (darkTheme) darkOraColorScheme() else lightOraColorScheme()
+            colorScheme ?: if (darkTheme) _root_ide_package_.com.oratakashi.design.foundation.color.darkOraColorScheme() else _root_ide_package_.com.oratakashi.design.foundation.color.lightOraColorScheme()
         }
     }
 
     // Remember material color scheme for performance
     val materialColorScheme = remember(actualColorScheme, darkTheme, dynamicColor) {
         when {
-            PlatformConfig.isDynamicColorAvailable() && dynamicColor -> {
+            _root_ide_package_.com.oratakashi.design.config.PlatformConfig.isDynamicColorAvailable() && dynamicColor -> {
                  dynamicColorScheme ?: if (darkTheme) {
                     actualColorScheme.toMaterialDarkColorScheme()
                 } else {
@@ -81,8 +81,8 @@ fun OrataAppTheme(
     }
 
     CompositionLocalProvider(
-        LocalOrataDesignColorScheme provides actualColorScheme,
-        LocalOrataTypography provides typography
+        _root_ide_package_.com.oratakashi.design.foundation.LocalOrataDesignColorScheme provides actualColorScheme,
+        _root_ide_package_.com.oratakashi.design.foundation.LocalOrataTypography provides typography
     ) {
         MaterialTheme(
             colorScheme = materialColorScheme,
@@ -99,13 +99,13 @@ fun OrataAppTheme(
  * @since 03 Sep 2025
  */
 object OrataTheme {
-    val colors: OrataDesignColorScheme
+    val colors: com.oratakashi.design.foundation.color.OrataDesignColorScheme
         @Composable
         @ReadOnlyComposable
-        get() = LocalOrataDesignColorScheme.current
+        get() = _root_ide_package_.com.oratakashi.design.foundation.LocalOrataDesignColorScheme.current
 
-    val typography: OrataDesignTypography
+    val typography: com.oratakashi.design.foundation.typography.OrataDesignTypography
         @Composable
         @ReadOnlyComposable
-        get() = LocalOrataTypography.current
+        get() = _root_ide_package_.com.oratakashi.design.foundation.LocalOrataTypography.current
 }

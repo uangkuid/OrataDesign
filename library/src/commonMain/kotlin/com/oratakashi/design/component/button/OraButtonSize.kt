@@ -19,7 +19,7 @@ enum class OraButtonSize(
     val minHeight: Dp,
     val iconSize: Dp,
     val iconSpacing: Dp,
-    val labelTextStyle: OraTypographyKeyToken
+    val labelTextStyle: com.oratakashi.design.foundation.typography.OraTypographyKeyToken
 ) {
     XSmall(
         contentPadding = PaddingValues(
@@ -30,7 +30,7 @@ enum class OraButtonSize(
         minHeight = 32.dp,
         iconSize = 20.dp,
         iconSpacing = 4.dp,
-        labelTextStyle = OraTypographyKeyToken.LabelLarge
+        labelTextStyle = _root_ide_package_.com.oratakashi.design.foundation.typography.OraTypographyKeyToken.LabelLarge
     ),
 
     Small(
@@ -42,7 +42,7 @@ enum class OraButtonSize(
         minHeight = 40.dp,
         iconSize = 20.dp,
         iconSpacing = 8.dp,
-        labelTextStyle = OraTypographyKeyToken.LabelLarge
+        labelTextStyle = _root_ide_package_.com.oratakashi.design.foundation.typography.OraTypographyKeyToken.LabelLarge
     ),
 
     Medium(
@@ -54,7 +54,7 @@ enum class OraButtonSize(
         minHeight = 56.dp,
         iconSize = 24.dp,
         iconSpacing = 8.dp,
-        labelTextStyle = OraTypographyKeyToken.TitleMedium
+        labelTextStyle = _root_ide_package_.com.oratakashi.design.foundation.typography.OraTypographyKeyToken.TitleMedium
     ),
 
     Large(
@@ -66,7 +66,7 @@ enum class OraButtonSize(
         minHeight = 96.dp,
         iconSize = 32.dp,
         iconSpacing = 12.dp,
-        labelTextStyle = OraTypographyKeyToken.HeadlineSmall
+        labelTextStyle = _root_ide_package_.com.oratakashi.design.foundation.typography.OraTypographyKeyToken.HeadlineSmall
     ),
 
     XLarge(
@@ -78,6 +78,6 @@ enum class OraButtonSize(
         minHeight = 136.dp,
         iconSize = 40.dp,
         iconSpacing = 16.dp,
-        labelTextStyle = OraTypographyKeyToken.HeadlineLarge
+        labelTextStyle = _root_ide_package_.com.oratakashi.design.foundation.typography.OraTypographyKeyToken.HeadlineLarge
     )
 }

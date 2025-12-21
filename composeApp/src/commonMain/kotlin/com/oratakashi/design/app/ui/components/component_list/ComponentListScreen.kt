@@ -77,8 +77,8 @@ fun ComponentListScreen(
                             text = "Components",
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            style = com.oratakashi.design.foundation.OrataTheme.typography.displaySmall(),
-                            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface
+                            style = OrataTheme.typography.displaySmall(),
+                            color = OrataTheme.colors.onSurface
                         )
                     },
                     scrollBehavior = scrollBehavior,
@@ -161,8 +161,8 @@ private fun CardComponent(
             )
             Text(
                 text = component.title, // Replace with actual content
-                style = com.oratakashi.design.foundation.OrataTheme.typography.bodyLarge(),
-                color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
+                style = OrataTheme.typography.bodyLarge(),
+                color = OrataTheme.colors.onSurface,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 8.dp)

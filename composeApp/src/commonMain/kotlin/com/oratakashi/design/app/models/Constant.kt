@@ -62,26 +62,26 @@ internal object Constant {
         ColorData(
             name = "Primary",
             code = "P-40",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onPrimary,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.primary
+            color = OrataTheme.colors.onPrimary,
+            background = OrataTheme.colors.primary
         ),
         ColorData(
             name = "On Primary",
             code = "P-100",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.primary,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.onPrimary
+            color = OrataTheme.colors.primary,
+            background = OrataTheme.colors.onPrimary
         ),
         ColorData(
             name = "Primary Container",
             code = "P-90",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onPrimaryContainer,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.primaryContainer
+            color = OrataTheme.colors.onPrimaryContainer,
+            background = OrataTheme.colors.primaryContainer
         ),
         ColorData(
             name = "On Primary Container",
             code = "P-30",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.primaryContainer,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.onPrimaryContainer
+            color = OrataTheme.colors.primaryContainer,
+            background = OrataTheme.colors.onPrimaryContainer
         )
     )
 
@@ -95,26 +95,26 @@ internal object Constant {
         ColorData(
             name = "Secondary",
             code = "S-40",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSecondary,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.secondary
+            color = OrataTheme.colors.onSecondary,
+            background = OrataTheme.colors.secondary
         ),
         ColorData(
             name = "On Secondary",
             code = "S-100",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.secondary,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.onSecondary
+            color = OrataTheme.colors.secondary,
+            background = OrataTheme.colors.onSecondary
         ),
         ColorData(
             name = "Secondary Container",
             code = "S-90",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSecondaryContainer,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.secondaryContainer
+            color = OrataTheme.colors.onSecondaryContainer,
+            background = OrataTheme.colors.secondaryContainer
         ),
         ColorData(
             name = "On Secondary Container",
             code = "S-30",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.secondaryContainer,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.onSecondaryContainer
+            color = OrataTheme.colors.secondaryContainer,
+            background = OrataTheme.colors.onSecondaryContainer
         )
     )
 
@@ -128,26 +128,26 @@ internal object Constant {
         ColorData(
             name = "Tertiary",
             code = "T-40",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onTertiary,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.tertiary
+            color = OrataTheme.colors.onTertiary,
+            background = OrataTheme.colors.tertiary
         ),
         ColorData(
             name = "On Tertiary",
             code = "T-100",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.tertiary,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.onTertiary
+            color = OrataTheme.colors.tertiary,
+            background = OrataTheme.colors.onTertiary
         ),
         ColorData(
             name = "Tertiary Container",
             code = "T-90",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onTertiaryContainer,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.tertiaryContainer
+            color = OrataTheme.colors.onTertiaryContainer,
+            background = OrataTheme.colors.tertiaryContainer
         ),
         ColorData(
             name = "On Tertiary Container",
             code = "T-30",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.tertiaryContainer,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.onTertiaryContainer
+            color = OrataTheme.colors.tertiaryContainer,
+            background = OrataTheme.colors.onTertiaryContainer
         )
     )
 
@@ -161,26 +161,26 @@ internal object Constant {
         ColorData(
             name = "Error",
             code = "E-40",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onError,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.error
+            color = OrataTheme.colors.onError,
+            background = OrataTheme.colors.error
         ),
         ColorData(
             name = "On Error",
             code = "E-100",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.error,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.onError
+            color = OrataTheme.colors.error,
+            background = OrataTheme.colors.onError
         ),
         ColorData(
             name = "Error Container",
             code = "E-90",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onErrorContainer,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.errorContainer
+            color = OrataTheme.colors.onErrorContainer,
+            background = OrataTheme.colors.errorContainer
         ),
         ColorData(
             name = "On Error Container",
             code = "T-30",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.errorContainer,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.onErrorContainer
+            color = OrataTheme.colors.errorContainer,
+            background = OrataTheme.colors.onErrorContainer
         )
     )
 
@@ -194,20 +194,20 @@ internal object Constant {
         ColorData(
             name = "Surface Dim",
             code = "N-87",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.surfaceDim
+            color = OrataTheme.colors.onSurface,
+            background = OrataTheme.colors.surfaceDim
         ),
         ColorData(
             name = "Surface",
             code = "N-98",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.surface
+            color = OrataTheme.colors.onSurface,
+            background = OrataTheme.colors.surface
         ),
         ColorData(
             name = "Surface Bright",
             code = "N-98",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.surfaceBright
+            color = OrataTheme.colors.onSurface,
+            background = OrataTheme.colors.surfaceBright
         )
     )
 
@@ -221,32 +221,32 @@ internal object Constant {
         ColorData(
             name = "Surf. Container Lowest",
             code = "N-100",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerLowest
+            color = OrataTheme.colors.onSurface,
+            background = OrataTheme.colors.surfaceContainerLowest
         ),
         ColorData(
             name = "Surf. Container Low",
             code = "N-96",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerLow
+            color = OrataTheme.colors.onSurface,
+            background = OrataTheme.colors.surfaceContainerLow
         ),
         ColorData(
             name = "Surf. Container",
             code = "N-94",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer
+            color = OrataTheme.colors.onSurface,
+            background = OrataTheme.colors.surfaceContainer
         ),
         ColorData(
             name = "Surf. Container High",
             code = "N-92",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerHigh
+            color = OrataTheme.colors.onSurface,
+            background = OrataTheme.colors.surfaceContainerHigh
         ),
         ColorData(
             name = "Surf. Container Highest",
             code = "N-90",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerHighest
+            color = OrataTheme.colors.onSurface,
+            background = OrataTheme.colors.surfaceContainerHighest
         )
     )
 
@@ -260,26 +260,26 @@ internal object Constant {
         ColorData(
             name = "On Surface",
             code = "N-10",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.surface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.onSurface
+            color = OrataTheme.colors.surface,
+            background = OrataTheme.colors.onSurface
         ),
         ColorData(
             name = "On Surface Var.",
             code = "NV-30",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.surface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.onSurfaceVariant
+            color = OrataTheme.colors.surface,
+            background = OrataTheme.colors.onSurfaceVariant
         ),
         ColorData(
             name = "Outline",
             code = "NV-50",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.surface,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.outline
+            color = OrataTheme.colors.surface,
+            background = OrataTheme.colors.outline
         ),
         ColorData(
             name = "Outline Variant",
             code = "NV-80",
-            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurfaceVariant,
-            background = com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant
+            color = OrataTheme.colors.onSurfaceVariant,
+            background = OrataTheme.colors.outlineVariant
         )
     )
 
@@ -291,7 +291,7 @@ internal object Constant {
     fun displayItems(): List<TypographyData> = listOf(
         TypographyData(
             "Display Large",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.DisplayLarge,
+            OraTypographyKeyToken.DisplayLarge,
             "Display",
             "Large",
             "Montserrat",
@@ -300,7 +300,7 @@ internal object Constant {
         ),
         TypographyData(
             "Display Medium",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.DisplayMedium,
+            OraTypographyKeyToken.DisplayMedium,
             "Display",
             "Medium",
             "Montserrat",
@@ -309,7 +309,7 @@ internal object Constant {
         ),
         TypographyData(
             "Display Small",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.DisplaySmall,
+            OraTypographyKeyToken.DisplaySmall,
             "Display",
             "Small",
             "Montserrat",
@@ -326,7 +326,7 @@ internal object Constant {
     fun headlineItems(): List<TypographyData> = listOf(
         TypographyData(
             "Headline Large",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.HeadlineLarge,
+            OraTypographyKeyToken.HeadlineLarge,
             "Headline",
             "Large",
             "Poppins",
@@ -335,7 +335,7 @@ internal object Constant {
         ),
         TypographyData(
             "Headline Medium",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.HeadlineMedium,
+            OraTypographyKeyToken.HeadlineMedium,
             "Headline",
             "Medium",
             "Poppins",
@@ -344,7 +344,7 @@ internal object Constant {
         ),
         TypographyData(
             "Headline Small",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.HeadlineSmall,
+            OraTypographyKeyToken.HeadlineSmall,
             "Headline",
             "Small",
             "Poppins",
@@ -361,7 +361,7 @@ internal object Constant {
     fun titleItems(): List<TypographyData> = listOf(
         TypographyData(
             "Title Large",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.TitleLarge,
+            OraTypographyKeyToken.TitleLarge,
             "Title",
             "Large",
             "Poppins",
@@ -370,7 +370,7 @@ internal object Constant {
         ),
         TypographyData(
             "Title Medium",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.TitleMedium,
+            OraTypographyKeyToken.TitleMedium,
             "Title",
             "Medium",
             "Poppins",
@@ -379,7 +379,7 @@ internal object Constant {
         ),
         TypographyData(
             "Title Small",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.TitleSmall,
+            OraTypographyKeyToken.TitleSmall,
             "Title",
             "Small",
             "Poppins",
@@ -396,7 +396,7 @@ internal object Constant {
     fun labelItems(): List<TypographyData> = listOf(
         TypographyData(
             "Label Large",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.LabelLarge,
+            OraTypographyKeyToken.LabelLarge,
             "Label",
             "Large",
             "Poppins",
@@ -405,7 +405,7 @@ internal object Constant {
         ),
         TypographyData(
             "Label Medium",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.LabelMedium,
+            OraTypographyKeyToken.LabelMedium,
             "Label",
             "Medium",
             "Poppins",
@@ -414,7 +414,7 @@ internal object Constant {
         ),
         TypographyData(
             "Label Small",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.LabelSmall,
+            OraTypographyKeyToken.LabelSmall,
             "Label",
             "Small",
             "Poppins",
@@ -431,7 +431,7 @@ internal object Constant {
     fun bodyItems(): List<TypographyData> = listOf(
         TypographyData(
             "Body Large",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.BodyLarge,
+            OraTypographyKeyToken.BodyLarge,
             "Body",
             "Large",
             "Poppins",
@@ -440,7 +440,7 @@ internal object Constant {
         ),
         TypographyData(
             "Body Medium",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.BodyMedium,
+            OraTypographyKeyToken.BodyMedium,
             "Body",
             "Medium",
             "Poppins",
@@ -449,7 +449,7 @@ internal object Constant {
         ),
         TypographyData(
             "Body Small",
-            com.oratakashi.design.foundation.typography.OraTypographyKeyToken.BodySmall,
+            OraTypographyKeyToken.BodySmall,
             "Body",
             "Small",
             "Poppins",

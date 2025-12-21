@@ -42,7 +42,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun App(
     windowSizeClass: WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
 ) {
-    com.oratakashi.design.foundation.OrataAppTheme {
+    OrataAppTheme {
         val navController = rememberNavController()
         val items = listOf(FoundationNavigation, ComponentNavigation)
         val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()

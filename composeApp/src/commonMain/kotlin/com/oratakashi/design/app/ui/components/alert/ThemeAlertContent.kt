@@ -46,7 +46,7 @@ fun ThemeAlertContent() {
 
                 var isVisible by remember { mutableStateOf(true) }
 
-                com.oratakashi.design.component.alert.OraInfoAlert(
+                OraInfoAlert(
                     title = "Info Title",
                     description = "Interactively monetize corporate alignments and fully tested niche markets. ",
                     showCloseIcon = true,
@@ -55,13 +55,13 @@ fun ThemeAlertContent() {
                         isVisible = !isVisible
                     },
                     action = {
-                        com.oratakashi.design.component.anchortext.OraAnchorText(
+                        OraAnchorText(
                             text = "Call to Action",
                             onClick = {
                                 // Action here
                             },
-                            colors = com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                                contentColor = com.oratakashi.design.foundation.OrataTheme.colors.info
+                            colors = OraAnchorTextDefaults.colors(
+                                contentColor = OrataTheme.colors.info
                             ),
                         )
                     }
@@ -78,7 +78,7 @@ fun ThemeAlertContent() {
 
                 var isVisible by remember { mutableStateOf(true) }
 
-                com.oratakashi.design.component.alert.OraWarningAlert(
+                OraWarningAlert(
                     title = "Warning Title",
                     description = "Interactively monetize corporate alignments and fully tested niche markets. ",
                     showCloseIcon = true,
@@ -87,13 +87,13 @@ fun ThemeAlertContent() {
                         isVisible = !isVisible
                     },
                     action = {
-                        com.oratakashi.design.component.anchortext.OraAnchorText(
+                        OraAnchorText(
                             text = "Call to Action",
                             onClick = {
                                 // Action here
                             },
-                            colors = com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                                contentColor = com.oratakashi.design.foundation.OrataTheme.colors.warning
+                            colors = OraAnchorTextDefaults.colors(
+                                contentColor = OrataTheme.colors.warning
                             ),
                         )
                     }
@@ -110,7 +110,7 @@ fun ThemeAlertContent() {
 
                 var isVisible by remember { mutableStateOf(true) }
 
-                com.oratakashi.design.component.alert.OraSuccessAlert(
+                OraSuccessAlert(
                     title = "Success Title",
                     description = "Interactively monetize corporate alignments and fully tested niche markets. ",
                     showCloseIcon = true,
@@ -119,13 +119,13 @@ fun ThemeAlertContent() {
                         isVisible = !isVisible
                     },
                     action = {
-                        com.oratakashi.design.component.anchortext.OraAnchorText(
+                        OraAnchorText(
                             text = "Call to Action",
                             onClick = {
                                 // Action here
                             },
-                            colors = com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                                contentColor = com.oratakashi.design.foundation.OrataTheme.colors.success
+                            colors = OraAnchorTextDefaults.colors(
+                                contentColor = OrataTheme.colors.success
                             ),
                         )
                     }
@@ -142,7 +142,7 @@ fun ThemeAlertContent() {
 
                 var isVisible by remember { mutableStateOf(true) }
 
-                com.oratakashi.design.component.alert.OraErrorAlert(
+                OraErrorAlert(
                     title = "Success Title",
                     description = "Interactively monetize corporate alignments and fully tested niche markets. ",
                     showCloseIcon = true,
@@ -151,13 +151,13 @@ fun ThemeAlertContent() {
                         isVisible = !isVisible
                     },
                     action = {
-                        com.oratakashi.design.component.anchortext.OraAnchorText(
+                        OraAnchorText(
                             text = "Call to Action",
                             onClick = {
                                 // Action here
                             },
-                            colors = com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                                contentColor = com.oratakashi.design.foundation.OrataTheme.colors.error
+                            colors = OraAnchorTextDefaults.colors(
+                                contentColor = OrataTheme.colors.error
                             ),
                         )
                     }

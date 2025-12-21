@@ -29,7 +29,7 @@ internal object ButtonIcon : DynamicIcons {
         ).apply {
             // Background rectangle
             path(
-                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surface),
+                fill = SolidColor(OrataTheme.colors.surface),
                 fillAlpha = 1.0f,
                 stroke = null,
                 strokeAlpha = 1.0f,
@@ -50,7 +50,7 @@ internal object ButtonIcon : DynamicIcons {
             path(
                 fill = SolidColor(Color.Transparent),
                 fillAlpha = 1.0f,
-                stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant),
+                stroke = SolidColor(OrataTheme.colors.outlineVariant),
                 strokeAlpha = 1.0f,
                 strokeLineWidth = 1.0f,
                 strokeLineCap = StrokeCap.Butt,
@@ -74,7 +74,7 @@ internal object ButtonIcon : DynamicIcons {
             group {
                 // Clip path for rounded button
                 path(
-                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
+                    fill = SolidColor(OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -98,7 +98,7 @@ internal object ButtonIcon : DynamicIcons {
 
                 // Star icon with circle
                 path(
-                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onPrimary),
+                    fill = SolidColor(OrataTheme.colors.onPrimary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -142,7 +142,7 @@ internal object ButtonIcon : DynamicIcons {
 
                 // "Action" text
                 path(
-                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onPrimary),
+                    fill = SolidColor(OrataTheme.colors.onPrimary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -317,9 +317,9 @@ internal object ButtonIcon : DynamicIcons {
 
             // Cursor/pointer icon at bottom right
             path(
-                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
+                fill = SolidColor(OrataTheme.colors.primary),
                 fillAlpha = 1.0f,
-                stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onPrimary),
+                stroke = SolidColor(OrataTheme.colors.onPrimary),
                 strokeAlpha = 1.0f,
                 strokeLineWidth = 4.0f,
                 strokeLineCap = StrokeCap.Butt,

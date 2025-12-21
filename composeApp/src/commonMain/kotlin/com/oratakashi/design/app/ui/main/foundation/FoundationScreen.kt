@@ -62,8 +62,8 @@ internal fun FoundationScreen(modifier: Modifier = Modifier, scrollBehavior: Top
                         },
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
-                        style = com.oratakashi.design.foundation.OrataTheme.typography.displaySmall(),
-                        color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface
+                        style = OrataTheme.typography.displaySmall(),
+                        color = OrataTheme.colors.onSurface
                     )
                 },
                 scrollBehavior = scrollBehavior,
@@ -94,8 +94,8 @@ internal fun FoundationScreen(modifier: Modifier = Modifier, scrollBehavior: Top
                     content = {
                         IconButton(
                             colors = IconButtonDefaults.iconButtonColors(
-                                containerColor = if (currentRoute == ColorNavigation.route) com.oratakashi.design.foundation.OrataTheme.colors.primary else com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer,
-                                contentColor = if (currentRoute == ColorNavigation.route) com.oratakashi.design.foundation.OrataTheme.colors.onPrimary else com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
+                                containerColor = if (currentRoute == ColorNavigation.route) OrataTheme.colors.primary else OrataTheme.colors.surfaceContainer,
+                                contentColor = if (currentRoute == ColorNavigation.route) OrataTheme.colors.onPrimary else OrataTheme.colors.onSurface,
                             ),
                             onClick = {
                                 navController.navigate(ColorNavigation)
@@ -105,8 +105,8 @@ internal fun FoundationScreen(modifier: Modifier = Modifier, scrollBehavior: Top
                         }
                         IconButton(
                             colors = IconButtonDefaults.iconButtonColors(
-                                containerColor = if (currentRoute == TypographyNavigation.route) com.oratakashi.design.foundation.OrataTheme.colors.primary else com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer,
-                                contentColor = if (currentRoute == TypographyNavigation.route) com.oratakashi.design.foundation.OrataTheme.colors.onPrimary else com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
+                                containerColor = if (currentRoute == TypographyNavigation.route) OrataTheme.colors.primary else OrataTheme.colors.surfaceContainer,
+                                contentColor = if (currentRoute == TypographyNavigation.route) OrataTheme.colors.onPrimary else OrataTheme.colors.onSurface,
                             ),
                             onClick = {
                                 navController.navigate(TypographyNavigation)

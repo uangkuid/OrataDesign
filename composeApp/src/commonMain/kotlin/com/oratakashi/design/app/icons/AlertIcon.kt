@@ -29,7 +29,7 @@ internal object AlertIcon : DynamicIcons {
         ).apply {
             // Background with rounded corners
             path(
-                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surface),
+                fill = SolidColor(OrataTheme.colors.surface),
                 fillAlpha = 1.0f,
                 stroke = null,
                 strokeAlpha = 1.0f,
@@ -55,7 +55,7 @@ internal object AlertIcon : DynamicIcons {
             path(
                 fill = SolidColor(Color.Transparent),
                 fillAlpha = 1.0f,
-                stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant),
+                stroke = SolidColor(OrataTheme.colors.outlineVariant),
                 strokeAlpha = 1.0f,
                 strokeLineWidth = 1.0f,
                 strokeLineCap = StrokeCap.Butt,
@@ -77,7 +77,7 @@ internal object AlertIcon : DynamicIcons {
 
             // White rounded rectangle (alert box background)
             path(
-                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerLowest),
+                fill = SolidColor(OrataTheme.colors.surfaceContainerLowest),
                 fillAlpha = 1.0f,
                 stroke = null,
                 strokeAlpha = 1.0f,
@@ -102,7 +102,7 @@ internal object AlertIcon : DynamicIcons {
             group {
                 // Clip path for border effect
                 path(
-                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
+                    fill = SolidColor(OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -157,7 +157,7 @@ internal object AlertIcon : DynamicIcons {
 
             // Close/X icon
             path(
-                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurface),
+                fill = SolidColor(OrataTheme.colors.onSurface),
                 fillAlpha = 1.0f,
                 stroke = null,
                 strokeAlpha = 1.0f,
@@ -189,7 +189,7 @@ internal object AlertIcon : DynamicIcons {
 
             // Top text placeholder bar
             path(
-                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer),
+                fill = SolidColor(OrataTheme.colors.surfaceContainer),
                 fillAlpha = 1.0f,
                 stroke = null,
                 strokeAlpha = 1.0f,
@@ -213,7 +213,7 @@ internal object AlertIcon : DynamicIcons {
 
             // Bottom text placeholder bar
             path(
-                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer),
+                fill = SolidColor(OrataTheme.colors.surfaceContainer),
                 fillAlpha = 1.0f,
                 stroke = null,
                 strokeAlpha = 1.0f,
@@ -237,7 +237,7 @@ internal object AlertIcon : DynamicIcons {
 
             // Title bar
             path(
-                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
+                fill = SolidColor(OrataTheme.colors.primary),
                 fillAlpha = 1.0f,
                 stroke = null,
                 strokeAlpha = 1.0f,
@@ -261,7 +261,7 @@ internal object AlertIcon : DynamicIcons {
 
             // Circular icon
             path(
-                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
+                fill = SolidColor(OrataTheme.colors.primary),
                 fillAlpha = 1.0f,
                 stroke = null,
                 strokeAlpha = 1.0f,
@@ -279,7 +279,7 @@ internal object AlertIcon : DynamicIcons {
 
             // "Call to Action" text path
             path(
-                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
+                fill = SolidColor(OrataTheme.colors.primary),
                 fillAlpha = 1.0f,
                 stroke = null,
                 strokeAlpha = 1.0f,

@@ -44,7 +44,7 @@ internal fun TypographyScreen(
         item(key = "display") {
             Text(
                 text = "Display",
-                style = com.oratakashi.design.foundation.OrataTheme.typography.titleLarge(),
+                style = OrataTheme.typography.titleLarge(),
             )
         }
         // use items overload with stable key and contentType to improve recycling
@@ -59,7 +59,7 @@ internal fun TypographyScreen(
         item(key = "headline") {
             Text(
                 text = "Headline",
-                style = com.oratakashi.design.foundation.OrataTheme.typography.titleLarge(),
+                style = OrataTheme.typography.titleLarge(),
                 modifier = Modifier.padding(top = 24.dp)
             )
         }
@@ -74,7 +74,7 @@ internal fun TypographyScreen(
         item(key = "title") {
             Text(
                 text = "Title",
-                style = com.oratakashi.design.foundation.OrataTheme.typography.titleLarge(),
+                style = OrataTheme.typography.titleLarge(),
                 modifier = Modifier.padding(top = 24.dp)
             )
         }
@@ -89,7 +89,7 @@ internal fun TypographyScreen(
         item(key = "label") {
             Text(
                 text = "Label",
-                style = com.oratakashi.design.foundation.OrataTheme.typography.titleLarge(),
+                style = OrataTheme.typography.titleLarge(),
                 modifier = Modifier.padding(top = 24.dp)
             )
         }
@@ -104,7 +104,7 @@ internal fun TypographyScreen(
         item(key = "body") {
             Text(
                 text = "Body",
-                style = com.oratakashi.design.foundation.OrataTheme.typography.titleLarge(),
+                style = OrataTheme.typography.titleLarge(),
                 modifier = Modifier.padding(top = 24.dp)
             )
         }
@@ -123,7 +123,7 @@ internal fun TypographyScreen(
 internal fun TypographyItem(
     data: TypographyData = TypographyData(
         title = "Display Large",
-        style = com.oratakashi.design.foundation.typography.OraTypographyKeyToken.DisplayLarge,
+        style = OraTypographyKeyToken.DisplayLarge,
         name = "Display",
         size = "Large",
         font = "Montserrat",
@@ -145,16 +145,16 @@ internal fun TypographyItem(
         ) {
             Text(
                 text = data.name,
-                style = com.oratakashi.design.foundation.OrataTheme.typography.bodyMedium()
+                style = OrataTheme.typography.bodyMedium()
             )
-            Text(text = "/", style = com.oratakashi.design.foundation.OrataTheme.typography.bodyMedium())
-            Text(text = data.size, style = com.oratakashi.design.foundation.OrataTheme.typography.bodyMedium())
-            Text(text = "•", style = com.oratakashi.design.foundation.OrataTheme.typography.bodyMedium())
-            Text(text = data.font, style = com.oratakashi.design.foundation.OrataTheme.typography.bodyMedium())
-            Text(text = "•", style = com.oratakashi.design.foundation.OrataTheme.typography.bodyMedium())
+            Text(text = "/", style = OrataTheme.typography.bodyMedium())
+            Text(text = data.size, style = OrataTheme.typography.bodyMedium())
+            Text(text = "•", style = OrataTheme.typography.bodyMedium())
+            Text(text = data.font, style = OrataTheme.typography.bodyMedium())
+            Text(text = "•", style = OrataTheme.typography.bodyMedium())
             Text(
                 text = "${data.lineHeight}/${data.letterSpacing}",
-                style = com.oratakashi.design.foundation.OrataTheme.typography.bodyMedium()
+                style = OrataTheme.typography.bodyMedium()
             )
         }
     }

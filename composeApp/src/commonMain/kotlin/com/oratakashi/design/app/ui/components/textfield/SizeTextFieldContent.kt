@@ -38,15 +38,15 @@ fun SizeTextFieldContent() {
             ComponentSection(
                 "Size Small"
             ) {
-                com.oratakashi.design.component.textfield.OraTextField(
+                OraTextField(
                     value = textState.value,
                     onValueChange = {
                         textState.value = it
                     },
                     label = "Label",
                     placeholder = "Placeholder",
-                    size = com.oratakashi.design.component.textfield.OraTextFieldSize.Small,
-                    state = com.oratakashi.design.component.textfield.OraTextFieldState.Default("Information"),
+                    size = OraTextFieldSize.Small,
+                    state = OraTextFieldState.Default("Information"),
                     focusRequester = focusRequester,
                     testTag = "TextField_Size_Small"
                 )
@@ -62,15 +62,15 @@ fun SizeTextFieldContent() {
             ComponentSection(
                 "Size Medium"
             ) {
-                com.oratakashi.design.component.textfield.OraTextField(
+                OraTextField(
                     value = textState.value,
                     onValueChange = {
                         textState.value = it
                     },
                     label = "Label",
                     placeholder = "Placeholder",
-                    size = com.oratakashi.design.component.textfield.OraTextFieldSize.Medium,
-                    state = com.oratakashi.design.component.textfield.OraTextFieldState.Default("Information"),
+                    size = OraTextFieldSize.Medium,
+                    state = OraTextFieldState.Default("Information"),
                     focusRequester = focusRequester,
                     testTag = "TextField_Size_Medium"
                 )
@@ -86,15 +86,15 @@ fun SizeTextFieldContent() {
             ComponentSection(
                 "Size Large"
             ) {
-                com.oratakashi.design.component.textfield.OraTextField(
+                OraTextField(
                     value = textState.value,
                     onValueChange = {
                         textState.value = it
                     },
                     label = "Label",
                     placeholder = "Placeholder",
-                    size = com.oratakashi.design.component.textfield.OraTextFieldSize.Large,
-                    state = com.oratakashi.design.component.textfield.OraTextFieldState.Default("Information"),
+                    size = OraTextFieldSize.Large,
+                    state = OraTextFieldState.Default("Information"),
                     focusRequester = focusRequester,
                     testTag = "TextField_Size_Large"
                 )

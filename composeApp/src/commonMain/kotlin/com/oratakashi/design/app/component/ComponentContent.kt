@@ -56,9 +56,9 @@ private fun TabRowContent(
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Medium,
                     color = if (selectedTabIndex == index)
-                        com.oratakashi.design.foundation.OrataTheme.colors.primary
+                        OrataTheme.colors.primary
                     else
-                        com.oratakashi.design.foundation.OrataTheme.colors.onSurfaceVariant
+                        OrataTheme.colors.onSurfaceVariant
                 )
             }
         )
@@ -104,15 +104,15 @@ internal fun <T : BaseNavigation> ComponentContent(
                             ?.replace("List", "").orEmpty(),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
-                        style = com.oratakashi.design.foundation.OrataTheme.typography.displaySmall(),
-                        color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface
+                        style = OrataTheme.typography.displaySmall(),
+                        color = OrataTheme.colors.onSurface
                     )
                 },
                 navigationIcon = {
                     IconButton(
                         onClick = onBackClick,
                         colors = IconButtonDefaults.iconButtonColors(
-                            contentColor = com.oratakashi.design.foundation.OrataTheme.colors.onSurfaceVariant
+                            contentColor = OrataTheme.colors.onSurfaceVariant
                         ),
                         modifier = Modifier
                             .padding(end = 8.dp)

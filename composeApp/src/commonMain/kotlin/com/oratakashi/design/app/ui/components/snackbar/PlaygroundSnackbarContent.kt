@@ -128,7 +128,7 @@ fun PlaygroundSnackbarContent(
                         },
                         onValueChange = {
                             snackbarData =
-                                com.oratakashi.design.component.snackbar.SnackbarVisualsImpl(
+                                SnackbarVisualsImpl(
                                     title = it,
                                     message = snackbarData.message,
                                     icon = snackbarData.icon,
@@ -151,7 +151,7 @@ fun PlaygroundSnackbarContent(
                         value = snackbarData.message.orEmpty(),
                         onValueChange = { newValue ->
                             snackbarData =
-                                com.oratakashi.design.component.snackbar.SnackbarVisualsImpl(
+                                SnackbarVisualsImpl(
                                     title = snackbarData.title,
                                     message = newValue.ifBlank { null },
                                     icon = snackbarData.icon,
@@ -177,7 +177,7 @@ fun PlaygroundSnackbarContent(
                         value = snackbarData.actionLabel.orEmpty(),
                         onValueChange = { newValue ->
                             snackbarData =
-                                com.oratakashi.design.component.snackbar.SnackbarVisualsImpl(
+                                SnackbarVisualsImpl(
                                     title = snackbarData.title,
                                     message = snackbarData.message,
                                     icon = snackbarData.icon,
@@ -216,7 +216,7 @@ fun PlaygroundSnackbarContent(
                             checked = snackbarData.withDismissAction,
                             onCheckedChange = { checked ->
                                 snackbarData =
-                                    com.oratakashi.design.component.snackbar.SnackbarVisualsImpl(
+                                    SnackbarVisualsImpl(
                                         title = snackbarData.title,
                                         message = snackbarData.message,
                                         icon = snackbarData.icon,
@@ -264,7 +264,7 @@ fun PlaygroundSnackbarContent(
                             checked = snackbarData.icon != null,
                             onCheckedChange = { checked ->
                                 snackbarData =
-                                    com.oratakashi.design.component.snackbar.SnackbarVisualsImpl(
+                                    SnackbarVisualsImpl(
                                         title = snackbarData.title,
                                         message = snackbarData.message,
                                         icon = if (checked) {

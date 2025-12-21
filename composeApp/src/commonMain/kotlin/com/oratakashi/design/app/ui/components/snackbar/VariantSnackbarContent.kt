@@ -25,7 +25,7 @@ internal fun VariantSnackbarContent() {
     ) {
         item(key = "title_only") {
             ComponentSection(title = "Title Only") {
-                com.oratakashi.design.component.snackbar.OraSnackbar(
+                OraSnackbar(
                     title = {
                         Text("Title")
                     },
@@ -36,7 +36,7 @@ internal fun VariantSnackbarContent() {
 
         item(key = "title_description") {
             ComponentSection(title = "Title and Description") {
-                com.oratakashi.design.component.snackbar.OraSnackbar(
+                OraSnackbar(
                     title = {
                         Text("Title")
                     },
@@ -50,7 +50,7 @@ internal fun VariantSnackbarContent() {
 
         item(key = "title_description_action") {
             ComponentSection(title = "Title, Description and Action Text") {
-                com.oratakashi.design.component.snackbar.OraSnackbar(
+                OraSnackbar(
                     title = {
                         Text("Title")
                     },
@@ -66,7 +66,7 @@ internal fun VariantSnackbarContent() {
 
         item(key = "title_description_action_icon") {
             ComponentSection(title = "Title, Description, Icon and Action Text") {
-                com.oratakashi.design.component.snackbar.OraSnackbar(
+                OraSnackbar(
                     title = {
                         Text("Title")
                     },

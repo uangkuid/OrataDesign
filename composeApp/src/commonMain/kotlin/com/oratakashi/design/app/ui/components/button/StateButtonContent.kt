@@ -26,7 +26,7 @@ internal fun StateButtonContent() {
             ComponentSection(
                 "Default State"
             ) {
-                com.oratakashi.design.component.button.OraButton(
+                OraButton(
                     label = "Label",
                     onClick = {
 
@@ -43,7 +43,7 @@ internal fun StateButtonContent() {
             ComponentSection(
                 "Loading State"
             ) {
-                com.oratakashi.design.component.button.OraButton(
+                OraButton(
                     label = "Label",
                     loading = true,
                     onClick = {
@@ -61,7 +61,7 @@ internal fun StateButtonContent() {
             ComponentSection(
                 "Disabled State"
             ) {
-                com.oratakashi.design.component.button.OraButton(
+                OraButton(
                     label = "Label",
                     enabled = false,
                     onClick = {

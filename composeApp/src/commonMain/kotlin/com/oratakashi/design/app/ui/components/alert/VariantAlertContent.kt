@@ -40,7 +40,7 @@ fun VariantAlertContent() {
 
                 var isVisible by remember { mutableStateOf(true) }
 
-                com.oratakashi.design.component.alert.OraInfoAlert(
+                OraInfoAlert(
                     title = "Info Title",
                     description = "Interactively monetize corporate alignments and fully tested niche markets. ",
                     showCloseIcon = true,
@@ -59,7 +59,7 @@ fun VariantAlertContent() {
                 title = "Alert Not Dismissable",
             ) {
 
-                com.oratakashi.design.component.alert.OraInfoAlert(
+                OraInfoAlert(
                     title = "Info Title",
                     description = "Interactively monetize corporate alignments and fully tested niche markets. ",
                     visible = true,
@@ -76,7 +76,7 @@ fun VariantAlertContent() {
 
                 var isVisible by remember { mutableStateOf(true) }
 
-                com.oratakashi.design.component.alert.OraInfoAlert(
+                OraInfoAlert(
                     title = "Info Title",
                     description = "Interactively monetize corporate alignments and fully tested niche markets. ",
                     showCloseIcon = true,
@@ -85,13 +85,13 @@ fun VariantAlertContent() {
                         isVisible = !isVisible
                     },
                     action = {
-                        com.oratakashi.design.component.anchortext.OraAnchorText(
+                        OraAnchorText(
                             text = "Call to Action",
                             onClick = {
                                 // Action here
                             },
-                            colors = com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                                contentColor = com.oratakashi.design.foundation.OrataTheme.colors.info
+                            colors = OraAnchorTextDefaults.colors(
+                                contentColor = OrataTheme.colors.info
                             ),
                         )
                     }
@@ -106,17 +106,17 @@ fun VariantAlertContent() {
                 title = "Alert CTA Not Dismissable",
             ) {
 
-                com.oratakashi.design.component.alert.OraInfoAlert(
+                OraInfoAlert(
                     title = "Info Title",
                     description = "Interactively monetize corporate alignments and fully tested niche markets. ",
                     action = {
-                        com.oratakashi.design.component.anchortext.OraAnchorText(
+                        OraAnchorText(
                             text = "Call to Action",
                             onClick = {
                                 // Action here
                             },
-                            colors = com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                                contentColor = com.oratakashi.design.foundation.OrataTheme.colors.info
+                            colors = OraAnchorTextDefaults.colors(
+                                contentColor = OrataTheme.colors.info
                             ),
                         )
                     }
@@ -130,18 +130,18 @@ fun VariantAlertContent() {
             ComponentSection(
                 "Alert Text and CTA",
             ) {
-                com.oratakashi.design.component.alert.OraInfoAlert(
+                OraInfoAlert(
                     title = "Info Title",
                     description = "Interactively monetize corporate alignments and fully tested niche markets. ",
                     icon = null,
                     action = {
-                        com.oratakashi.design.component.anchortext.OraAnchorText(
+                        OraAnchorText(
                             text = "Call to Action",
                             onClick = {
                                 // Action here
                             },
-                            colors = com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                                contentColor = com.oratakashi.design.foundation.OrataTheme.colors.info
+                            colors = OraAnchorTextDefaults.colors(
+                                contentColor = OrataTheme.colors.info
                             ),
                         )
                     }

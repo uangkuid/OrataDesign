@@ -40,7 +40,7 @@ fun BasicTextFieldContent(
             ComponentSection(
                 "Basic Textfield"
             ) {
-                com.oratakashi.design.component.textfield.OraTextField(
+                OraTextField(
                     value = textState.value,
                     onValueChange = {
                         textState.value = it
@@ -63,7 +63,7 @@ fun BasicTextFieldContent(
             ComponentSection(
                 "Textfield with Label"
             ) {
-                com.oratakashi.design.component.textfield.OraTextField(
+                OraTextField(
                     label = "Label",
                     value = textState.value,
                     onValueChange = {
@@ -87,7 +87,7 @@ fun BasicTextFieldContent(
             ComponentSection(
                 "Textfield with Caption"
             ) {
-                com.oratakashi.design.component.textfield.OraTextField(
+                OraTextField(
                     label = "Label",
                     value = textState.value,
                     onValueChange = {
@@ -96,7 +96,7 @@ fun BasicTextFieldContent(
                     modifier = modifier
                         .fillMaxWidth(),
                     placeholder = "Placeholder",
-                    state = com.oratakashi.design.component.textfield.OraTextFieldState.Default("Information"),
+                    state = OraTextFieldState.Default("Information"),
                     focusRequester = focusRequester,
                     testTag = "TextField_Caption"
                 )
@@ -112,7 +112,7 @@ fun BasicTextFieldContent(
             ComponentSection(
                 "Required Textfield"
             ) {
-                com.oratakashi.design.component.textfield.OraTextField(
+                OraTextField(
                     label = "Label",
                     value = textState.value,
                     onValueChange = {
@@ -121,7 +121,7 @@ fun BasicTextFieldContent(
                     modifier = modifier
                         .fillMaxWidth(),
                     placeholder = "Placeholder",
-                    state = com.oratakashi.design.component.textfield.OraTextFieldState.Default("Information"),
+                    state = OraTextFieldState.Default("Information"),
                     required = true,
                     focusRequester = focusRequester,
                     testTag = "TextField_Required"

@@ -36,7 +36,7 @@ fun SnackbarScreen(
     modifier: Modifier = Modifier
 ) {
     val tabs = listOf("Size", "Theme", "Variant", "Playground")
-    val snackbarHostState = remember { com.oratakashi.design.component.snackbar.OraSnackbarHostState() }
+    val snackbarHostState = remember { OraSnackbarHostState() }
     val scope = rememberCoroutineScope()
 
     ComponentContent(
@@ -47,10 +47,10 @@ fun SnackbarScreen(
         modifier = modifier,
         isScrollableTab = true,
         snackbarHost = {
-            com.oratakashi.design.component.snackbar.OraSnackbarHost(
+            OraSnackbarHost(
                 hostState = snackbarHostState,
                 snackbar = {
-                    com.oratakashi.design.component.snackbar.OraSnackbar(it)
+                    OraSnackbar(it)
                 }
             )
         }
@@ -63,7 +63,7 @@ fun SnackbarScreen(
                 scope.launch { snackbarHostState.showSnackbar(it) }
             })
             else -> {
-                com.oratakashi.design.component.snackbar.OraSnackbar(
+                OraSnackbar(
                     title = {
                         Text("This is title")
                     },
@@ -73,7 +73,7 @@ fun SnackbarScreen(
                     icon = {
                         Icon(FeatherIcons.Info, null)
                     },
-                    colors = com.oratakashi.design.component.snackbar.OraSnackbarTheme.Default.toColor(),
+                    colors = OraSnackbarTheme.Default.toColor(),
                     onClose = {
                     },
                     showCloseIcon = false,

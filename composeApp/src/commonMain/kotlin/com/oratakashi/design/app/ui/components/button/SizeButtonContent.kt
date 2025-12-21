@@ -27,9 +27,9 @@ internal fun SizeButtonContent() {
             ComponentSection(
                 "XSmall"
             ) {
-                OraButton(
+                com.oratakashi.design.component.button.OraButton(
                     label = "Label",
-                    size = OraButtonSize.XSmall,
+                    size = com.oratakashi.design.component.button.OraButtonSize.XSmall,
                     onClick = {
 
                     },
@@ -45,9 +45,9 @@ internal fun SizeButtonContent() {
             ComponentSection(
                 "Small"
             ) {
-                OraButton(
+                com.oratakashi.design.component.button.OraButton(
                     label = "Label",
-                    size = OraButtonSize.Small,
+                    size = com.oratakashi.design.component.button.OraButtonSize.Small,
                     onClick = {
 
                     },
@@ -63,9 +63,9 @@ internal fun SizeButtonContent() {
             ComponentSection(
                 "Medium"
             ) {
-                OraButton(
+                com.oratakashi.design.component.button.OraButton(
                     label = "Label",
-                    size = OraButtonSize.Medium,
+                    size = com.oratakashi.design.component.button.OraButtonSize.Medium,
                     onClick = {
 
                     },
@@ -81,9 +81,9 @@ internal fun SizeButtonContent() {
             ComponentSection(
                 "Large"
             ) {
-                OraButton(
+                com.oratakashi.design.component.button.OraButton(
                     label = "Label",
-                    size = OraButtonSize.Large,
+                    size = com.oratakashi.design.component.button.OraButtonSize.Large,
                     onClick = {
 
                     },
@@ -99,9 +99,9 @@ internal fun SizeButtonContent() {
             ComponentSection(
                 "XLarge"
             ) {
-                OraButton(
+                com.oratakashi.design.component.button.OraButton(
                     label = "Label",
-                    size = OraButtonSize.XLarge,
+                    size = com.oratakashi.design.component.button.OraButtonSize.XLarge,
                     onClick = {
 
                     },

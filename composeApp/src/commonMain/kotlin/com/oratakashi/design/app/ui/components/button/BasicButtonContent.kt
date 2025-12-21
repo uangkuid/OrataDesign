@@ -29,7 +29,7 @@ internal fun BasicButtonContent() {
             ComponentSection(
                 "Primary Button"
             ) {
-                OraButton(
+                com.oratakashi.design.component.button.OraButton(
                     label = "Label",
                     onClick = {
 
@@ -46,7 +46,7 @@ internal fun BasicButtonContent() {
             ComponentSection(
                 "Tonal Button"
             ) {
-                OraTonalButton(
+                com.oratakashi.design.component.button.OraTonalButton(
                     label = "Label",
                     onClick = {
 
@@ -63,7 +63,7 @@ internal fun BasicButtonContent() {
             ComponentSection(
                 "Outlined Button"
             ) {
-                OraOutlineButton(
+                com.oratakashi.design.component.button.OraOutlineButton(
                     label = "Label",
                     onClick = {
 
@@ -80,7 +80,7 @@ internal fun BasicButtonContent() {
             ComponentSection(
                 "Transparent Button"
             ) {
-                OraTransparentButton(
+                com.oratakashi.design.component.button.OraTransparentButton(
                     label = "Label",
                     onClick = {
 

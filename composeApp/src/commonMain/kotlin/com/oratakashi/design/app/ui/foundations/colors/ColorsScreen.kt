@@ -38,8 +38,8 @@ internal fun ColorsScreen(
         item(key = "color_schematic_title") {
             Text(
                 text = "Color Schematic",
-                style = OrataTheme.typography.titleMedium(),
-                color = OrataTheme.colors.onSurface,
+                style = com.oratakashi.design.foundation.OrataTheme.typography.titleMedium(),
+                color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
                     .fillMaxWidth()
@@ -107,8 +107,8 @@ internal fun ColorSchematicItem(
     colorData: ColorData = ColorData(
         name = "Primary",
         code = "P-40",
-        color = OrataTheme.colors.onPrimary,
-        background = OrataTheme.colors.primary
+        color = com.oratakashi.design.foundation.OrataTheme.colors.onPrimary,
+        background = com.oratakashi.design.foundation.OrataTheme.colors.primary
     ),
     modifier: Modifier = Modifier
 ) {
@@ -128,14 +128,14 @@ internal fun ColorSchematicItem(
             Text(
                 text = colorData.name, // e.g., "Primary"
                 color = colorData.color,
-                style = OrataTheme.typography.labelSmall(),
+                style = com.oratakashi.design.foundation.OrataTheme.typography.labelSmall(),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
             Text(
                 text = colorData.code, // e.g., "P-40"
                 color = colorData.color,
-                style = OrataTheme.typography.labelSmall(),
+                style = com.oratakashi.design.foundation.OrataTheme.typography.labelSmall(),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )

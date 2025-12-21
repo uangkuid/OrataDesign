@@ -92,7 +92,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // White card section 1
                 path(
-                    fill = SolidColor(OrataTheme.colors.surfaceContainerLowest),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerLowest),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -120,7 +120,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // White card section 2
                 path(
-                    fill = SolidColor(OrataTheme.colors.surfaceContainerLowest),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerLowest),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -147,7 +147,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Content card with border
                 path(
-                    fill = SolidColor(OrataTheme.colors.surfaceContainerLowest),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerLowest),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -177,7 +177,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
                 path(
                     fill = SolidColor(Color.Transparent),
                     fillAlpha = 1.0f,
-                    stroke = SolidColor(OrataTheme.colors.outlineVariant),
+                    stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant),
                     strokeAlpha = 1.0f,
                     strokeLineWidth = 1.4f,
                     strokeLineCap = StrokeCap.Butt,
@@ -203,7 +203,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Icon circle
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -223,7 +223,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Text line 1
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -249,7 +249,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Text line 2
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -275,7 +275,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Note/card section - white background
                 path(
-                    fill = SolidColor(OrataTheme.colors.surfaceContainerLowest),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerLowest),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -305,7 +305,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
                 path(
                     fill = SolidColor(Color.Transparent),
                     fillAlpha = 1.0f,
-                    stroke = SolidColor(OrataTheme.colors.outlineVariant),
+                    stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant),
                     strokeAlpha = 1.0f,
                     strokeLineWidth = 1.3f,
                     strokeLineCap = StrokeCap.Butt,
@@ -331,7 +331,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Note icon circle
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -351,7 +351,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Note text lines
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -375,7 +375,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
                 }
 
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -399,7 +399,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Plus icon circle (top)
                 path(
-                    fill = SolidColor(OrataTheme.colors.surfaceContainerLowest),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerLowest),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -419,7 +419,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Plus icon symbol
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -459,7 +459,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Horizontal badges/pills - top right
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -542,7 +542,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Badge pill (top left)
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -625,7 +625,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Badge pill (middle left)
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -708,7 +708,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Badge pill (center left)
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -791,7 +791,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Badge pill (center right)
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -874,7 +874,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Person illustration - skin tone for arm
                 path(
-                    fill = SolidColor(OrataTheme.colors.errorContainer),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.errorContainer),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -903,7 +903,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Person shirt/torso - dark color
                 path(
-                    fill = SolidColor(OrataTheme.colors.onSurface),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurface),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -934,7 +934,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Person feet/shoes - left
                 path(
-                    fill = SolidColor(OrataTheme.colors.errorContainer),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.errorContainer),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -954,7 +954,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Shoe left
                 path(
-                    fill = SolidColor(OrataTheme.colors.onSurface),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurface),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -978,7 +978,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Person feet/shoes - right
                 path(
-                    fill = SolidColor(OrataTheme.colors.errorContainer),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.errorContainer),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -998,7 +998,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Shoe right
                 path(
-                    fill = SolidColor(OrataTheme.colors.onSurface),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurface),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -1022,7 +1022,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Person pants - complex path
                 path(
-                    fill = SolidColor(OrataTheme.colors.onSurface),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurface),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -1054,7 +1054,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Person upper body/torso complex
                 path(
-                    fill = SolidColor(OrataTheme.colors.onSurfaceVariant),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurfaceVariant),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -1080,7 +1080,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Person left arm
                 path(
-                    fill = SolidColor(OrataTheme.colors.errorContainer),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.errorContainer),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -1109,7 +1109,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Person sleeve
                 path(
-                    fill = SolidColor(OrataTheme.colors.onSurfaceVariant),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurfaceVariant),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -1140,7 +1140,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Person head
                 path(
-                    fill = SolidColor(OrataTheme.colors.errorContainer),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.errorContainer),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -1160,7 +1160,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Person hair
                 path(
-                    fill = SolidColor(OrataTheme.colors.onSurface),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurface),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -1201,7 +1201,7 @@ internal object IlustrationComponentIcon : DynamicIcons {
 
                 // Ground line
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,

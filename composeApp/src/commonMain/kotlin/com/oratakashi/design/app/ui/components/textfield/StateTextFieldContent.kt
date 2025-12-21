@@ -43,14 +43,14 @@ fun StateTextFieldContent() {
             ComponentSection(
                 "Default State"
             ) {
-                OraTextField(
+                com.oratakashi.design.component.textfield.OraTextField(
                     value = textState.value,
                     onValueChange = {
                         textState.value = it
                     },
                     label = "Label",
                     placeholder = "Placeholder",
-                    state = OraTextFieldState.Default("Information"),
+                    state = com.oratakashi.design.component.textfield.OraTextFieldState.Default("Information"),
                     focusRequester = focusRequester,
                     testTag = "TextField_State_Default"
                 )
@@ -66,14 +66,14 @@ fun StateTextFieldContent() {
             ComponentSection(
                 "Error State"
             ) {
-                OraTextField(
+                com.oratakashi.design.component.textfield.OraTextField(
                     value = textState.value,
                     onValueChange = {
                         textState.value = it
                     },
                     label = "Label",
                     placeholder = "Placeholder",
-                    state = OraTextFieldState.Error("Information"),
+                    state = com.oratakashi.design.component.textfield.OraTextFieldState.Error("Information"),
                     focusRequester = focusRequester,
                     testTag = "TextField_State_Error"
                 )
@@ -89,14 +89,14 @@ fun StateTextFieldContent() {
             ComponentSection(
                 "Success State"
             ) {
-                OraTextField(
+                com.oratakashi.design.component.textfield.OraTextField(
                     value = textState.value,
                     onValueChange = {
                         textState.value = it
                     },
                     label = "Label",
                     placeholder = "Placeholder",
-                    state = OraTextFieldState.Success("Information"),
+                    state = com.oratakashi.design.component.textfield.OraTextFieldState.Success("Information"),
                     focusRequester = focusRequester,
                     testTag = "TextField_State_Success"
                 )
@@ -111,14 +111,14 @@ fun StateTextFieldContent() {
             ComponentSection(
                 "Disabled State"
             ) {
-                OraTextField(
+                com.oratakashi.design.component.textfield.OraTextField(
                     value = textState.value,
                     onValueChange = {
                         textState.value = it
                     },
                     label = "Label",
                     placeholder = "Placeholder",
-                    state = OraTextFieldState.Default("Information"),
+                    state = com.oratakashi.design.component.textfield.OraTextFieldState.Default("Information"),
                     enabled = false,
                     testTag = "TextField_State_Disabled"
                 )
@@ -135,7 +135,7 @@ fun StateTextFieldContent() {
             ComponentSection(
                 "Locked State"
             ) {
-                OraTextField(
+                com.oratakashi.design.component.textfield.OraTextField(
                     value = textState.value,
                     onValueChange = {
                         textState.value = it
@@ -143,7 +143,7 @@ fun StateTextFieldContent() {
                     label = "Label",
                     placeholder = "Placeholder",
                     state = if (isLocked) {
-                        OraTextFieldState.Locked(
+                        com.oratakashi.design.component.textfield.OraTextFieldState.Locked(
                             caption = "Information",
                             lockedActionText = "Change",
                             onClickLockedAction = {
@@ -151,7 +151,7 @@ fun StateTextFieldContent() {
                             }
                         )
                     } else {
-                        OraTextFieldState.Default("Information")
+                        com.oratakashi.design.component.textfield.OraTextFieldState.Default("Information")
                     },
                     focusRequester = focusRequester,
                     testTag = "TextField_State_Locked"

@@ -3,9 +3,9 @@ package com.oratakashi.design.app.navigation
 import androidx.compose.runtime.Composable
 import com.oratakashi.design.app.navigation.contract.MenuNavigation
 import kotlinx.serialization.Serializable
-import oratadesign.composeapp.generated.resources.Res
-import oratadesign.composeapp.generated.resources.ic_typography
-import oratadesign.composeapp.generated.resources.label_colors
+import com.oratakashi.design.resources.Res
+import com.oratakashi.design.resources.ic_typography
+import com.oratakashi.design.resources.label_colors
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.stringResource
 

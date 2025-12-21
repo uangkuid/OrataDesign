@@ -35,7 +35,7 @@ fun SizeAnchorTextContent() {
             ComponentSection(
                 "Large"
             ) {
-                OraAnchorText(
+                com.oratakashi.design.component.anchortext.OraAnchorText(
                     text = "Label",
                     onClick = {
 
@@ -58,9 +58,9 @@ fun SizeAnchorTextContent() {
             ComponentSection(
                 "Medium"
             ) {
-                OraAnchorText(
+                com.oratakashi.design.component.anchortext.OraAnchorText(
                     text = "Label",
-                    size = OraAnchorTextSize.Medium,
+                    size = com.oratakashi.design.component.anchortext.OraAnchorTextSize.Medium,
                     onClick = {
 
                     },
@@ -82,9 +82,9 @@ fun SizeAnchorTextContent() {
             ComponentSection(
                 "Small"
             ) {
-                OraAnchorText(
+                com.oratakashi.design.component.anchortext.OraAnchorText(
                     text = "Label",
-                    size = OraAnchorTextSize.Small,
+                    size = com.oratakashi.design.component.anchortext.OraAnchorTextSize.Small,
                     onClick = {
 
                     },

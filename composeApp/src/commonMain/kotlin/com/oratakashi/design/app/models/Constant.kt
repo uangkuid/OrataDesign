@@ -16,8 +16,6 @@ import com.oratakashi.design.app.navigation.SnackbarNavigation
 import com.oratakashi.design.app.navigation.TextFieldNavigation
 import com.oratakashi.design.foundation.OrataTheme
 import com.oratakashi.design.foundation.typography.OraTypographyKeyToken
-import oratadesign.composeapp.generated.resources.Res
-import oratadesign.composeapp.generated.resources.ic_button_icon
 
 internal object Constant {
     @Composable

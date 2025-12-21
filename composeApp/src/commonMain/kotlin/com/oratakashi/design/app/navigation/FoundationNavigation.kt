@@ -2,10 +2,10 @@ package com.oratakashi.design.app.navigation
 
 import androidx.compose.runtime.Composable
 import com.oratakashi.design.app.navigation.contract.MenuNavigation
+import com.oratakashi.design.resources.Res
+import com.oratakashi.design.resources.ic_foundation
+import com.oratakashi.design.resources.label_foundation
 import kotlinx.serialization.Serializable
-import oratadesign.composeapp.generated.resources.Res
-import oratadesign.composeapp.generated.resources.ic_foundation
-import oratadesign.composeapp.generated.resources.label_foundation
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.stringResource
 

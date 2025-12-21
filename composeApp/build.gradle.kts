@@ -13,7 +13,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
     alias(libs.plugins.kotlinSerialization)
-    id("com.vanniktech.maven.publish") version "0.35.0"
+//    id("com.vanniktech.maven.publish") version "0.35.0"
 }
 
 kotlin {
@@ -65,23 +65,25 @@ kotlin {
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            api(compose.runtime)
-            api(compose.foundation)
-            api(libs.material3)
-            api(compose.ui)
-            api(compose.components.resources)
-            api(compose.components.uiToolingPreview)
-            api(libs.androidx.lifecycle.viewmodelCompose)
-            api(libs.androidx.lifecycle.runtimeCompose)
-            api(libs.navigation.compose)
-            api(libs.kotlinx.serialization.json)
-            api(libs.composeIcons.feather)
-            api(libs.material.adaptive)
-            api(libs.material.navigation.suite)
-            api(libs.material.layout)
-            api(libs.material.navigation)
-            implementation(libs.ui.backhandler)
-            implementation(libs.constraintlayout.compose.multiplatform)
+            implementation(project(":library"))
+            implementation(compose.components.resources)
+//            api(compose.runtime)
+//            api(compose.foundation)
+//            api(libs.material3)
+//            api(compose.ui)
+//            api(compose.components.resources)
+//            api(compose.components.uiToolingPreview)
+//            api(libs.androidx.lifecycle.viewmodelCompose)
+//            api(libs.androidx.lifecycle.runtimeCompose)
+//            api(libs.navigation.compose)
+//            api(libs.kotlinx.serialization.json)
+//            api(libs.composeIcons.feather)
+//            api(libs.material.adaptive)
+//            api(libs.material.navigation.suite)
+//            api(libs.material.layout)
+//            api(libs.material.navigation)
+//            implementation(libs.ui.backhandler)
+//            implementation(libs.constraintlayout.compose.multiplatform)
 
         }
         commonTest.dependencies {
@@ -132,21 +134,25 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "com.oratakashi.design.MainKt"
+        mainClass = "com.oratakashi.design.app.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.oratakashi.design"
+            packageName = "com.oratakashi.design.app"
             packageVersion = "1.0.0"
         }
     }
 }
 
-mavenPublishing {
-//    publishToMavenCentral()
-
-//    signAllPublications()
-
-    coordinates(getLocalProperty("GROUP"), getLocalProperty("POM_ARTIFACT_ID"), getLocalProperty("VERSION_NAME"))
-
+compose.resources {
+    generateResClass = never
 }
+
+//mavenPublishing {
+////    publishToMavenCentral()
+//
+////    signAllPublications()
+//
+//    coordinates(getLocalProperty("GROUP"), getLocalProperty("POM_ARTIFACT_ID"), getLocalProperty("VERSION_NAME"))
+//
+//}

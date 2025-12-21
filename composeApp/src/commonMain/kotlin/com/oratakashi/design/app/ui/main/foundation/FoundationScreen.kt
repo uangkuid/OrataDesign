@@ -32,12 +32,12 @@ import com.oratakashi.design.app.navigation.TypographyNavigation
 import com.oratakashi.design.app.ui.foundations.colors.ColorsScreen
 import com.oratakashi.design.app.ui.foundations.typography.TypographyScreen
 import com.oratakashi.design.foundation.OrataTheme
-import oratadesign.composeapp.generated.resources.Res
-import oratadesign.composeapp.generated.resources.ic_colors
-import oratadesign.composeapp.generated.resources.ic_typography
-import oratadesign.composeapp.generated.resources.label_colors
-import oratadesign.composeapp.generated.resources.label_foundation
-import oratadesign.composeapp.generated.resources.label_typography
+import com.oratakashi.design.resources.Res
+import com.oratakashi.design.resources.ic_colors
+import com.oratakashi.design.resources.ic_typography
+import com.oratakashi.design.resources.label_colors
+import com.oratakashi.design.resources.label_foundation
+import com.oratakashi.design.resources.label_typography
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -62,8 +62,8 @@ internal fun FoundationScreen(modifier: Modifier = Modifier, scrollBehavior: Top
                         },
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
-                        style = OrataTheme.typography.displaySmall(),
-                        color = OrataTheme.colors.onSurface
+                        style = com.oratakashi.design.foundation.OrataTheme.typography.displaySmall(),
+                        color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface
                     )
                 },
                 scrollBehavior = scrollBehavior,
@@ -94,8 +94,8 @@ internal fun FoundationScreen(modifier: Modifier = Modifier, scrollBehavior: Top
                     content = {
                         IconButton(
                             colors = IconButtonDefaults.iconButtonColors(
-                                containerColor = if (currentRoute == ColorNavigation.route) OrataTheme.colors.primary else OrataTheme.colors.surfaceContainer,
-                                contentColor = if (currentRoute == ColorNavigation.route) OrataTheme.colors.onPrimary else OrataTheme.colors.onSurface,
+                                containerColor = if (currentRoute == ColorNavigation.route) com.oratakashi.design.foundation.OrataTheme.colors.primary else com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer,
+                                contentColor = if (currentRoute == ColorNavigation.route) com.oratakashi.design.foundation.OrataTheme.colors.onPrimary else com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
                             ),
                             onClick = {
                                 navController.navigate(ColorNavigation)
@@ -105,8 +105,8 @@ internal fun FoundationScreen(modifier: Modifier = Modifier, scrollBehavior: Top
                         }
                         IconButton(
                             colors = IconButtonDefaults.iconButtonColors(
-                                containerColor = if (currentRoute == TypographyNavigation.route) OrataTheme.colors.primary else OrataTheme.colors.surfaceContainer,
-                                contentColor = if (currentRoute == TypographyNavigation.route) OrataTheme.colors.onPrimary else OrataTheme.colors.onSurface,
+                                containerColor = if (currentRoute == TypographyNavigation.route) com.oratakashi.design.foundation.OrataTheme.colors.primary else com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer,
+                                contentColor = if (currentRoute == TypographyNavigation.route) com.oratakashi.design.foundation.OrataTheme.colors.onPrimary else com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
                             ),
                             onClick = {
                                 navController.navigate(TypographyNavigation)

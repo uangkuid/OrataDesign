@@ -24,72 +24,72 @@ fun ThemeSnackbarContent() {
     ) {
         item(key = "normal_default") {
             ComponentSection(title = "Normal") {
-                OraSnackbar(
+                com.oratakashi.design.component.snackbar.OraSnackbar(
                     title = {
                         Text("This is title")
                     },
                     showCloseIcon = true,
-                    colors = OraSnackbarTheme.Default.toColor(),
+                    colors = com.oratakashi.design.component.snackbar.OraSnackbarTheme.Default.toColor(),
                 )
             }
         }
 
         item(key = "tertiary_default") {
             ComponentSection(title = "Tertiary") {
-                OraSnackbar(
+                com.oratakashi.design.component.snackbar.OraSnackbar(
                     title = {
                         Text("This is title")
                     },
                     showCloseIcon = true,
-                    colors = OraSnackbarTheme.Tertiary.toColor(),
+                    colors = com.oratakashi.design.component.snackbar.OraSnackbarTheme.Tertiary.toColor(),
                 )
             }
         }
 
         item(key = "error_default") {
             ComponentSection(title = "Error") {
-                OraSnackbar(
+                com.oratakashi.design.component.snackbar.OraSnackbar(
                     title = {
                         Text("This is title")
                     },
                     showCloseIcon = true,
-                    colors = OraSnackbarTheme.Error.toColor(),
+                    colors = com.oratakashi.design.component.snackbar.OraSnackbarTheme.Error.toColor(),
                 )
             }
         }
 
         item(key = "warning_default") {
             ComponentSection(title = "Warning") {
-                OraSnackbar(
+                com.oratakashi.design.component.snackbar.OraSnackbar(
                     title = {
                         Text("This is title")
                     },
                     showCloseIcon = true,
-                    colors = OraSnackbarTheme.Warning.toColor(),
+                    colors = com.oratakashi.design.component.snackbar.OraSnackbarTheme.Warning.toColor(),
                 )
             }
         }
 
         item(key = "success_default") {
             ComponentSection(title = "Success") {
-                OraSnackbar(
+                com.oratakashi.design.component.snackbar.OraSnackbar(
                     title = {
                         Text("This is title")
                     },
                     showCloseIcon = true,
-                    colors = OraSnackbarTheme.Success.toColor(),
+                    colors = com.oratakashi.design.component.snackbar.OraSnackbarTheme.Success.toColor(),
                 )
             }
         }
 
         item(key = "information_default") {
             ComponentSection(title = "Information") {
-                OraSnackbar(
+                com.oratakashi.design.component.snackbar.OraSnackbar(
                     title = {
                         Text("This is title")
                     },
                     showCloseIcon = true,
-                    colors = OraSnackbarTheme.Information.toColor(),
+                    colors = com.oratakashi.design.component.snackbar.OraSnackbarTheme.Information.toColor(),
                 )
             }
         }

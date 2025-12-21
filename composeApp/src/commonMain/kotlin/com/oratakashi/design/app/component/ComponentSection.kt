@@ -25,8 +25,8 @@ internal fun ComponentSection(
     ) {
         Text(
             text = title,
-            style = OrataTheme.typography.bodyLarge(),
-            color = OrataTheme.colors.onSurface,
+            style = com.oratakashi.design.foundation.OrataTheme.typography.bodyLarge(),
+            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
             modifier = Modifier.fillMaxWidth()
         )
 

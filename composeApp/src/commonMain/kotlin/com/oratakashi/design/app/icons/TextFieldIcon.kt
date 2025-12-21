@@ -28,7 +28,7 @@ internal object TextFieldIcon : DynamicIcons {
         ).apply {
             // Background
             path(
-                fill = SolidColor(OrataTheme.colors.surface),
+                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surface),
                 fillAlpha = 1f
             ) {
                 moveTo(1f, 1f)
@@ -41,7 +41,7 @@ internal object TextFieldIcon : DynamicIcons {
             // Outer border
             path(
                 fill = SolidColor(Color.Transparent),
-                stroke = SolidColor(OrataTheme.colors.outlineVariant),
+                stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant),
                 strokeLineWidth = 1f
             ) {
                 moveTo(275f, 1f)
@@ -58,7 +58,7 @@ internal object TextFieldIcon : DynamicIcons {
 
             // "Label" text
             path(
-                fill = SolidColor(OrataTheme.colors.onSurface),
+                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurface),
                 fillAlpha = 1f
             ) {
                 moveTo(31.65f, 48.71f)
@@ -167,7 +167,7 @@ internal object TextFieldIcon : DynamicIcons {
 
             // Red asterisk
             path(
-                fill = SolidColor(OrataTheme.colors.error),
+                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.error),
                 fillAlpha = 1f
             ) {
                 moveTo(73.24f, 45.16f)
@@ -200,7 +200,7 @@ internal object TextFieldIcon : DynamicIcons {
 
             // White text field background
             path(
-                fill = SolidColor(OrataTheme.colors.surfaceContainer),
+                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer),
                 fillAlpha = 1f
             ) {
                 moveTo(29f, 77f)
@@ -218,7 +218,7 @@ internal object TextFieldIcon : DynamicIcons {
             // Blue text field border
             path(
                 fill = SolidColor(Color.Transparent),
-                stroke = SolidColor(OrataTheme.colors.primary),
+                stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                 strokeLineWidth = 1f
             ) {
                 moveTo(43f, 63.5f)
@@ -235,7 +235,7 @@ internal object TextFieldIcon : DynamicIcons {
 
             // "Text" text inside field
             path(
-                fill = SolidColor(OrataTheme.colors.onSurface),
+                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurface),
                 fillAlpha = 1f
             ) {
                 moveTo(56.08f, 84.24f)
@@ -314,7 +314,7 @@ internal object TextFieldIcon : DynamicIcons {
 
             // Blue cursor line
             path(
-                fill = SolidColor(OrataTheme.colors.primary),
+                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                 fillAlpha = 1f
             ) {
                 moveTo(79.47f, 96.88f)
@@ -327,7 +327,7 @@ internal object TextFieldIcon : DynamicIcons {
 
             // Clear icon (X in circle)
             path(
-                fill = SolidColor(OrataTheme.colors.onSurfaceVariant),
+                fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onSurfaceVariant),
                 fillAlpha = 1f
             ) {
                 moveTo(221f, 79f)

@@ -38,7 +38,7 @@ fun EmptyComponentScreen(
 
             Text(
                 "Orata Design Component",
-                style = OrataTheme.typography.headlineSmall(),
+                style = com.oratakashi.design.foundation.OrataTheme.typography.headlineSmall(),
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(

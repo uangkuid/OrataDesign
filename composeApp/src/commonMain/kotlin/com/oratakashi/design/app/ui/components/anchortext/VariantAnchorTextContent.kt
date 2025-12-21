@@ -34,7 +34,7 @@ fun VariantAnchorTextContent() {
             ComponentSection(
                 "Default Variant"
             ) {
-                OraAnchorText(
+                com.oratakashi.design.component.anchortext.OraAnchorText(
                     text = "Label",
                     onClick = {
 
@@ -61,7 +61,7 @@ fun VariantAnchorTextContent() {
             ComponentSection(
                 "Underline Variant"
             ) {
-                OraAnchorText(
+                com.oratakashi.design.component.anchortext.OraAnchorText(
                     text = "Label",
                     underline = true,
                     onClick = {

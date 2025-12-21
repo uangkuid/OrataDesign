@@ -28,7 +28,7 @@ fun SizeSnackbarContent() {
     ) {
         item("large_size") {
             ComponentSection(title = "Large Snackbar") {
-                OraSnackbar(
+                com.oratakashi.design.component.snackbar.OraSnackbar(
                     title = {
                         Text("This is title")
                     },
@@ -38,7 +38,7 @@ fun SizeSnackbarContent() {
                     icon = {
                         Icon(FeatherIcons.Info, null)
                     },
-                    colors = OraSnackbarTheme.Default.toColor(),
+                    colors = com.oratakashi.design.component.snackbar.OraSnackbarTheme.Default.toColor(),
                     onClose = {
                     },
                     showCloseIcon = false,
@@ -51,7 +51,7 @@ fun SizeSnackbarContent() {
 
         item("small_size") {
             ComponentSection(title = "Small Snackbar") {
-                OraSnackbar(
+                com.oratakashi.design.component.snackbar.OraSnackbar(
                     title = {
                         Text("This is title")
                     },
@@ -61,11 +61,11 @@ fun SizeSnackbarContent() {
                     icon = {
                         Icon(FeatherIcons.Info, null)
                     },
-                    colors = OraSnackbarTheme.Default.toColor(),
+                    colors = com.oratakashi.design.component.snackbar.OraSnackbarTheme.Default.toColor(),
                     onClose = {
                     },
                     showCloseIcon = false,
-                    size = OraSnackbarSize.Small,
+                    size = com.oratakashi.design.component.snackbar.OraSnackbarSize.Small,
                     action = {
                         Text("Submit")
                     }

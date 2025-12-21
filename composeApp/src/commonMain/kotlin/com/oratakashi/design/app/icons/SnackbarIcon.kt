@@ -30,7 +30,7 @@ internal object SnackbarIcon : DynamicIcons {
             group {
                 // Background rectangle
                 path(
-                    fill = SolidColor(OrataTheme.colors.surface),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surface),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -49,9 +49,9 @@ internal object SnackbarIcon : DynamicIcons {
 
                 // Snackbar container with border
                 path(
-                    fill = SolidColor(OrataTheme.colors.surfaceContainer),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer),
                     fillAlpha = 1.0f,
-                    stroke = SolidColor(OrataTheme.colors.outlineVariant),
+                    stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant),
                     strokeAlpha = 1.0f,
                     strokeLineWidth = 1.0f,
                     strokeLineCap = StrokeCap.Butt,
@@ -78,7 +78,7 @@ internal object SnackbarIcon : DynamicIcons {
 
                 // First text line placeholder
                 path(
-                    fill = SolidColor(OrataTheme.colors.outlineVariant),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -102,7 +102,7 @@ internal object SnackbarIcon : DynamicIcons {
 
                 // Second text line placeholder
                 path(
-                    fill = SolidColor(OrataTheme.colors.outlineVariant),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -126,7 +126,7 @@ internal object SnackbarIcon : DynamicIcons {
 
                 // Action button
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -152,7 +152,7 @@ internal object SnackbarIcon : DynamicIcons {
                 path(
                     fill = SolidColor(Color.Transparent),
                     fillAlpha = 1.0f,
-                    stroke = SolidColor(OrataTheme.colors.outlineVariant),
+                    stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant),
                     strokeAlpha = 1.0f,
                     strokeLineWidth = 1.0f,
                     strokeLineCap = StrokeCap.Butt,
@@ -174,9 +174,9 @@ internal object SnackbarIcon : DynamicIcons {
 
                 // Cursor/pointer icon
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
-                    stroke = SolidColor(OrataTheme.colors.onPrimary),
+                    stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onPrimary),
                     strokeAlpha = 1.0f,
                     strokeLineWidth = 4.0f,
                     strokeLineCap = StrokeCap.Butt,

@@ -49,7 +49,7 @@ internal object AnchorTextIcon : DynamicIcons {
 
                 // Background
                 path(
-                    fill = SolidColor(OrataTheme.colors.surface),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surface),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -68,9 +68,9 @@ internal object AnchorTextIcon : DynamicIcons {
 
                 // Input field background
                 path(
-                    fill = SolidColor(OrataTheme.colors.surfaceContainerLowest),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainerLowest),
                     fillAlpha = 1.0f,
-                    stroke = SolidColor(OrataTheme.colors.surfaceContainer),
+                    stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer),
                     strokeAlpha = 1.0f,
                     strokeLineWidth = 1.0f,
                     strokeLineCap = StrokeCap.Butt,
@@ -92,7 +92,7 @@ internal object AnchorTextIcon : DynamicIcons {
 
                 // Input field placeholder
                 path(
-                    fill = SolidColor(OrataTheme.colors.surfaceContainer),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -118,7 +118,7 @@ internal object AnchorTextIcon : DynamicIcons {
                 path(
                     fill = SolidColor(Color.Transparent),
                     fillAlpha = 1.0f,
-                    stroke = SolidColor(OrataTheme.colors.outlineVariant),
+                    stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.outlineVariant),
                     strokeAlpha = 1.0f,
                     strokeLineWidth = 1.0f,
                     strokeLineCap = StrokeCap.Butt,
@@ -140,7 +140,7 @@ internal object AnchorTextIcon : DynamicIcons {
 
                 // "Label" text
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
                     stroke = null,
                     strokeAlpha = 1.0f,
@@ -260,7 +260,7 @@ internal object AnchorTextIcon : DynamicIcons {
                 path(
                     fill = SolidColor(Color.Transparent),
                     fillAlpha = 1.0f,
-                    stroke = SolidColor(OrataTheme.colors.primary),
+                    stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     strokeAlpha = 1.0f,
                     strokeLineWidth = 1.0f,
                     strokeLineCap = StrokeCap.Butt,
@@ -274,9 +274,9 @@ internal object AnchorTextIcon : DynamicIcons {
 
                 // Anchor/cursor icon
                 path(
-                    fill = SolidColor(OrataTheme.colors.primary),
+                    fill = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.primary),
                     fillAlpha = 1.0f,
-                    stroke = SolidColor(OrataTheme.colors.onPrimary),
+                    stroke = SolidColor(com.oratakashi.design.foundation.OrataTheme.colors.onPrimary),
                     strokeAlpha = 1.0f,
                     strokeLineWidth = 4.0f,
                     strokeLineCap = StrokeCap.Butt,

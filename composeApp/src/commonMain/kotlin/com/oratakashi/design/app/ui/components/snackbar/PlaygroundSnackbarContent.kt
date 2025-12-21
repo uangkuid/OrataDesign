@@ -1,8 +1,6 @@
 package com.oratakashi.design.app.ui.components.snackbar
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -27,14 +25,7 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import com.oratakashi.design.component.button.OraButton
-import com.oratakashi.design.component.snackbar.OraSnackbar
-import com.oratakashi.design.component.snackbar.OraSnackbarTheme
-import com.oratakashi.design.component.snackbar.OraSnackbarVisuals
 import com.oratakashi.design.component.snackbar.SnackbarVisualsImpl
-import com.oratakashi.design.component.textfield.OraTextField
-import com.oratakashi.design.component.textfield.OraTextFieldState
-import com.oratakashi.design.foundation.OrataTheme
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.Check
 import compose.icons.feathericons.Info
@@ -44,11 +35,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Preview(showBackground = true)
 @Composable
 fun PlaygroundSnackbarContent(
-    openSnackbar: (data: OraSnackbarVisuals) -> Unit = {}
+    openSnackbar: (data: com.oratakashi.design.component.snackbar.OraSnackbarVisuals) -> Unit = {}
 ) {
     val focusManager = LocalFocusManager.current
 
-    var snackbarData by remember { mutableStateOf<OraSnackbarVisuals>(
+    var snackbarData by remember { mutableStateOf<com.oratakashi.design.component.snackbar.OraSnackbarVisuals>(
         SnackbarVisualsImpl(
             title = "This is title",
             message = "This is description",
@@ -56,7 +47,7 @@ fun PlaygroundSnackbarContent(
             actionLabel = null,
             withDismissAction = false,
             duration = com.oratakashi.design.component.snackbar.OraSnackbarDuration.Short,
-            theme = OraSnackbarTheme.Default,
+            theme = com.oratakashi.design.component.snackbar.OraSnackbarTheme.Default,
             size = null
         )
     ) }
@@ -70,8 +61,8 @@ fun PlaygroundSnackbarContent(
 
         Text(
             text = "Preview",
-            style = OrataTheme.typography.bodyLarge(),
-            color = OrataTheme.colors.onSurface,
+            style = com.oratakashi.design.foundation.OrataTheme.typography.bodyLarge(),
+            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
             modifier = Modifier.constrainAs(tvLabelPreview) {
                 top.linkTo(parent.top, 16.dp)
                 start.linkTo(parent.start, 16.dp)
@@ -81,7 +72,7 @@ fun PlaygroundSnackbarContent(
             }
         )
 
-        OraSnackbar(
+        com.oratakashi.design.component.snackbar.OraSnackbar(
             visuals = snackbarData,
             modifier = Modifier.constrainAs(snackbarPreview) {
                 top.linkTo(tvLabelPreview.bottom)
@@ -103,7 +94,7 @@ fun PlaygroundSnackbarContent(
                 height = Dimension.fillToConstraints
             }
                 .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
-                .background(OrataTheme.colors.surfaceContainer)
+                .background(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer)
         ) {
             LazyColumn(
                 modifier = Modifier
@@ -119,33 +110,35 @@ fun PlaygroundSnackbarContent(
                 item("label_configuration") {
                     Text(
                         text = "Configuration",
-                        style = OrataTheme.typography.titleLarge(),
-                        color = OrataTheme.colors.onSurface,
+                        style = com.oratakashi.design.foundation.OrataTheme.typography.titleLarge(),
+                        color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
                         modifier = Modifier
                     )
                 }
                 
                 item("field_title") {
-                    OraTextField(
+                    com.oratakashi.design.component.textfield.OraTextField(
                         label = "Title",
                         value = snackbarData.title,
                         required = true,
                         state = if (snackbarData.title.isEmpty()) {
-                            OraTextFieldState.Error("Title is required")
+                            com.oratakashi.design.component.textfield.OraTextFieldState.Error("Title is required")
                         } else {
-                            OraTextFieldState.Default()
+                            com.oratakashi.design.component.textfield.OraTextFieldState.Default()
                         },
                         onValueChange = {
-                            snackbarData = SnackbarVisualsImpl(
-                                title = it,
-                                message = snackbarData.message,
-                                icon = snackbarData.icon,
-                                actionLabel = snackbarData.actionLabel,
-                                withDismissAction = snackbarData.withDismissAction,
-                                duration = snackbarData.duration,
-                                theme = snackbarData.theme ?: OraSnackbarTheme.Default,
-                                size = snackbarData.size
-                            )
+                            snackbarData =
+                                com.oratakashi.design.component.snackbar.SnackbarVisualsImpl(
+                                    title = it,
+                                    message = snackbarData.message,
+                                    icon = snackbarData.icon,
+                                    actionLabel = snackbarData.actionLabel,
+                                    withDismissAction = snackbarData.withDismissAction,
+                                    duration = snackbarData.duration,
+                                    theme = snackbarData.theme
+                                        ?: com.oratakashi.design.component.snackbar.OraSnackbarTheme.Default,
+                                    size = snackbarData.size
+                                )
                         },
                         modifier = Modifier
                             .fillMaxWidth()
@@ -153,20 +146,22 @@ fun PlaygroundSnackbarContent(
                 }
 
                 item("field_description") {
-                    OraTextField(
+                    com.oratakashi.design.component.textfield.OraTextField(
                         label = "Description",
                         value = snackbarData.message.orEmpty(),
                         onValueChange = { newValue ->
-                            snackbarData = SnackbarVisualsImpl(
-                                title = snackbarData.title,
-                                message = newValue.ifBlank { null },
-                                icon = snackbarData.icon,
-                                actionLabel = snackbarData.actionLabel,
-                                withDismissAction = snackbarData.withDismissAction,
-                                duration = snackbarData.duration,
-                                theme = snackbarData.theme ?: OraSnackbarTheme.Default,
-                                size = snackbarData.size
-                            )
+                            snackbarData =
+                                com.oratakashi.design.component.snackbar.SnackbarVisualsImpl(
+                                    title = snackbarData.title,
+                                    message = newValue.ifBlank { null },
+                                    icon = snackbarData.icon,
+                                    actionLabel = snackbarData.actionLabel,
+                                    withDismissAction = snackbarData.withDismissAction,
+                                    duration = snackbarData.duration,
+                                    theme = snackbarData.theme
+                                        ?: com.oratakashi.design.component.snackbar.OraSnackbarTheme.Default,
+                                    size = snackbarData.size
+                                )
                         },
                         modifier = Modifier
                             .fillMaxWidth()
@@ -174,25 +169,29 @@ fun PlaygroundSnackbarContent(
                 }
 
                 item("field_action_label") {
-                    OraTextField(
+                    com.oratakashi.design.component.textfield.OraTextField(
                         label = "Action Label",
-                        state = OraTextFieldState.Default("Dismiss button will removed when action label is set"),
+                        state = com.oratakashi.design.component.textfield.OraTextFieldState.Default(
+                            "Dismiss button will removed when action label is set"
+                        ),
                         value = snackbarData.actionLabel.orEmpty(),
                         onValueChange = { newValue ->
-                            snackbarData = SnackbarVisualsImpl(
-                                title = snackbarData.title,
-                                message = snackbarData.message,
-                                icon = snackbarData.icon,
-                                actionLabel = newValue.ifBlank { null },
-                                withDismissAction = if (newValue.isNotBlank()) {
-                                    false // Selalu false jika ada action label
-                                } else {
-                                    snackbarData.withDismissAction // Gunakan nilai original
-                                },
-                                duration = snackbarData.duration,
-                                theme = snackbarData.theme ?: OraSnackbarTheme.Default,
-                                size = snackbarData.size
-                            )
+                            snackbarData =
+                                com.oratakashi.design.component.snackbar.SnackbarVisualsImpl(
+                                    title = snackbarData.title,
+                                    message = snackbarData.message,
+                                    icon = snackbarData.icon,
+                                    actionLabel = newValue.ifBlank { null },
+                                    withDismissAction = if (newValue.isNotBlank()) {
+                                        false // Selalu false jika ada action label
+                                    } else {
+                                        snackbarData.withDismissAction // Gunakan nilai original
+                                    },
+                                    duration = snackbarData.duration,
+                                    theme = snackbarData.theme
+                                        ?: com.oratakashi.design.component.snackbar.OraSnackbarTheme.Default,
+                                    size = snackbarData.size
+                                )
                         },
                         modifier = Modifier
                             .fillMaxWidth()
@@ -207,8 +206,8 @@ fun PlaygroundSnackbarContent(
                     ) {
                         Text(
                             text = "Show Close Button",
-                            style = OrataTheme.typography.bodyMedium(),
-                            color = OrataTheme.colors.onSurface,
+                            style = com.oratakashi.design.foundation.OrataTheme.typography.bodyMedium(),
+                            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
                             modifier = Modifier
                                 .padding(end = 8.dp)
                                 .weight(1f)
@@ -216,16 +215,18 @@ fun PlaygroundSnackbarContent(
                         Switch(
                             checked = snackbarData.withDismissAction,
                             onCheckedChange = { checked ->
-                                snackbarData = SnackbarVisualsImpl(
-                                    title = snackbarData.title,
-                                    message = snackbarData.message,
-                                    icon = snackbarData.icon,
-                                    actionLabel = snackbarData.actionLabel,
-                                    withDismissAction = checked,
-                                    duration = snackbarData.duration,
-                                    theme = snackbarData.theme ?: OraSnackbarTheme.Default,
-                                    size = snackbarData.size
-                                )
+                                snackbarData =
+                                    com.oratakashi.design.component.snackbar.SnackbarVisualsImpl(
+                                        title = snackbarData.title,
+                                        message = snackbarData.message,
+                                        icon = snackbarData.icon,
+                                        actionLabel = snackbarData.actionLabel,
+                                        withDismissAction = checked,
+                                        duration = snackbarData.duration,
+                                        theme = snackbarData.theme
+                                            ?: com.oratakashi.design.component.snackbar.OraSnackbarTheme.Default,
+                                        size = snackbarData.size
+                                    )
                             },
                             thumbContent = {
                                 if (snackbarData.withDismissAction) {
@@ -253,8 +254,8 @@ fun PlaygroundSnackbarContent(
                     ) {
                         Text(
                             text = "Show Icon",
-                            style = OrataTheme.typography.bodyMedium(),
-                            color = OrataTheme.colors.onSurface,
+                            style = com.oratakashi.design.foundation.OrataTheme.typography.bodyMedium(),
+                            color = com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
                             modifier = Modifier
                                 .padding(end = 8.dp)
                                 .weight(1f)
@@ -262,20 +263,22 @@ fun PlaygroundSnackbarContent(
                         Switch(
                             checked = snackbarData.icon != null,
                             onCheckedChange = { checked ->
-                                snackbarData = SnackbarVisualsImpl(
-                                    title = snackbarData.title,
-                                    message = snackbarData.message,
-                                    icon = if (checked) {
-                                        FeatherIcons.Info
-                                    } else {
-                                        null
-                                    },
-                                    actionLabel = snackbarData.actionLabel,
-                                    withDismissAction = snackbarData.withDismissAction,
-                                    duration = snackbarData.duration,
-                                    theme = snackbarData.theme ?: OraSnackbarTheme.Default,
-                                    size = snackbarData.size
-                                )
+                                snackbarData =
+                                    com.oratakashi.design.component.snackbar.SnackbarVisualsImpl(
+                                        title = snackbarData.title,
+                                        message = snackbarData.message,
+                                        icon = if (checked) {
+                                            FeatherIcons.Info
+                                        } else {
+                                            null
+                                        },
+                                        actionLabel = snackbarData.actionLabel,
+                                        withDismissAction = snackbarData.withDismissAction,
+                                        duration = snackbarData.duration,
+                                        theme = snackbarData.theme
+                                            ?: com.oratakashi.design.component.snackbar.OraSnackbarTheme.Default,
+                                        size = snackbarData.size
+                                    )
                             },
                             thumbContent = {
                                 if (snackbarData.icon != null) {
@@ -301,9 +304,9 @@ fun PlaygroundSnackbarContent(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .fillMaxWidth()
-                    .background(OrataTheme.colors.surfaceContainer)
+                    .background(com.oratakashi.design.foundation.OrataTheme.colors.surfaceContainer)
             ) {
-                OraButton(
+                com.oratakashi.design.component.button.OraButton(
                     label = "Show Snackbar",
                     modifier = Modifier
                         .fillMaxWidth()

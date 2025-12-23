@@ -8,13 +8,13 @@ import androidx.compose.runtime.Composable
  * @author oratakashi
  * @since 06 Sep 2025
  */
-actual object PlatformConfig {
-    actual fun isDynamicColorAvailable(): Boolean {
-        return false
-    }
-
-    @Composable
-    actual fun getDynamicColor(isDark: Boolean): ColorScheme? {
-        return null
-    }
-}
+//actual object PlatformConfig {
+//    actual fun isDynamicColorAvailable(): Boolean {
+//        return false
+//    }
+//
+//    @Composable
+//    actual fun getDynamicColor(isDark: Boolean): ColorScheme? {
+//        return null
+//    }
+//}

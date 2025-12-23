@@ -49,8 +49,8 @@ internal val LocalOrataTypography = staticCompositionLocalOf<com.oratakashi.desi
 @Composable
 fun OrataAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    colorScheme: com.oratakashi.design.foundation.color.OrataDesignColorScheme? = null, // Made nullable to defer creation
-    typography: com.oratakashi.design.foundation.typography.OrataDesignTypography = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.typography,
+    colorScheme: OrataDesignColorScheme? = null, // Made nullable to defer creation
+    typography: OrataDesignTypography = OrataTheme.typography,
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit

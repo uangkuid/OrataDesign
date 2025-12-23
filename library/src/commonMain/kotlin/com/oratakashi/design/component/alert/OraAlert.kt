@@ -64,12 +64,12 @@ fun OraAlert(
     showCloseIcon: Boolean = true,
     onClose: (() -> Unit)? = null,
     action: (@Composable () -> Unit)? = null,
-    colors: com.oratakashi.design.component.alert.OraAlertColors = _root_ide_package_.com.oratakashi.design.component.alert.OraAlertDefaults.colors()
+    colors: OraAlertColors = OraAlertDefaults.colors()
 ) {
     val decoratedTitleContent: @Composable () -> Unit = {
-        _root_ide_package_.com.oratakashi.design.foundation.typography.OraProvideTextStyle(
+        OraProvideTextStyle(
             color = colors.contentColor,
-            textStyle = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.typography.titleMedium()
+            textStyle = OrataTheme.typography.titleMedium()
         ) {
             title()
         }
@@ -77,9 +77,9 @@ fun OraAlert(
 
     val decoratedDescriptionContent: (@Composable () -> Unit)? = description?.let {
         {
-            _root_ide_package_.com.oratakashi.design.foundation.typography.OraProvideTextStyle(
+            OraProvideTextStyle(
                 color = colors.contentColor,
-                textStyle = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.typography.bodyMedium()
+                textStyle = OrataTheme.typography.bodyMedium()
             ) {
                 description()
             }
@@ -89,7 +89,7 @@ fun OraAlert(
     val decoratedIconContent: (@Composable () -> Unit)? = icon?.let {
         {
             Box(
-                modifier = _root_ide_package_.androidx.compose.ui.Modifier.Companion
+                modifier = Modifier
                     .background(colors.containerIconColor, MaterialTheme.shapes.medium)
                     .padding(4.dp)
             ) {
@@ -179,14 +179,14 @@ fun OraSuccessAlert(
     showCloseIcon: Boolean = true,
     onClose: (() -> Unit)? = null,
     action: (@Composable () -> Unit)? = null,
-    icon: (@Composable () -> Unit)? = _root_ide_package_.com.oratakashi.design.component.alert.OraAlertDefaults.IconSuccess
+    icon: (@Composable () -> Unit)? = OraAlertDefaults.IconSuccess
 ) {
     AnimatedVisibility(
         visible = visible,
         enter = fadeIn(),
         exit = fadeOut()
     ) {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraAlert(
+        OraAlert(
             title = { Text(title) },
             icon = icon,
             modifier = modifier,
@@ -194,7 +194,7 @@ fun OraSuccessAlert(
             showCloseIcon = showCloseIcon,
             onClose = onClose,
             action = action,
-            colors = _root_ide_package_.com.oratakashi.design.component.alert.OraAlertDefaults.successColors()
+            colors = OraAlertDefaults.successColors()
         )
     }
 }
@@ -221,14 +221,14 @@ fun OraInfoAlert(
     showCloseIcon: Boolean = true,
     onClose: (() -> Unit)? = null,
     action: (@Composable () -> Unit)? = null,
-    icon: (@Composable () -> Unit)? = _root_ide_package_.com.oratakashi.design.component.alert.OraAlertDefaults.IconInfo
+    icon: (@Composable () -> Unit)? = OraAlertDefaults.IconInfo
 ) {
     AnimatedVisibility(
         visible = visible,
         enter = fadeIn(),
         exit = fadeOut()
     ) {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraAlert(
+        OraAlert(
             title = { Text(title) },
             icon = icon,
             modifier = modifier,
@@ -236,7 +236,7 @@ fun OraInfoAlert(
             showCloseIcon = showCloseIcon,
             onClose = onClose,
             action = action,
-            colors = _root_ide_package_.com.oratakashi.design.component.alert.OraAlertDefaults.infoColors()
+            colors = OraAlertDefaults.infoColors()
         )
     }
 }
@@ -263,14 +263,14 @@ fun OraWarningAlert(
     showCloseIcon: Boolean = true,
     onClose: (() -> Unit)? = null,
     action: (@Composable () -> Unit)? = null,
-    icon: (@Composable () -> Unit)? = _root_ide_package_.com.oratakashi.design.component.alert.OraAlertDefaults.IconWarning
+    icon: (@Composable () -> Unit)? = OraAlertDefaults.IconWarning
 ) {
     AnimatedVisibility(
         visible = visible,
         enter = fadeIn(),
         exit = fadeOut()
     ) {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraAlert(
+        OraAlert(
             title = { Text(title) },
             icon = icon,
             modifier = modifier,
@@ -278,7 +278,7 @@ fun OraWarningAlert(
             showCloseIcon = showCloseIcon,
             onClose = onClose,
             action = action,
-            colors = _root_ide_package_.com.oratakashi.design.component.alert.OraAlertDefaults.warningColors()
+            colors = OraAlertDefaults.warningColors()
         )
     }
 }
@@ -305,14 +305,14 @@ fun OraErrorAlert(
     showCloseIcon: Boolean = true,
     onClose: (() -> Unit)? = null,
     action: (@Composable () -> Unit)? = null,
-    icon: (@Composable () -> Unit)? = _root_ide_package_.com.oratakashi.design.component.alert.OraAlertDefaults.IconError
+    icon: (@Composable () -> Unit)? = OraAlertDefaults.IconError
 ) {
     AnimatedVisibility(
         visible = visible,
         enter = fadeIn(),
         exit = fadeOut()
     ) {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraAlert(
+        OraAlert(
             title = { Text(title) },
             icon = icon,
             modifier = modifier,
@@ -320,7 +320,7 @@ fun OraErrorAlert(
             showCloseIcon = showCloseIcon,
             onClose = onClose,
             action = action,
-            colors = _root_ide_package_.com.oratakashi.design.component.alert.OraAlertDefaults.errorColors()
+            colors = OraAlertDefaults.errorColors()
         )
     }
 }
@@ -360,8 +360,8 @@ private fun Modifier.alertOutline(
  * @since 16 Nov 2025
  */
 fun PreviewAlert() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraAlert(
+    OrataAppTheme {
+        OraAlert(
             title = { Text("Title") },
             description = { Text("Description") },
             icon = {
@@ -389,8 +389,8 @@ fun PreviewAlert() {
  * @since 16 Nov 2025
  */
 fun PreviewAlertDark() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme(darkTheme = true) {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraAlert(
+    OrataAppTheme(darkTheme = true) {
+        OraAlert(
             title = { Text("Title") },
             description = { Text("Description") },
             icon = {
@@ -413,8 +413,8 @@ fun PreviewAlertDark() {
 @Preview( name = "Success", group = "Success")
 @Composable
 private fun PreviewSuccessAlert() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraSuccessAlert(
+    OrataAppTheme {
+        OraSuccessAlert(
             title = "Success Alert",
             description = "This is a success alert.",
             visible = true,
@@ -425,7 +425,7 @@ private fun PreviewSuccessAlert() {
                     text = "Action",
                     onClick = {},
                     colors = _root_ide_package_.com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                        contentColor = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.success
+                        contentColor = OrataTheme.colors.success
                     )
                 )
             }
@@ -436,8 +436,8 @@ private fun PreviewSuccessAlert() {
 @Preview( name = "Success Dark", group = "Success")
 @Composable
 private fun PreviewSuccessAlertDark() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme(darkTheme = true) {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraSuccessAlert(
+    OrataAppTheme(darkTheme = true) {
+        OraSuccessAlert(
             title = "Success Alert",
             description = "This is a success alert.",
             visible = true,
@@ -448,7 +448,7 @@ private fun PreviewSuccessAlertDark() {
                     text = "Action",
                     onClick = {},
                     colors = _root_ide_package_.com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                        contentColor = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.success
+                        contentColor = OrataTheme.colors.success
                     )
                 )
             }
@@ -459,8 +459,8 @@ private fun PreviewSuccessAlertDark() {
 @Preview( name = "Info", group = "Info")
 @Composable
 private fun PreviewInfoAlert() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraInfoAlert(
+    OrataAppTheme {
+        OraInfoAlert(
             title = "Info Alert",
             description = "This is an info alert.",
             visible = true,
@@ -471,7 +471,7 @@ private fun PreviewInfoAlert() {
                     text = "Action",
                     onClick = {},
                     colors = _root_ide_package_.com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                        contentColor = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.info
+                        contentColor = OrataTheme.colors.info
                     )
                 )
             }
@@ -482,8 +482,8 @@ private fun PreviewInfoAlert() {
 @Preview( name = "Info Dark", group = "Info")
 @Composable
 private fun PreviewInfoAlertDark() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme(darkTheme = true) {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraInfoAlert(
+    OrataAppTheme(darkTheme = true) {
+        OraInfoAlert(
             title = "Info Alert",
             description = "This is an info alert.",
             visible = true,
@@ -494,7 +494,7 @@ private fun PreviewInfoAlertDark() {
                     text = "Action",
                     onClick = {},
                     colors = _root_ide_package_.com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                        contentColor = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.info
+                        contentColor = OrataTheme.colors.info
                     )
                 )
             }
@@ -505,8 +505,8 @@ private fun PreviewInfoAlertDark() {
 @Preview( name = "Warning", group = "Warning")
 @Composable
 private fun PreviewWarningAlert() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraWarningAlert(
+    OrataAppTheme {
+        OraWarningAlert(
             title = "Warning Alert",
             description = "This is a warning alert.",
             visible = true,
@@ -517,7 +517,7 @@ private fun PreviewWarningAlert() {
                     text = "Action",
                     onClick = {},
                     colors = _root_ide_package_.com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                        contentColor = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.warning
+                        contentColor = OrataTheme.colors.warning
                     )
                 )
             }
@@ -528,8 +528,8 @@ private fun PreviewWarningAlert() {
 @Preview( name = "Warning Dark", group = "Warning")
 @Composable
 private fun PreviewWarningAlertDark() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme(darkTheme = true) {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraWarningAlert(
+    OrataAppTheme(darkTheme = true) {
+        OraWarningAlert(
             title = "Warning Alert",
             description = "This is a warning alert.",
             visible = true,
@@ -540,7 +540,7 @@ private fun PreviewWarningAlertDark() {
                     text = "Action",
                     onClick = {},
                     colors = _root_ide_package_.com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                        contentColor = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.warning
+                        contentColor = OrataTheme.colors.warning
                     )
                 )
             }
@@ -551,8 +551,8 @@ private fun PreviewWarningAlertDark() {
 @Preview( name = "Error", group = "Error")
 @Composable
 private fun PreviewErrorAlert() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraErrorAlert(
+    OrataAppTheme {
+        OraErrorAlert(
             title = "Error Alert",
             description = "This is an error alert.",
             visible = true,
@@ -563,7 +563,7 @@ private fun PreviewErrorAlert() {
                     text = "Action",
                     onClick = {},
                     colors = _root_ide_package_.com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                        contentColor = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.error
+                        contentColor = OrataTheme.colors.error
                     )
                 )
             }
@@ -574,8 +574,8 @@ private fun PreviewErrorAlert() {
 @Preview( name = "Error Dark", group = "Error")
 @Composable
 private fun PreviewErrorAlertDark() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme(darkTheme = true) {
-        _root_ide_package_.com.oratakashi.design.component.alert.OraErrorAlert(
+    OrataAppTheme(darkTheme = true) {
+        OraErrorAlert(
             title = "Error Alert",
             description = "This is an error alert.",
             visible = true,
@@ -586,7 +586,7 @@ private fun PreviewErrorAlertDark() {
                     text = "Action",
                     onClick = {},
                     colors = _root_ide_package_.com.oratakashi.design.component.anchortext.OraAnchorTextDefaults.colors(
-                        contentColor = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.error
+                        contentColor = OrataTheme.colors.error
                     )
                 )
             }

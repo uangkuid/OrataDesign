@@ -32,14 +32,14 @@ object OraAlertDefaults {
      */
     @Composable
     fun colors(
-        containerColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.primaryContainer,
-        contentColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-        borderColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onPrimaryContainer,
-        containerIconColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onPrimaryContainer,
-        contentIconColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.surface,
-        actionColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onPrimaryContainer,
+        containerColor: Color = OrataTheme.colors.primaryContainer,
+        contentColor: Color = OrataTheme.colors.onSurface,
+        borderColor: Color = OrataTheme.colors.onPrimaryContainer,
+        containerIconColor: Color = OrataTheme.colors.onPrimaryContainer,
+        contentIconColor: Color = OrataTheme.colors.surface,
+        actionColor: Color = OrataTheme.colors.onPrimaryContainer,
     ): com.oratakashi.design.component.alert.OraAlertColors {
-        return _root_ide_package_.com.oratakashi.design.component.alert.OraAlertColors(
+        return OraAlertColors(
             containerColor = containerColor,
             contentColor = contentColor,
             borderColor = borderColor,
@@ -63,14 +63,14 @@ object OraAlertDefaults {
      */
     @Composable
     fun successColors(
-        containerColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.successContainer,
-        contentColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-        borderColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSuccessContainer,
-        containerIconColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSuccessContainer,
-        contentIconColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.surface,
-        actionColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSuccessContainer,
+        containerColor: Color = OrataTheme.colors.successContainer,
+        contentColor: Color = OrataTheme.colors.onSurface,
+        borderColor: Color = OrataTheme.colors.onSuccessContainer,
+        containerIconColor: Color = OrataTheme.colors.onSuccessContainer,
+        contentIconColor: Color = OrataTheme.colors.surface,
+        actionColor: Color = OrataTheme.colors.onSuccessContainer,
     ): com.oratakashi.design.component.alert.OraAlertColors {
-        return _root_ide_package_.com.oratakashi.design.component.alert.OraAlertColors(
+        return OraAlertColors(
             containerColor = containerColor,
             contentColor = contentColor,
             borderColor = borderColor,
@@ -94,14 +94,14 @@ object OraAlertDefaults {
      */
     @Composable
     fun infoColors(
-        containerColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.infoContainer,
-        contentColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-        borderColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onInfoContainer,
-        containerIconColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onInfoContainer,
-        contentIconColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.surface,
-        actionColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onInfoContainer,
-    ): com.oratakashi.design.component.alert.OraAlertColors {
-        return _root_ide_package_.com.oratakashi.design.component.alert.OraAlertColors(
+        containerColor: Color = OrataTheme.colors.infoContainer,
+        contentColor: Color = OrataTheme.colors.onSurface,
+        borderColor: Color = OrataTheme.colors.onInfoContainer,
+        containerIconColor: Color = OrataTheme.colors.onInfoContainer,
+        contentIconColor: Color = OrataTheme.colors.surface,
+        actionColor: Color = OrataTheme.colors.onInfoContainer,
+    ): OraAlertColors {
+        return OraAlertColors(
             containerColor = containerColor,
             contentColor = contentColor,
             borderColor = borderColor,
@@ -125,14 +125,14 @@ object OraAlertDefaults {
      */
     @Composable
     fun warningColors(
-        containerColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.warningContainer,
-        contentColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-        borderColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onWarningContainer,
-        containerIconColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onWarningContainer,
-        contentIconColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.surface,
-        actionColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onWarningContainer,
-    ): com.oratakashi.design.component.alert.OraAlertColors {
-        return _root_ide_package_.com.oratakashi.design.component.alert.OraAlertColors(
+        containerColor: Color = OrataTheme.colors.warningContainer,
+        contentColor: Color = OrataTheme.colors.onSurface,
+        borderColor: Color = OrataTheme.colors.onWarningContainer,
+        containerIconColor: Color = OrataTheme.colors.onWarningContainer,
+        contentIconColor: Color = OrataTheme.colors.surface,
+        actionColor: Color = OrataTheme.colors.onWarningContainer,
+    ): OraAlertColors {
+        return OraAlertColors(
             containerColor = containerColor,
             contentColor = contentColor,
             borderColor = borderColor,
@@ -156,14 +156,14 @@ object OraAlertDefaults {
      */
     @Composable
     fun errorColors(
-        containerColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.errorContainer,
-        contentColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onSurface,
-        borderColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onErrorContainer,
-        containerIconColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onErrorContainer,
-        contentIconColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.surface,
-        actionColor: Color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.onErrorContainer,
-    ): com.oratakashi.design.component.alert.OraAlertColors {
-        return _root_ide_package_.com.oratakashi.design.component.alert.OraAlertColors(
+        containerColor: Color = OrataTheme.colors.errorContainer,
+        contentColor: Color = OrataTheme.colors.onSurface,
+        borderColor: Color = OrataTheme.colors.onErrorContainer,
+        containerIconColor: Color = OrataTheme.colors.onErrorContainer,
+        contentIconColor: Color = OrataTheme.colors.surface,
+        actionColor: Color = OrataTheme.colors.onErrorContainer,
+    ): OraAlertColors {
+        return OraAlertColors(
             containerColor = containerColor,
             contentColor = contentColor,
             borderColor = borderColor,

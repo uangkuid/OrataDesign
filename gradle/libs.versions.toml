@@ -26,7 +26,7 @@ material-adaptive-layout = "1.2.0"
 material-adaptive-navigation = "1.2.0"
 material-adaptive-navigation-suite = "1.9.0"
 uiBackhandler = "1.9.3"
-kotlinStdlib = "2.2.21"
+kotlinStdlib = "2.3.0"
 runner = "1.7.0"
 core = "1.7.0"
 

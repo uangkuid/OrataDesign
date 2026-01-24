@@ -68,8 +68,7 @@ jobs:
         shell: bash
 
       - name: Build JVM Desktop
-        run: ./gradlew :composeApp:jvmJar --no-daemon --stacktrace
-        shell: bash
+        run: gradlew :composeApp:jvmJar --no-daemon --stacktrace
 
   build-web:
     name: Build Web

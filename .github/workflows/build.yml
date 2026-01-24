@@ -71,7 +71,7 @@ jobs:
 
   build-web:
     name: Build Web
-    runs-on: ubuntu-latest-arm64
+    runs-on: ubuntu-24.04-arm
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

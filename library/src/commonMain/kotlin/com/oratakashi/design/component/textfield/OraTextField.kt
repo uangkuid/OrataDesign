@@ -75,6 +75,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
  * @param visualTransformation The visual transformation filter for changing the visual representation
  * @param focusRequester The optional focus requester to control focus
  * @param testTag The optional test tag for testing purposes
+ * @param readOnly Whether the text field is read-only
  */
 @Suppress("UNUSED_PARAMETER")
 @Composable

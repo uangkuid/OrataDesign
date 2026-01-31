@@ -90,9 +90,9 @@ fun OraTextField(
     label: String? = null,
     hint: String? = null,
     required: Boolean = false,
-    colors: com.oratakashi.design.component.textfield.OraTextFieldColors = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldDefault.textFieldColor(),
-    state: com.oratakashi.design.component.textfield.OraTextFieldState = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Default(),
-    size: com.oratakashi.design.component.textfield.OraTextFieldSize = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Large,
+    colors: OraTextFieldColors = OraTextFieldDefault.textFieldColor(),
+    state: OraTextFieldState = OraTextFieldState.Default(),
+    size: OraTextFieldSize = OraTextFieldSize.Large,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     enabled: Boolean = true,
     iconRight: @Composable (() -> Unit)? = null,
@@ -108,6 +108,7 @@ fun OraTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     focusRequester: FocusRequester? = null,
     testTag: String? = null,
+    readOnly: Boolean = false,
 ) {
     val isFocus by interactionSource.collectIsFocusedAsState()
 
@@ -141,7 +142,7 @@ fun OraTextField(
 
     val decoratedPrefix: @Composable (() -> Unit)? = prefix?.let { prefix ->
         {
-            _root_ide_package_.com.oratakashi.design.foundation.typography.OraProvideTextStyle(
+            OraProvideTextStyle(
                 color = colors.contentColor,
                 textStyle = size.prefixFont.toTextStyle()
             ) {
@@ -152,7 +153,7 @@ fun OraTextField(
 
     val decoratedSuffix: @Composable (() -> Unit)? = suffix?.let { suffix ->
         {
-            _root_ide_package_.com.oratakashi.design.foundation.typography.OraProvideTextStyle(
+            OraProvideTextStyle(
                 color = colors.contentColor,
                 textStyle = size.suffixFont.toTextStyle()
             ) {
@@ -163,7 +164,7 @@ fun OraTextField(
 
     val decoratedPlaceholder: @Composable (() -> Unit) = placeholder.let { placeholder ->
         {
-            _root_ide_package_.com.oratakashi.design.foundation.typography.OraProvideTextStyle(
+            OraProvideTextStyle(
                 color = colors.placeholderColor,
                 textStyle = size.placeholderFont.toTextStyle()
             ) {
@@ -177,18 +178,18 @@ fun OraTextField(
     }
 
     val decoratedLockedAction: @Composable (() -> Unit) = {
-        _root_ide_package_.com.oratakashi.design.foundation.typography.OraProvideTextStyle(
-            color = _root_ide_package_.com.oratakashi.design.foundation.OrataTheme.colors.primary,
+        OraProvideTextStyle(
+            color = OrataTheme.colors.primary,
             textStyle = size.lockedActionFont.toTextStyle().copy(fontWeight = FontWeight.Bold),
         ) {
             Text(
-                text = if (state is com.oratakashi.design.component.textfield.OraTextFieldState.Locked) state.lockedActionText else "Change",
+                text = if (state is OraTextFieldState.Locked) state.lockedActionText else "Change",
                 modifier = Modifier
                     .let { m ->
                         if (testTag != null) m.testTag("${testTag}_LockedAction") else m
                     }
                     .clickable(enabled = enabled) {
-                        if (state is com.oratakashi.design.component.textfield.OraTextFieldState.Locked) {
+                        if (state is OraTextFieldState.Locked) {
                             state.onClickLockedAction()
                         }
                     }
@@ -204,7 +205,7 @@ fun OraTextField(
         Modifier.heightIn(min = size.minHeightTextArea)
     }
 
-    _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldContainer(
+    OraTextFieldContainer(
         required = required,
         label = label,
         hint = hint,
@@ -214,7 +215,7 @@ fun OraTextField(
             modifier = modifier
                 .background(
                     color = when {
-                        !enabled || state is com.oratakashi.design.component.textfield.OraTextFieldState.Locked -> colors.disabledContainerColor
+                        !enabled || state is OraTextFieldState.Locked -> colors.disabledContainerColor
                         else -> colors.containerColor
                     },
                     shape = RoundedCornerShape(16.dp)
@@ -235,15 +236,15 @@ fun OraTextField(
             if (decoratedPrefix != null) {
                 decoratedPrefix()
                 Spacer(
-                    modifier = _root_ide_package_.androidx.compose.ui.Modifier.Companion.size(
+                    modifier = Modifier.Companion.size(
                         size.contentGap
                     )
                 )
                 VerticalDivider(
-                    modifier = _root_ide_package_.androidx.compose.ui.Modifier.Companion.height(size.iconSize)
+                    modifier = Modifier.Companion.height(size.iconSize)
                 )
                 Spacer(
-                    modifier = _root_ide_package_.androidx.compose.ui.Modifier.Companion.size(
+                    modifier = Modifier.Companion.size(
                         size.contentGap
                     )
                 )
@@ -252,7 +253,7 @@ fun OraTextField(
             if (decoratedIconLeft != null) {
                 decoratedIconLeft()
                 Spacer(
-                    modifier = _root_ide_package_.androidx.compose.ui.Modifier.Companion.size(
+                    modifier = Modifier.size(
                         size.contentGap
                     )
                 )
@@ -278,7 +279,8 @@ fun OraTextField(
                 keyboardActions = keyboardActions,
                 maxLines = maxLines,
                 minLines = minLines,
-                visualTransformation = visualTransformation
+                visualTransformation = visualTransformation,
+                readOnly = (readOnly || state is OraTextFieldState.Locked)
             ) { innerTextField ->
                 Box {
                     if (value.isBlank()) {
@@ -290,7 +292,7 @@ fun OraTextField(
 
             if (decoratedIconRight != null) {
                 Spacer(
-                    modifier = _root_ide_package_.androidx.compose.ui.Modifier.Companion.size(
+                    modifier = Modifier.size(
                         size.contentGap
                     )
                 )
@@ -299,24 +301,24 @@ fun OraTextField(
 
             if (decoratedSuffix != null) {
                 Spacer(
-                    modifier = _root_ide_package_.androidx.compose.ui.Modifier.Companion.size(
+                    modifier = Modifier.size(
                         size.contentGap
                     )
                 )
                 VerticalDivider(
-                    modifier = _root_ide_package_.androidx.compose.ui.Modifier.Companion.height(size.iconSize)
+                    modifier = Modifier.height(size.iconSize)
                 )
                 Spacer(
-                    modifier = _root_ide_package_.androidx.compose.ui.Modifier.Companion.size(
+                    modifier = Modifier.size(
                         size.contentGap
                     )
                 )
                 decoratedSuffix()
             }
 
-            if (state is com.oratakashi.design.component.textfield.OraTextFieldState.Locked) {
+            if (state is OraTextFieldState.Locked) {
                 Spacer(
-                    modifier = _root_ide_package_.androidx.compose.ui.Modifier.Companion.size(
+                    modifier = Modifier.Companion.size(
                         size.contentGap
                     )
                 )
@@ -329,18 +331,18 @@ fun OraTextField(
 @Preview(showBackground = true, name = "Enabled", group = "Large")
 @Composable
 private fun LargeEnabled() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme {
+    OrataAppTheme {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Large,
+                size = OraTextFieldSize.Large,
                 label = "Label Text",
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Default(
+                state = OraTextFieldState.Default(
                     "Caption Text"
                 ),
                 hint = "Hint Text",
@@ -371,13 +373,13 @@ private fun LargeDisabled() {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Large,
+                size = OraTextFieldSize.Large,
                 enabled = false,
                 label = "Label Text",
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Default(
+                state = OraTextFieldState.Default(
                     "Caption Text"
                 ),
                 hint = "Hint Text",
@@ -408,11 +410,11 @@ private fun LargeError() {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Large,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Error(
+                size = OraTextFieldSize.Large,
+                state = OraTextFieldState.Error(
                     "Caption Text"
                 ),
                 label = "Label Text",
@@ -442,11 +444,11 @@ private fun LargeDefault() {
         Column(
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Large,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Default(
+                size = OraTextFieldSize.Large,
+                state = OraTextFieldState.Default(
                     "Caption Text"
                 ),
                 label = "Label Text",
@@ -478,11 +480,11 @@ private fun LargeSuccess() {
         Column(
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Large,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Success(
+                size = OraTextFieldSize.Large,
+                state = OraTextFieldState.Success(
                     "Caption Text"
                 ),
                 label = "Label Text",
@@ -510,15 +512,15 @@ private fun LargeSuccess() {
 @Preview(showBackground = true, name = "Locked", group = "Large")
 @Composable
 private fun LargeLocked() {
-    _root_ide_package_.com.oratakashi.design.foundation.OrataAppTheme {
+    OrataAppTheme {
         Column(
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Large,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Locked(
+                size = OraTextFieldSize.Large,
+                state = OraTextFieldState.Locked(
                     "Caption Text",
                     onClickLockedAction = {
                         // Do nothing
@@ -554,12 +556,12 @@ private fun MediumEnabled() {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Medium,
+                size = OraTextFieldSize.Medium,
                 label = "Label Text",
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Default(
+                state = OraTextFieldState.Default(
                     "Caption Text"
                 ),
                 hint = "Hint Text",
@@ -590,13 +592,13 @@ private fun MediumDisabled() {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Medium,
+                size = OraTextFieldSize.Medium,
                 enabled = false,
                 label = "Label Text",
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Default(
+                state = OraTextFieldState.Default(
                     "Caption Text"
                 ),
                 hint = "Hint Text",
@@ -627,11 +629,11 @@ private fun MediumError() {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Medium,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Error(
+                size = OraTextFieldSize.Medium,
+                state = OraTextFieldState.Error(
                     "Caption Text"
                 ),
                 label = "Label Text",
@@ -661,11 +663,11 @@ private fun MediumDefault() {
         Column(
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Medium,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Default(
+                size = OraTextFieldSize.Medium,
+                state = OraTextFieldState.Default(
                     "Caption Text"
                 ),
                 label = "Label Text",
@@ -697,11 +699,11 @@ private fun MediumSuccess() {
         Column(
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Medium,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Success(
+                size = OraTextFieldSize.Medium,
+                state = OraTextFieldState.Success(
                     "Caption Text"
                 ),
                 label = "Label Text",
@@ -733,11 +735,11 @@ private fun MediumLocked() {
         Column(
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Medium,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Locked(
+                size = OraTextFieldSize.Medium,
+                state = OraTextFieldState.Locked(
                     "Caption Text",
                     onClickLockedAction = {
                         // Do nothing
@@ -773,12 +775,12 @@ private fun SmallEnabled() {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Small,
+                size = OraTextFieldSize.Small,
                 label = "Label Text",
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Default(
+                state = OraTextFieldState.Default(
                     "Caption Text"
                 ),
                 hint = "Hint Text",
@@ -809,13 +811,13 @@ private fun SmallDisabled() {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Small,
+                size = OraTextFieldSize.Small,
                 enabled = false,
                 label = "Label Text",
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Default(
+                state = OraTextFieldState.Default(
                     "Caption Text"
                 ),
                 hint = "Hint Text",
@@ -846,11 +848,11 @@ private fun SmallError() {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Small,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Error(
+                size = OraTextFieldSize.Small,
+                state = OraTextFieldState.Error(
                     "Caption Text"
                 ),
                 label = "Label Text",
@@ -880,11 +882,11 @@ private fun SmallDefault() {
         Column(
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Small,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Default(
+                size = OraTextFieldSize.Small,
+                state = OraTextFieldState.Default(
                     "Caption Text"
                 ),
                 label = "Label Text",
@@ -916,11 +918,11 @@ private fun SmallSuccess() {
         Column(
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Small,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Success(
+                size = OraTextFieldSize.Small,
+                state = OraTextFieldState.Success(
                     "Caption Text"
                 ),
                 label = "Label Text",
@@ -952,11 +954,11 @@ private fun SmallLocked() {
         Column(
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
-            _root_ide_package_.com.oratakashi.design.component.textfield.OraTextField(
+            OraTextField(
                 value = "",
                 onValueChange = {},
-                size = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldSize.Small,
-                state = _root_ide_package_.com.oratakashi.design.component.textfield.OraTextFieldState.Locked(
+                size = OraTextFieldSize.Small,
+                state = OraTextFieldState.Locked(
                     "Caption Text",
                     onClickLockedAction = {
                         // Do nothing

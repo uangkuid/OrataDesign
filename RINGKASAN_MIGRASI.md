@@ -1,5 +1,7 @@
 # Ringkasan Migrasi AGP 9+
 
+> **⚠️ PENTING**: Karena keterbatasan network di environment CI, langkah terakhir (update ke AGP 9.0.0) harus dilakukan secara lokal. Lihat `MANUAL_AGP9_STEPS.md` untuk instruksi cepat. Semua perubahan kode sudah siap!
+
 ## Perubahan Yang Telah Dilakukan
 
 Proyek ini telah dipersiapkan untuk migrasi ke Android Gradle Plugin (AGP) 9+. Berikut adalah perubahan yang telah diimplementasikan:

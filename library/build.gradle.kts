@@ -11,7 +11,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
     alias(libs.plugins.kotlinSerialization)
-    id("com.vanniktech.maven.publish") version "0.35.0"
+    id("com.vanniktech.maven.publish") version "0.36.0"
 }
 
 kotlin {

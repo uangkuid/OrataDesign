@@ -97,12 +97,6 @@ kotlin {
     }
 }
 
-dependencies {
-    debugImplementation(compose.uiTooling)
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4-android:1.9.4")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.9.4")
-}
-
 compose.desktop {
     application {
         mainClass = "com.oratakashi.design.app.MainKt"

@@ -1,0 +1,92 @@
+name: Cleanup Old Caches
+
+on:
+  schedule:
+    # Run every day at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+# Minimal permissions needed for cache operations
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  cleanup:
+    name: Delete Caches Older Than 24 Hours
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cleanup old caches
+        run: |
+          echo "Fetching list of caches..."
+          
+          # Get current time in seconds since epoch
+          CURRENT_TIME=$(date +%s)
+          
+          # 24 hours in seconds
+          THRESHOLD=$((24 * 60 * 60))
+          
+          # Get repository info
+          REPO="${{ github.repository }}"
+          
+          # Fetch all caches
+          CACHES=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/$REPO/actions/caches" \
+            --paginate \
+            --jq '.actions_caches[]')
+          
+          if [ -z "$CACHES" ]; then
+            echo "No caches found in the repository."
+            exit 0
+          fi
+          
+          # Count variables
+          DELETED_COUNT=0
+          KEPT_COUNT=0
+          
+          # Process each cache using process substitution to preserve variables
+          while read -r cache; do
+            CACHE_ID=$(echo "$cache" | jq -r '.id')
+            CACHE_KEY=$(echo "$cache" | jq -r '.key')
+            CACHE_CREATED_AT=$(echo "$cache" | jq -r '.created_at')
+            
+            # Convert created_at to epoch time
+            CACHE_TIME=$(date -d "$CACHE_CREATED_AT" +%s 2>/dev/null || date -j -f "%Y-%m-%dT%H:%M:%SZ" "$CACHE_CREATED_AT" +%s 2>/dev/null)
+            
+            # Validate date parsing
+            if [ -z "$CACHE_TIME" ] || ! [[ "$CACHE_TIME" =~ ^[0-9]+$ ]]; then
+              echo "Warning: Could not parse date for cache $CACHE_KEY (ID: $CACHE_ID), skipping..."
+              continue
+            fi
+            
+            # Calculate age in seconds
+            AGE=$((CURRENT_TIME - CACHE_TIME))
+            
+            if [ "$AGE" -gt "$THRESHOLD" ]; then
+              echo "Deleting cache: $CACHE_KEY (ID: $CACHE_ID, Age: $((AGE / 3600)) hours)"
+              
+              gh api \
+                --method DELETE \
+                -H "Accept: application/vnd.github+json" \
+                -H "X-GitHub-Api-Version: 2022-11-28" \
+                "/repos/$REPO/actions/caches/$CACHE_ID" || echo "Failed to delete cache $CACHE_ID"
+              
+              DELETED_COUNT=$((DELETED_COUNT + 1))
+            else
+              echo "Keeping cache: $CACHE_KEY (Age: $((AGE / 3600)) hours)"
+              KEPT_COUNT=$((KEPT_COUNT + 1))
+            fi
+          done < <(echo "$CACHES" | jq -c '.')
+          
+          echo "Cache cleanup completed!"
+          echo "Deleted: $DELETED_COUNT cache(s)"
+          echo "Kept: $KEPT_COUNT cache(s)"
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -1,14 +1,10 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.compose.internal.utils.getLocalProperty
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidKotlinMultiplatformLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
@@ -17,13 +13,11 @@ plugins {
 }
 
 kotlin {
-    androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
-        }
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
+    androidLibrary {
+        namespace = "com.oratakashi.design.composeApp"
+        compileSdk = 36
+        minSdk = 24
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
     }
     
     listOf(
@@ -61,76 +55,53 @@ kotlin {
     
     sourceSets {
         androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
+            api(compose.preview)
+            api(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            implementation(project(":library"))
-            implementation(compose.components.resources)
-//            api(compose.runtime)
-//            api(compose.foundation)
-//            api(libs.material3)
-//            api(compose.ui)
-//            api(compose.components.resources)
-//            api(compose.components.uiToolingPreview)
-//            api(libs.androidx.lifecycle.viewmodelCompose)
-//            api(libs.androidx.lifecycle.runtimeCompose)
-//            api(libs.navigation.compose)
-//            api(libs.kotlinx.serialization.json)
-//            api(libs.composeIcons.feather)
-//            api(libs.material.adaptive)
-//            api(libs.material.navigation.suite)
-//            api(libs.material.layout)
-//            api(libs.material.navigation)
-//            implementation(libs.ui.backhandler)
-//            implementation(libs.constraintlayout.compose.multiplatform)
+            api(project(":library"))
+            api(compose.components.resources)
 
         }
         commonTest.dependencies {
-            implementation(libs.kotlin.test)
+            api(libs.kotlin.test)
             @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-            implementation(compose.uiTest)
+            api(compose.uiTest)
         }
         jvmMain.dependencies {
-            implementation(compose.desktop.currentOs)
-            implementation(libs.kotlinx.coroutinesSwing)
+            api(compose.desktop.currentOs)
+            api(libs.kotlinx.coroutinesSwing)
         }
     }
 }
 
-android {
-    namespace = "com.oratakashi.design"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-
-    defaultConfig {
-        applicationId = "com.oratakashi.design.app"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-}
-
-dependencies {
-    debugImplementation(compose.uiTooling)
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4-android:1.9.4")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.9.4")
-}
+//android {
+//    namespace = "com.oratakashi.design"
+//    compileSdk = libs.versions.android.compileSdk.get().toInt()
+//
+//    defaultConfig {
+//        applicationId = "com.oratakashi.design.app"
+//        minSdk = libs.versions.android.minSdk.get().toInt()
+//        targetSdk = libs.versions.android.targetSdk.get().toInt()
+//        versionCode = 1
+//        versionName = "1.0"
+//        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+//    }
+//    packaging {
+//        resources {
+//            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+//        }
+//    }
+//    buildTypes {
+//        getByName("release") {
+//            isMinifyEnabled = false
+//        }
+//    }
+//    compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_11
+//        targetCompatibility = JavaVersion.VERSION_11
+//    }
+//}
 
 compose.desktop {
     application {

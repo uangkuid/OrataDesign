@@ -1,4 +1,4 @@
-package com.oratakashi.design
+package com.oratakashi.design.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            _root_ide_package_.com.oratakashi.design.app.App()
+            App()
         }
     }
 }
@@ -21,5 +21,5 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun AppAndroidPreview() {
-    _root_ide_package_.com.oratakashi.design.app.App()
+    App()
 }

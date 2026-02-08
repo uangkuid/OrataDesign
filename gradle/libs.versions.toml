@@ -1,6 +1,6 @@
 [versions]
-agp = "8.13.1"
-android-compileSdk = "35"
+agp = "9.0.0"
+android-compileSdk = "36"
 android-minSdk = "24"
 android-targetSdk = "35"
 androidx-activity = "1.10.1"
@@ -29,6 +29,7 @@ uiBackhandler = "1.10.0"
 kotlinStdlib = "2.3.0"
 runner = "1.7.0"
 core = "1.7.0"
+material = "1.10.0"
 
 [libraries]
 constraintlayout-compose-multiplatform = { module = "tech.annexflow.compose:constraintlayout-compose-multiplatform", version.ref = "constraintlayoutComposeMultiplatform" }
@@ -55,6 +56,7 @@ ui-backhandler = { module = "org.jetbrains.compose.ui:ui-backhandler", version.r
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinStdlib" }
 androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
 androidx-core = { group = "androidx.test", name = "core", version.ref = "core" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
